@@ -1,4 +1,4 @@
-# Harvest-Moon-2.0
+# Harvest Moon 2.0
 
 CS 4700 Game Development Final Assignment
 
