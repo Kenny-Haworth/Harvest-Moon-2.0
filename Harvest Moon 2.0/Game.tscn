@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://grid/Grid.gd" type="Script" id=1]
+[ext_resource path="res://grid/GridVisualizer.gd" type="Script" id=2]
+
+[node name="Game" type="Node" index="0"]
+
+[node name="Grid" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="GridVisualizer" type="Node2D" parent="Grid" index="0"]
+
+script = ExtResource( 2 )
+
+
