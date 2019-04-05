@@ -3,11 +3,11 @@
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/walking/Idle Up.png" type="Texture" id=2]
 [ext_resource path="res://player/walking/Idle Left.png" type="Texture" id=3]
-[ext_resource path="res://player/walking/left1.png" type="Texture" id=4]
-[ext_resource path="res://player/walking/left2.png" type="Texture" id=5]
-[ext_resource path="res://player/walking/Idle Down.png" type="Texture" id=6]
-[ext_resource path="res://player/walking/Down4.png" type="Texture" id=7]
-[ext_resource path="res://player/walking/Down5.png" type="Texture" id=8]
+[ext_resource path="res://player/walking/Down4.png" type="Texture" id=4]
+[ext_resource path="res://player/walking/Down5.png" type="Texture" id=5]
+[ext_resource path="res://player/walking/left1.png" type="Texture" id=6]
+[ext_resource path="res://player/walking/left2.png" type="Texture" id=7]
+[ext_resource path="res://player/walking/Idle Down.png" type="Texture" id=8]
 [ext_resource path="res://player/walking/Up1.png" type="Texture" id=9]
 [ext_resource path="res://player/walking/Up2.png" type="Texture" id=10]
 [ext_resource path="res://player/hammer/hammerLeft1.png" type="Texture" id=11]
@@ -38,17 +38,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
+"name": "Walk Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
 "name": "Walk Left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "Idle Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Walk Down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
