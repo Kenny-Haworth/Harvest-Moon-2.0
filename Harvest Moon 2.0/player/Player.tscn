@@ -1,0 +1,114 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://player/walking/Idle Up.png" type="Texture" id=2]
+[ext_resource path="res://player/walking/Idle Left.png" type="Texture" id=3]
+[ext_resource path="res://player/walking/left1.png" type="Texture" id=4]
+[ext_resource path="res://player/walking/left2.png" type="Texture" id=5]
+[ext_resource path="res://player/walking/Down4.png" type="Texture" id=6]
+[ext_resource path="res://player/walking/Down5.png" type="Texture" id=7]
+[ext_resource path="res://player/walking/Idle Down.png" type="Texture" id=8]
+[ext_resource path="res://player/walking/Up1.png" type="Texture" id=9]
+[ext_resource path="res://player/walking/Up2.png" type="Texture" id=10]
+[ext_resource path="res://player/hammer/hammerLeft1.png" type="Texture" id=11]
+[ext_resource path="res://player/hammer/hammerLeft2.png" type="Texture" id=12]
+[ext_resource path="res://player/hammer/hammerLeft3.png" type="Texture" id=13]
+[ext_resource path="res://player/hammer/hammerLeft4.png" type="Texture" id=14]
+[ext_resource path="res://player/hammer/hammerLeft5.png" type="Texture" id=15]
+[ext_resource path="res://player/hammer/hammerLeft6.png" type="Texture" id=16]
+[ext_resource path="res://player/hammer/hammerLeft7.png" type="Texture" id=17]
+[ext_resource path="res://player/hammer/hammerLeft8.png" type="Texture" id=18]
+[ext_resource path="res://player/hammer/hammerLeft9.png" type="Texture" id=19]
+[ext_resource path="res://player/hammer/hammerLeft10.png" type="Texture" id=20]
+[ext_resource path="res://player/hammer/hammerLeft11.png" type="Texture" id=21]
+[ext_resource path="res://player/hammer/hammerLeft12.png" type="Texture" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Walk Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Idle Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Walk Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Hammer Left",
+"speed": 10.0
+} ]
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+position = Vector2( 35.4445, 38.3643 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "Hammer Left"
+frame = 13
+playing = true
+_sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="1"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.15, 0.15 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+__meta__ = {
+"_edit_group_": true
+}
+
+
