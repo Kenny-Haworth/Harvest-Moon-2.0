@@ -5,9 +5,9 @@
 [ext_resource path="res://player/walking/Idle Left.png" type="Texture" id=3]
 [ext_resource path="res://player/walking/left1.png" type="Texture" id=4]
 [ext_resource path="res://player/walking/left2.png" type="Texture" id=5]
-[ext_resource path="res://player/walking/Down4.png" type="Texture" id=6]
-[ext_resource path="res://player/walking/Down5.png" type="Texture" id=7]
-[ext_resource path="res://player/walking/Idle Down.png" type="Texture" id=8]
+[ext_resource path="res://player/walking/Idle Down.png" type="Texture" id=6]
+[ext_resource path="res://player/walking/Down4.png" type="Texture" id=7]
+[ext_resource path="res://player/walking/Down5.png" type="Texture" id=8]
 [ext_resource path="res://player/walking/Up1.png" type="Texture" id=9]
 [ext_resource path="res://player/walking/Up2.png" type="Texture" id=10]
 [ext_resource path="res://player/hammer/hammerLeft1.png" type="Texture" id=11]
@@ -41,14 +41,14 @@ animations = [ {
 "name": "Walk Left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Walk Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Idle Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk Down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
@@ -62,7 +62,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 35.4445, 38.3643 )
 input_pickable = false
@@ -88,7 +88,7 @@ _sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.15, 0.15 )
+zoom = Vector2( 0.25, 0.25 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
