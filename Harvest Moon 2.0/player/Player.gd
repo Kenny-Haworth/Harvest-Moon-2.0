@@ -28,40 +28,15 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_up"):
 		direction.y = -1
-		$Sprite.play("Walk Up")
-		lastAnimation = "up"
-		animation = true
 	elif Input.is_action_pressed("ui_down"):
 		direction.y = 1
-		$Sprite.play("Walk Down")
-		lastAnimation = "down"
-		animation = true
 	if Input.is_action_pressed("ui_right"):
 		direction.x = 1
-		$Sprite.flip_h = true
-		$Sprite.play("Walk Left")
-		lastAnimation = "left"
-		animation = true
 	elif Input.is_action_pressed("ui_left"):
 		direction.x = -1
-		$Sprite.flip_h = false
-		$Sprite.play("Walk Left")
-		lastAnimation = "left"
-		animation = true
 		
 	if Input.is_action_pressed("ui_accept"):
 		lastAnimation = "hammer left"
-		emit_signal("hammer", position)
-	
-	if not animation:
-		if lastAnimation == "down":
-			$Sprite.play("Idle Down")
-		elif lastAnimation == "left":
-			$Sprite.play("Idle Left")
-		elif lastAnimation == "up":
-			$Sprite.play("Idle Up")
-		elif lastAnimation == "hammer left":
-			$Sprite.play("Hammer Left")
 		
 	if direction != Vector2():
 		speed = MAX_SPEED
@@ -73,6 +48,37 @@ func _physics_process(delta):
 		if grid.is_cell_vacant(position, target_direction):
 			target_pos = grid.update_child_pos(self)
 			is_moving = true
+				
+			if direction.x == 1 and lastAnimation == "left":
+				$Sprite.flip_h = true
+				$Sprite.play("Walk Left")
+				lastAnimation = "left"
+			elif direction.x == -1 and lastAnimation == "left":
+				$Sprite.flip_h = false
+				$Sprite.play("Walk Left")
+				lastAnimation = "left"
+			elif direction.y == -1 and lastAnimation == "up":
+				$Sprite.play("Walk Up")
+				lastAnimation = "up"
+			elif direction.y == 1 and lastAnimation == "down":
+				$Sprite.play("Walk Down")
+				lastAnimation = "down"
+			else:
+				if direction.x == 1:
+					$Sprite.flip_h = true
+					$Sprite.play("Walk Left")
+					lastAnimation = "left"
+				elif direction.x == -1:
+					$Sprite.flip_h = false
+					$Sprite.play("Walk Left")
+					lastAnimation = "left"
+				elif direction.y == -1:
+					$Sprite.play("Walk Up")
+					lastAnimation = "up"
+				elif direction.y == 1:
+					$Sprite.play("Walk Down")
+					lastAnimation = "down"
+			
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
@@ -87,3 +93,20 @@ func _physics_process(delta):
 			is_moving = false
 		
 		move_and_collide(velocity)
+		
+	elif not is_moving:
+		if lastAnimation == "down":
+			$Sprite.play("Idle Down")
+		elif lastAnimation == "left":
+			$Sprite.play("Idle Left")
+		elif lastAnimation == "up":
+			$Sprite.play("Idle Up")
+		elif lastAnimation == "hammer left":
+			#$Sprite.set_offset(Vector2(10,0)) FOR SMASHING OTHER BLOCKS
+			$Sprite.play("Hammer Left")
+			
+		lastAnimation = "idle"
+			
+	if ($Sprite.get_frame() == 9):
+		emit_signal("hammer", position)
+	#print($Sprite.get_sprite_frames().get_frame_count("Hammer Left"))

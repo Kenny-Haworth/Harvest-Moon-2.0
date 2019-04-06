@@ -6,7 +6,7 @@
 [ext_resource path="res://tilesets/objectTiles.tres" type="TileSet" id=4]
 [ext_resource path="res://grid/Objects.gd" type="Script" id=5]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Background" type="TileMap" parent="." index="0"]
 
@@ -32,6 +32,7 @@ _sections_unfolded = [ "Cell", "Visibility", "Z Index" ]
 
 [node name="GridVisualizer" type="Node2D" parent="Background" index="0"]
 
+visible = false
 script = ExtResource( 3 )
 
 [node name="Objects" type="TileMap" parent="." index="1"]
@@ -59,6 +60,7 @@ _sections_unfolded = [ "Cell", "Visibility", "Z Index" ]
 
 [node name="GridVisualizer2" type="Node2D" parent="Objects" index="0"]
 
+visible = false
 script = ExtResource( 3 )
 
 
