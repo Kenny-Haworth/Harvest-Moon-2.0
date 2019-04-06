@@ -31,7 +31,8 @@ func is_cell_vacant(pos, direction):
 			if grid[grid_pos.x][grid_pos.y] == null:
 			#if get_cell(grid_pos.x, grid_pos.y) == -1:
 				return true
-			
+		
+	print(get_cell(grid_pos.x, grid_pos.y))	
 	return false
 	
 func update_child_pos(child_node):
@@ -45,4 +46,4 @@ func update_child_pos(child_node):
 	return target_pos
 
 func smash_hammer(pos):
-	set_cellv(world_to_map(pos), -1)
+	set_cellv(world_to_map(pos), 5)
