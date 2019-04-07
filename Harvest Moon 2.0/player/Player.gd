@@ -7,6 +7,9 @@ var grid
 var sleepDelay = 1000 #1 second
 var sleepTime = 0
 
+#keeps track of the time of day
+var time = 1 #1 morning, 2 afternoon, 3 evening, 4 night
+
 #signal functions
 signal sleep()
 signal hammer(pos, orientation)
@@ -51,6 +54,26 @@ func _physics_process(delta):
 	if Input.is_action_pressed("E") and OS.get_ticks_msec() > sleepTime + sleepDelay:
 		emit_signal("sleep")
 		sleepTime = OS.get_ticks_msec()
+		
+	#change time
+	if Input.is_action_pressed("K") and OS.get_ticks_msec() > sleepTime + sleepDelay:
+		sleepTime = OS.get_ticks_msec()
+		if time == 1:
+			find_node("Morning").hide()
+			find_node("Afternoon").show()
+			time += 1
+		elif time == 2:
+			find_node("Afternoon").hide()
+			find_node("Evening").show()
+			time += 1
+		elif time == 3:
+			find_node("Evening").hide()
+			find_node("Night").show()
+			time += 1
+		elif time == 4:
+			find_node("Night").hide()
+			find_node("Morning").show()
+			time = 1
 		
 	#hammer time
 	if Input.is_action_pressed("ui_accept"):
