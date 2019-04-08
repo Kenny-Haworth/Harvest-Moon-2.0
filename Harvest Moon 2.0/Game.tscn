@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tilesets/backgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://grid/Grid.gd" type="Script" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://tilesets/objectTiles.tres" type="TileSet" id=4]
 [ext_resource path="res://grid/Objects.gd" type="Script" id=5]
 [ext_resource path="res://tilesets/dirtTiles.tres" type="TileSet" id=6]
-[ext_resource path="res://tilesets/crops.tres" type="TileSet" id=7]
+[ext_resource path="res://grid/Dirt.gd" type="Script" id=7]
+[ext_resource path="res://tilesets/crops.tres" type="TileSet" id=8]
 
 [node name="Game" type="Node" index="0"]
 
@@ -85,6 +86,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray(  )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Cell", "Transform", "Z Index" ]
 
 [node name="GridVisualizer3" type="Node2D" parent="Dirt" index="0"]
@@ -95,11 +97,11 @@ script = ExtResource( 3 )
 
 [node name="Crops" type="TileMap" parent="." index="3"]
 
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.5, 0.5 )
 z_index = 1
 mode = 0
-tile_set = ExtResource( 7 )
-cell_size = Vector2( 32, 32 )
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 96, 96 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
