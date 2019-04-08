@@ -27,6 +27,7 @@ func _ready():
 	get_node("Player").connect("hoe", self, "swing_hoe")
 	get_node("Player").connect("sickle", self, "swing_sickle")
 	get_node("Player").connect("sickle_circle", self, "swing_sickle_circle")
+	get_node("Player").connect("axe", self, "swing_axe")
 
 func is_cell_vacant(pos, direction):
 	var grid_pos = world_to_map(pos) + direction
@@ -122,3 +123,6 @@ func swing_sickle_circle(pos):
 	set_cellv(world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x)), -1)
 	set_cellv(world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x)), -1)
 	set_cellv(world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x)), -1)
+	
+func swing_axe(pos, orientation):
+	smash_hammer(pos, orientation)

@@ -33,6 +33,7 @@ signal seeds(pos)
 signal hoe(pos, orienation)
 signal sickle(pos, orientation)
 signal sickle_circle(pos)
+signal axe(pos, orientation)
 
 #for animation purposes
 var lastAnimation = "down" #for what animation was last played
@@ -140,6 +141,15 @@ func _physics_process(delta):
 		animationCommit = true
 		lastAnimation = "sickle circle"
 		
+	if Input.is_action_pressed("X"):
+		animationCommit = true
+		if facingDirection == "left" or facingDirection == "right":
+			lastAnimation = "axe left"
+		elif facingDirection == "down":
+			lastAnimation = "axe down"
+		elif facingDirection == "up":
+			lastAnimation = "axe up"
+		
 	if direction != Vector2():
 		speed = MAX_SPEED
 	else:
@@ -233,6 +243,12 @@ func _physics_process(delta):
 			$Sprite.play("Sickle Left")
 		elif lastAnimation == "sickle circle":
 			$Sprite.play("Sickle Circle")
+		elif lastAnimation == "axe up":
+			$Sprite.play("Axe Up")
+		elif lastAnimation == "axe down":
+			$Sprite.play("Axe Down")
+		elif lastAnimation == "axe left":
+			$Sprite.play("Axe Left")
 	
 	#track the hammer animation
 	if lastAnimation == "hammer left":
@@ -286,6 +302,17 @@ func _physics_process(delta):
 		elif $Sprite.get_frame() == 4:
 			$Sprite.set_scale(Vector2(1, 1))
 			animationCommit = false
+			
+	#track the axe animation
+	elif lastAnimation == "axe left":
+		if facingDirection == "right":
+			play_moving_animation(1, 0, 13, "axe")
+		else:
+			play_moving_animation(-1, 0, 13, "axe")
+	elif lastAnimation == "axe up":
+		play_moving_animation(0, -1, 13, "axe")
+	elif lastAnimation == "axe down":
+		play_moving_animation(0, 1, 13, "axe")
 		
 func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 	if $Sprite.get_frame() == frame_count-2:
@@ -305,6 +332,8 @@ func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 		emit_signal("hoe", position, facingDirection)
 	elif ($Sprite.get_frame() == 9 && action == "sickle"):
 		emit_signal("sickle", position, facingDirection)
+	elif ($Sprite.get_frame() == 9 && action == "axe"):
+		emit_signal("axe", position, facingDirection)
 		
 func changeTime():
 	if time == 1: #morning
