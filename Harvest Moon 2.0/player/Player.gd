@@ -4,7 +4,7 @@ var type
 var grid
 
 #prevents sleep spam
-var sleepDelay = 1000 #1 second
+var sleepDelay = 500 #.5 second
 var sleepTime = 0
 
 #keeps track of the time of day
