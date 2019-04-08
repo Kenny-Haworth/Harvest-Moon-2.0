@@ -14,6 +14,11 @@ config/name="Harvest Moon 2.0"
 run/main_scene="res://Game.tscn"
 config/icon="res://player/walking/Idle Down.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
 [input]
 
 E=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)

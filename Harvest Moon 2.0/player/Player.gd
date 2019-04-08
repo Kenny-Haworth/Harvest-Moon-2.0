@@ -7,8 +7,24 @@ var grid
 var sleepDelay = 500 #.5 second
 var sleepTime = 0
 
+#prevents time of day spam
+var changeTimeDelay = 2500 #2.5 seconds, the difference between these numbers is how long the day scene is held for
+var timeChangeCycle = 2 #2 seconds
+var changeTime = 0
+var timeChange = false #true auto-changes time of day, false requires manual changing with the button K
+
 #keeps track of the time of day
-var time = 1 #1 morning, 2 afternoon, 3 evening, 4 night
+var time = 2 #1 morning, 2 afternoon, 3 evening, 4 night
+
+#for tweening shaders for time of day
+var TweenMorningIn
+var TweenMorningOut
+var TweenAfternoonIn
+var TweenAfternoonOut
+var TweenEveningIn
+var TweenEveningOut
+var TweenNightIn
+var TweenNightOut
 
 #signal functions
 signal sleep()
@@ -36,6 +52,30 @@ func _ready():
 	grid = get_parent()
 	type = grid.PLAYER
 	set_physics_process(true)
+	
+	TweenMorningIn = Tween.new()
+	get_node("Shaders/Morning").add_child(TweenMorningIn)
+	
+	TweenMorningOut = Tween.new()
+	get_node("Shaders/Morning").add_child(TweenMorningOut)
+	
+	TweenAfternoonIn = Tween.new()
+	get_node("Shaders/Afternoon").add_child(TweenAfternoonIn)
+	
+	TweenAfternoonOut = Tween.new()
+	get_node("Shaders/Afternoon").add_child(TweenAfternoonOut)
+
+	TweenEveningIn = Tween.new()
+	get_node("Shaders/Evening").add_child(TweenEveningIn)
+	
+	TweenEveningOut = Tween.new()
+	get_node("Shaders/Evening").add_child(TweenEveningOut)
+
+	TweenNightIn = Tween.new()
+	get_node("Shaders/Night").add_child(TweenNightIn)
+	
+	TweenNightOut = Tween.new()
+	get_node("Shaders/Night").add_child(TweenNightOut)
 
 func _physics_process(delta):
 	direction = Vector2()
@@ -56,24 +96,9 @@ func _physics_process(delta):
 		sleepTime = OS.get_ticks_msec()
 		
 	#change time
-	if Input.is_action_pressed("K") and OS.get_ticks_msec() > sleepTime + sleepDelay:
-		sleepTime = OS.get_ticks_msec()
-		if time == 1:
-			find_node("Morning").hide()
-			find_node("Afternoon").show()
-			time += 1
-		elif time == 2:
-			find_node("Afternoon").hide()
-			find_node("Evening").show()
-			time += 1
-		elif time == 3:
-			find_node("Evening").hide()
-			find_node("Night").show()
-			time += 1
-		elif time == 4:
-			find_node("Night").hide()
-			find_node("Morning").show()
-			time = 1
+	if (timeChange and OS.get_ticks_msec() > changeTime + changeTimeDelay) or (Input.is_action_pressed("K") and  OS.get_ticks_msec() > changeTime + changeTimeDelay):
+		changeTime = OS.get_ticks_msec()
+		changeTime()
 		
 	#hammer time
 	if Input.is_action_pressed("ui_accept"):
@@ -280,3 +305,29 @@ func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 		emit_signal("hoe", position, facingDirection)
 	elif ($Sprite.get_frame() == 9 && action == "sickle"):
 		emit_signal("sickle", position, facingDirection)
+		
+func changeTime():
+	if time == 1: #morning
+		TweenNightOut.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,.67), Color(0.39,0.43,0.43,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenNightOut.start() #fade out the night
+		TweenMorningIn.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,0), Color(0.67,0.67,0.67,.35), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		TweenMorningIn.start() #fade in the morning
+		time += 1
+	elif time == 2: #afternoon
+		TweenMorningOut.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		TweenMorningOut.start() #fade out the morning
+		TweenAfternoonIn.interpolate_property(get_node("Shaders/Afternoon"), "modulate", Color(1,1,1,0), Color(1,1,1,1), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		TweenAfternoonIn.start() #fade in the afternoon
+		time += 1
+	elif time == 3: #evening
+		TweenAfternoonOut.interpolate_property(get_node("Shaders/Afternoon"), "modulate", Color(1,1,1,1), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenAfternoonOut.start() #fade out the afternoon
+		TweenEveningIn.interpolate_property(get_node("Shaders/Evening"), "modulate", Color(1,1,1,0), Color(1,1,1,.25), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenEveningIn.start() #fade in the evening
+		time += 1
+	elif time == 4: #night
+		TweenEveningOut.interpolate_property(get_node("Shaders/Evening"), "modulate", Color(1,1,1,.25), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenEveningOut.start() #fade out the evening
+		TweenNightIn.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.67), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenNightIn.start() #fade in the night
+		time = 1
