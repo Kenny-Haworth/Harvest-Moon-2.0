@@ -14,17 +14,17 @@ var changeTime = 0
 var timeChange = false #true auto-changes time of day, false requires manual changing with the button K
 
 #keeps track of the time of day
-var time = 2 #1 morning, 2 afternoon, 3 evening, 4 night
+var time = 3 #1 morning, 2 afternoon, 3 evening, 4 night
 
 #for tweening shaders for time of day
-var TweenMorningIn
-var TweenMorningOut
-var TweenAfternoonIn
-var TweenAfternoonOut
-var TweenEveningIn
-var TweenEveningOut
-var TweenNightIn
-var TweenNightOut
+onready var TweenMorningIn = get_node("Shaders/Morning/TweenMorningIn")
+onready var TweenMorningOut = get_node("Shaders/Morning/TweenMorningOut")
+onready var TweenAfternoonIn = get_node("Shaders/Afternoon/TweenAfternoonIn")
+onready var TweenAfternoonOut = get_node("Shaders/Afternoon/TweenAfternoonOut")
+onready var TweenEveningIn = get_node("Shaders/Evening/TweenEveningIn")
+onready var TweenEveningOut = get_node("Shaders/Evening/TweenEveningOut")
+onready var TweenNightIn = get_node("Shaders/Night/TweenNightIn")
+onready var TweenNightOut = get_node("Shaders/Night/TweenNightOut")
 
 #signal functions
 signal sleep()
@@ -34,6 +34,8 @@ signal hoe(pos, orienation)
 signal sickle(pos, orientation)
 signal sickle_circle(pos)
 signal axe(pos, orientation)
+signal water(pos, orientation)
+signal water_circle(pos)
 
 #for animation purposes
 var lastAnimation = "down" #for what animation was last played
@@ -53,30 +55,6 @@ func _ready():
 	grid = get_parent()
 	type = grid.PLAYER
 	set_physics_process(true)
-	
-	TweenMorningIn = Tween.new()
-	get_node("Shaders/Morning").add_child(TweenMorningIn)
-	
-	TweenMorningOut = Tween.new()
-	get_node("Shaders/Morning").add_child(TweenMorningOut)
-	
-	TweenAfternoonIn = Tween.new()
-	get_node("Shaders/Afternoon").add_child(TweenAfternoonIn)
-	
-	TweenAfternoonOut = Tween.new()
-	get_node("Shaders/Afternoon").add_child(TweenAfternoonOut)
-
-	TweenEveningIn = Tween.new()
-	get_node("Shaders/Evening").add_child(TweenEveningIn)
-	
-	TweenEveningOut = Tween.new()
-	get_node("Shaders/Evening").add_child(TweenEveningOut)
-
-	TweenNightIn = Tween.new()
-	get_node("Shaders/Night").add_child(TweenNightIn)
-	
-	TweenNightOut = Tween.new()
-	get_node("Shaders/Night").add_child(TweenNightOut)
 
 func _physics_process(delta):
 	direction = Vector2()
@@ -141,6 +119,7 @@ func _physics_process(delta):
 		animationCommit = true
 		lastAnimation = "sickle circle"
 		
+	#axe
 	if Input.is_action_pressed("X"):
 		animationCommit = true
 		if facingDirection == "left" or facingDirection == "right":
@@ -149,6 +128,21 @@ func _physics_process(delta):
 			lastAnimation = "axe down"
 		elif facingDirection == "up":
 			lastAnimation = "axe up"
+			
+	#watering can
+	if Input.is_action_pressed("I"):
+		animationCommit = true
+		if facingDirection == "left" or facingDirection == "right":
+			lastAnimation = "water left"
+		elif facingDirection == "down":
+			lastAnimation = "water down"
+		elif facingDirection == "up":
+			lastAnimation = "water up"
+			
+	#watering can circle
+	if Input.is_action_pressed("U"):
+		animationCommit = true
+		lastAnimation = "water circle"
 		
 	if direction != Vector2():
 		speed = MAX_SPEED
@@ -249,6 +243,14 @@ func _physics_process(delta):
 			$Sprite.play("Axe Down")
 		elif lastAnimation == "axe left":
 			$Sprite.play("Axe Left")
+		elif lastAnimation == "water up":
+			$Sprite.play("Water Up")
+		elif lastAnimation == "water down":
+			$Sprite.play("Water Down")
+		elif lastAnimation == "water left":
+			$Sprite.play("Water Left")
+		elif lastAnimation == "water circle":
+			$Sprite.play("Water Circle")
 	
 	#track the hammer animation
 	if lastAnimation == "hammer left":
@@ -314,6 +316,54 @@ func _physics_process(delta):
 	elif lastAnimation == "axe down":
 		play_moving_animation(0, 1, 13, "axe")
 		
+	#track the water animation
+	elif lastAnimation == "water left":
+		if facingDirection == "right":
+			play_moving_animation_watering(1, 0)
+		else:
+			play_moving_animation_watering(-1, 0)
+	elif lastAnimation == "water up":
+		play_moving_animation_watering(0, -1)
+	elif lastAnimation == "water down":
+		play_moving_animation_watering(0, 1)
+		
+	#track the water circle animation
+	elif lastAnimation == "water circle":
+		$Sprite.flip_h = false #temporary fix, FIX LATER
+		if $Sprite.get_frame() == 6:
+			$Sprite.set_offset(Vector2(0, 5))
+		elif $Sprite.get_frame() == 6:
+			$Sprite.set_offset(Vector2(-5, 5))
+		elif $Sprite.get_frame() == 7:
+			$Sprite.set_offset(Vector2(-10, 10))
+		elif $Sprite.get_frame() == 8:
+			$Sprite.set_offset(Vector2(-5, 0))
+		elif $Sprite.get_frame() == 9:
+			$Sprite.set_offset(Vector2(-10, 0))
+		elif $Sprite.get_frame() == 10:
+			$Sprite.set_offset(Vector2(-5, -5))
+		elif $Sprite.get_frame() == 11:
+			$Sprite.set_offset(Vector2(0, -5))
+		elif $Sprite.get_frame() == 12:
+			$Sprite.set_offset(Vector2(0, -10))
+		elif $Sprite.get_frame() == 13:
+			$Sprite.set_offset(Vector2(5, -5))
+		elif $Sprite.get_frame() == 14:
+			$Sprite.set_offset(Vector2(5, 0))
+		elif $Sprite.get_frame() == 15:
+			$Sprite.set_offset(Vector2(10, 0))
+		elif $Sprite.get_frame() == 16:
+			$Sprite.set_offset(Vector2(5, 5))
+		elif $Sprite.get_frame() == 17:
+			$Sprite.set_offset(Vector2(10, 10))
+			emit_signal("water_circle", position)
+		elif $Sprite.get_frame() == 18:
+			$Sprite.set_offset(Vector2(0, 5))
+		elif $Sprite.get_frame() == 18:
+			$Sprite.set_offset(Vector2())
+		elif $Sprite.get_frame() == 20:
+			animationCommit = false
+		
 func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 	if $Sprite.get_frame() == frame_count-2:
 		$Sprite.set_offset(Vector2($Sprite.get_frame() * x_multiplier, $Sprite.get_frame() * y_multiplier))
@@ -334,6 +384,19 @@ func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 		emit_signal("sickle", position, facingDirection)
 	elif ($Sprite.get_frame() == 9 && action == "axe"):
 		emit_signal("axe", position, facingDirection)
+		
+func play_moving_animation_watering(x_multiplier, y_multiplier):
+	if $Sprite.get_frame() == 22:
+		$Sprite.set_offset(Vector2()) #0, reset animation
+		animationCommit = false
+	elif $Sprite.get_frame() == 21:
+		$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+	elif $Sprite.get_frame() <= 10:
+		$Sprite.set_offset(Vector2($Sprite.get_frame() * 2 * x_multiplier, $Sprite.get_frame() * 2 * y_multiplier))
+	
+	#signal to change the tile
+	if ($Sprite.get_frame() == 17):
+		emit_signal("water", position, facingDirection)
 		
 func changeTime():
 	if time == 1: #morning

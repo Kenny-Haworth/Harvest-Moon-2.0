@@ -28,6 +28,8 @@ func _ready():
 	get_node("Player").connect("sickle", self, "swing_sickle")
 	get_node("Player").connect("sickle_circle", self, "swing_sickle_circle")
 	get_node("Player").connect("axe", self, "swing_axe")
+	get_node("Player").connect("water", self, "water_square")
+	get_node("Player").connect("water_circle", self, "water_circle")
 
 func is_cell_vacant(pos, direction):
 	var grid_pos = world_to_map(pos) + direction
@@ -126,3 +128,18 @@ func swing_sickle_circle(pos):
 	
 func swing_axe(pos, orientation):
 	smash_hammer(pos, orientation)
+	
+func water_square(pos, orientation):
+	if orientation == "up":
+		pos.y -= tile_size.x
+	elif orientation == "down":
+		pos.y += tile_size.x
+	elif orientation == "right":
+		pos.x += tile_size.x
+	elif orientation == "left":
+		pos.x -= tile_size.x
+		
+	set_cellv(world_to_map(pos), 5)
+	
+func water_circle(pos):
+	spread_seeds(pos)
