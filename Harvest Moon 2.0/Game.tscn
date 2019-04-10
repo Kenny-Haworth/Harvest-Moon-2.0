@@ -8,7 +8,7 @@
 [ext_resource path="res://tilesets/dirtTiles.tres" type="TileSet" id=6]
 [ext_resource path="res://tilesets/crops.tres" type="TileSet" id=7]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Background" type="TileMap" parent="." index="0"]
 

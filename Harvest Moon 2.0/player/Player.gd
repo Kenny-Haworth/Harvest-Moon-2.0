@@ -26,6 +26,9 @@ onready var TweenEveningOut = get_node("Shaders/Evening/TweenEveningOut")
 onready var TweenNightIn = get_node("Shaders/Night/TweenNightIn")
 onready var TweenNightOut = get_node("Shaders/Night/TweenNightOut")
 
+#for weather
+onready var Rain = get_node("Rain")
+
 #signal functions
 signal sleep()
 signal hammer(pos, orientation)
@@ -201,6 +204,7 @@ func _physics_process(delta):
 		if abs(velocity.x) > distance_to_target.x:
 			velocity.x = distance_to_target.x * target_direction.x
 			is_moving = false
+			
 		if abs(velocity.y) > distance_to_target.y:
 			velocity.y = distance_to_target.y * target_direction.y
 			is_moving = false
@@ -415,6 +419,7 @@ func changeTime():
 		TweenNightOut.start() #fade out the night
 		TweenMorningIn.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,0), Color(0.67,0.67,0.67,.35), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		TweenMorningIn.start() #fade in the morning
+		Rain.set_one_shot(true)
 		time += 1
 	elif time == 2: #afternoon
 		TweenMorningOut.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
@@ -433,4 +438,6 @@ func changeTime():
 		TweenEveningOut.start() #fade out the evening
 		TweenNightIn.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.67), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenNightIn.start() #fade in the night
+		Rain.set_one_shot(false)
+		Rain.set_emitting(true)
 		time = 1
