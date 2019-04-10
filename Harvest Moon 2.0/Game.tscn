@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://tilesets/backgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://grid/Grid.gd" type="Script" id=2]
 [ext_resource path="res://grid/GridVisualizer.gd" type="Script" id=3]
 [ext_resource path="res://tilesets/objectTiles.tres" type="TileSet" id=4]
 [ext_resource path="res://grid/Objects.gd" type="Script" id=5]
+[ext_resource path="res://tilesets/dirtTiles.tres" type="TileSet" id=6]
+[ext_resource path="res://tilesets/crops.tres" type="TileSet" id=7]
 
 [node name="Game" type="Node" index="0"]
 
@@ -59,6 +61,59 @@ script = ExtResource( 5 )
 _sections_unfolded = [ "Cell", "Visibility", "Z Index" ]
 
 [node name="GridVisualizer2" type="Node2D" parent="Objects" index="0"]
+
+visible = false
+script = ExtResource( 3 )
+
+[node name="Dirt" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 96, 96 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="GridVisualizer3" type="Node2D" parent="Dirt" index="0"]
+
+visible = false
+script = ExtResource( 3 )
+
+[node name="Crops" type="TileMap" parent="." index="3"]
+
+scale = Vector2( 0.5, 0.5 )
+mode = 0
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 96, 96 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="GridVisualizer4" type="Node2D" parent="Crops" index="0"]
 
 visible = false
 script = ExtResource( 3 )
