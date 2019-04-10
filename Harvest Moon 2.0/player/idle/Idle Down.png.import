@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Idle Down.png-26bc3c511456835fba830707bfcfd954.stex"
+path="res://.import/Idle Down.png-2491999d3093da4681a35f8ec582bb79.stex"
 
 [deps]
 
-source_file="res://player/walking/Idle Down.png"
-dest_files=[ "res://.import/Idle Down.png-26bc3c511456835fba830707bfcfd954.stex" ]
+source_file="res://player/idle/Idle Down.png"
+dest_files=[ "res://.import/Idle Down.png-2491999d3093da4681a35f8ec582bb79.stex" ]
 
 [params]
 

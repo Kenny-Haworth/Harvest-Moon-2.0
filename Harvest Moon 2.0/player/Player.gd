@@ -182,10 +182,12 @@ func _physics_process(delta):
 					lastAnimation = "left"
 					facingDirection = "left"
 				elif direction.y == -1:
+					$Sprite.flip_h = false
 					$Sprite.play("Walk Up")
 					lastAnimation = "up"
 					facingDirection = "up"
 				elif direction.y == 1:
+					$Sprite.flip_h = false
 					$Sprite.play("Walk Down")
 					lastAnimation = "down"
 					facingDirection = "down"
@@ -365,7 +367,6 @@ func play_moving_animation_watering(x_multiplier, y_multiplier):
 		emit_signal("water", position, facingDirection)
 		
 func play_water_circle_animation():
-	$Sprite.flip_h = false #temporary fix, FIX PERMANENTLY LATER
 	if $Sprite.get_frame() == 5:
 		$Sprite.set_offset(Vector2(0, 5))
 		emit_signal("water", position, "down")
