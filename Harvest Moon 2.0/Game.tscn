@@ -67,6 +67,7 @@ script = ExtResource( 3 )
 
 [node name="Dirt" type="TileMap" parent="." index="2"]
 
+scale = Vector2( 0.5, 0.5 )
 mode = 0
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 96, 96 )
