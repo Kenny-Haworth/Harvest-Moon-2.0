@@ -35,7 +35,6 @@ signal sickle(pos, orientation)
 signal sickle_circle(pos)
 signal axe(pos, orientation)
 signal water(pos, orientation)
-signal water_circle(pos)
 
 #for animation purposes
 var lastAnimation = "down" #for what animation was last played
@@ -329,40 +328,7 @@ func _physics_process(delta):
 		
 	#track the water circle animation
 	elif lastAnimation == "water circle":
-		$Sprite.flip_h = false #temporary fix, FIX LATER
-		if $Sprite.get_frame() == 6:
-			$Sprite.set_offset(Vector2(0, 5))
-		elif $Sprite.get_frame() == 6:
-			$Sprite.set_offset(Vector2(-5, 5))
-		elif $Sprite.get_frame() == 7:
-			$Sprite.set_offset(Vector2(-10, 10))
-		elif $Sprite.get_frame() == 8:
-			$Sprite.set_offset(Vector2(-5, 0))
-		elif $Sprite.get_frame() == 9:
-			$Sprite.set_offset(Vector2(-10, 0))
-		elif $Sprite.get_frame() == 10:
-			$Sprite.set_offset(Vector2(-5, -5))
-		elif $Sprite.get_frame() == 11:
-			$Sprite.set_offset(Vector2(0, -5))
-		elif $Sprite.get_frame() == 12:
-			$Sprite.set_offset(Vector2(0, -10))
-		elif $Sprite.get_frame() == 13:
-			$Sprite.set_offset(Vector2(5, -5))
-		elif $Sprite.get_frame() == 14:
-			$Sprite.set_offset(Vector2(5, 0))
-		elif $Sprite.get_frame() == 15:
-			$Sprite.set_offset(Vector2(10, 0))
-		elif $Sprite.get_frame() == 16:
-			$Sprite.set_offset(Vector2(5, 5))
-		elif $Sprite.get_frame() == 17:
-			$Sprite.set_offset(Vector2(10, 10))
-			emit_signal("water_circle", position)
-		elif $Sprite.get_frame() == 18:
-			$Sprite.set_offset(Vector2(0, 5))
-		elif $Sprite.get_frame() == 18:
-			$Sprite.set_offset(Vector2())
-		elif $Sprite.get_frame() == 20:
-			animationCommit = false
+		play_water_circle_animation()
 		
 func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 	if $Sprite.get_frame() == frame_count-2:
@@ -397,6 +363,50 @@ func play_moving_animation_watering(x_multiplier, y_multiplier):
 	#signal to change the tile
 	if ($Sprite.get_frame() == 17):
 		emit_signal("water", position, facingDirection)
+		
+func play_water_circle_animation():
+	$Sprite.flip_h = false #temporary fix, FIX PERMANENTLY LATER
+	if $Sprite.get_frame() == 5:
+		$Sprite.set_offset(Vector2(0, 5))
+		emit_signal("water", position, "down")
+	elif $Sprite.get_frame() == 6:
+		$Sprite.set_offset(Vector2(-5, 5))
+	elif $Sprite.get_frame() == 7:
+		$Sprite.set_offset(Vector2(-10, 10))
+		emit_signal("water", Vector2(position.x-grid.tile_size.x, position.y), "down")
+	elif $Sprite.get_frame() == 8:
+		$Sprite.set_offset(Vector2(-5, 0))
+	elif $Sprite.get_frame() == 9:
+		$Sprite.set_offset(Vector2(-10, 0))
+		emit_signal("water", position, "left")
+	elif $Sprite.get_frame() == 10:
+		$Sprite.set_offset(Vector2(-5, -5))
+		emit_signal("water", Vector2(position.x-grid.tile_size.x, position.y), "up")
+	elif $Sprite.get_frame() == 11:
+		$Sprite.set_offset(Vector2(0, -5))
+	elif $Sprite.get_frame() == 12:
+		$Sprite.set_offset(Vector2(0, -10))
+		emit_signal("water", position, "up")
+	elif $Sprite.get_frame() == 13:
+		$Sprite.set_offset(Vector2(5, -5))
+		emit_signal("water", Vector2(position.x, position.y-grid.tile_size.x), "right")
+	elif $Sprite.get_frame() == 14:
+		$Sprite.set_offset(Vector2(5, 0))
+	elif $Sprite.get_frame() == 15:
+		$Sprite.set_offset(Vector2(10, 0))
+		emit_signal("water", position, "right")
+	elif $Sprite.get_frame() == 16:
+		$Sprite.set_offset(Vector2(5, 5))
+	elif $Sprite.get_frame() == 17:
+		$Sprite.set_offset(Vector2(10, 10))
+		emit_signal("water", Vector2(position.x, position.y+grid.tile_size.x), "right")
+	elif $Sprite.get_frame() == 18:
+		$Sprite.set_offset(Vector2(0, 5))
+		emit_signal("water", Vector2(position.x, position.y-grid.tile_size.x), "down")
+	elif $Sprite.get_frame() == 19:
+		$Sprite.set_offset(Vector2())
+	elif $Sprite.get_frame() == 20:
+		animationCommit = false
 		
 func changeTime():
 	if time == 1: #morning
