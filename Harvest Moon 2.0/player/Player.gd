@@ -27,8 +27,7 @@ onready var TweenNightIn = get_node("Shaders/Night/TweenNightIn")
 onready var TweenNightOut = get_node("Shaders/Night/TweenNightOut")
 
 #for weather
-onready var Rain = get_node("Rain").get_process_material()
-var startingRainVelocity
+onready var Rain = get_node("Rain")
 
 #signal functions
 signal sleep()
@@ -58,7 +57,6 @@ func _ready():
 	grid = get_parent()
 	type = grid.PLAYER
 	set_physics_process(true)
-	startingRainVelocity = Rain.initial_velocity
 
 func _physics_process(delta):
 	direction = Vector2()
@@ -200,18 +198,16 @@ func _physics_process(delta):
 	elif is_moving:
 		speed = MAX_SPEED
 		velocity = speed * target_direction * delta
-		Rain.initial_velocity = startingRainVelocity + MAX_SPEED
 		
 		var distance_to_target = Vector2(abs(target_pos.x - position.x), abs(target_pos.y - position.y))
 		
 		if abs(velocity.x) > distance_to_target.x:
 			velocity.x = distance_to_target.x * target_direction.x
 			is_moving = false
-			Rain.initial_velocity = startingRainVelocity
+			
 		if abs(velocity.y) > distance_to_target.y:
 			velocity.y = distance_to_target.y * target_direction.y
 			is_moving = false
-			Rain.initial_velocity = startingRainVelocity
 		
 		move_and_collide(velocity)
 		
@@ -423,6 +419,7 @@ func changeTime():
 		TweenNightOut.start() #fade out the night
 		TweenMorningIn.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,0), Color(0.67,0.67,0.67,.35), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		TweenMorningIn.start() #fade in the morning
+		Rain.set_one_shot(true)
 		time += 1
 	elif time == 2: #afternoon
 		TweenMorningOut.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
@@ -441,4 +438,6 @@ func changeTime():
 		TweenEveningOut.start() #fade out the evening
 		TweenNightIn.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.67), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenNightIn.start() #fade in the night
+		Rain.set_one_shot(false)
+		Rain.set_emitting(true)
 		time = 1
