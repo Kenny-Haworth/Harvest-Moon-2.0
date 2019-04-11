@@ -43,6 +43,6 @@ margin_right = 100.0
 expand = true
 
 [node name="ItemList" type="ItemList" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 128.0
+margin_bottom = 128.0
 
