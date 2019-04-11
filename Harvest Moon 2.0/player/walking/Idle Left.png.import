@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sickleUp3.png-b0cc8154cc2230be2b635e815c3e547f.stex"
+path="res://.import/Idle Left.png-e2286934ba65260fd43a53816fea1617.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/sickle/sickleUp3.png"
-dest_files=[ "res://.import/sickleUp3.png-b0cc8154cc2230be2b635e815c3e547f.stex" ]
+source_file="res://player/walking/Idle Left.png"
+dest_files=[ "res://.import/Idle Left.png-e2286934ba65260fd43a53816fea1617.stex" ]
 
 [params]
 
