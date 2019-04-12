@@ -19,7 +19,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if ItemList.is_anything_selected() == true:
-		for i in ItemList.get_selected_items():
-			if ItemList.is_selected(i):
-				item.set_texture(ItemList.get_item_icon(i))
+	for i in range(0, ItemList.get_item_count ()):
+		if ItemList.is_selected(i):
+			item.set_texture(ItemList.get_item_icon(i))
