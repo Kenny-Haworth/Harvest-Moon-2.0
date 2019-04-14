@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var type
-var grid
+var farm
 
 #prevents sleep spam
 var sleepDelay = 500 #.5 second
@@ -54,8 +54,8 @@ var target_direction = Vector2()
 var is_moving = false
 
 func _ready():
-	grid = get_parent()
-	type = grid.PLAYER
+	farm = get_parent()
+	type = farm.PLAYER
 	set_physics_process(true)
 
 func _physics_process(delta):
@@ -154,8 +154,8 @@ func _physics_process(delta):
 	#the player was standing still but has pressed to move to another location
 	if not is_moving and direction != Vector2():
 		target_direction = direction
-		if grid.is_cell_vacant(position, target_direction):
-			target_pos = grid.update_child_pos(self)
+		if farm.is_cell_vacant(position, target_direction):
+			target_pos = farm.update_child_pos(self)
 			is_moving = true
 				
 			#animate the player's running
@@ -371,6 +371,7 @@ func play_moving_animation_watering(x_multiplier, y_multiplier):
 		emit_signal("water", position, facingDirection)
 		
 func play_water_circle_animation():
+	$Sprite.flip_h = false
 	if $Sprite.get_frame() == 5:
 		$Sprite.set_offset(Vector2(0, 5))
 		emit_signal("water", position, "down")
@@ -378,7 +379,7 @@ func play_water_circle_animation():
 		$Sprite.set_offset(Vector2(-5, 5))
 	elif $Sprite.get_frame() == 7:
 		$Sprite.set_offset(Vector2(-10, 10))
-		emit_signal("water", Vector2(position.x-grid.tile_size.x, position.y), "down")
+		emit_signal("water", Vector2(position.x-farm.tile_size.x, position.y), "down")
 	elif $Sprite.get_frame() == 8:
 		$Sprite.set_offset(Vector2(-5, 0))
 	elif $Sprite.get_frame() == 9:
@@ -386,7 +387,7 @@ func play_water_circle_animation():
 		emit_signal("water", position, "left")
 	elif $Sprite.get_frame() == 10:
 		$Sprite.set_offset(Vector2(-5, -5))
-		emit_signal("water", Vector2(position.x-grid.tile_size.x, position.y), "up")
+		emit_signal("water", Vector2(position.x-farm.tile_size.x, position.y), "up")
 	elif $Sprite.get_frame() == 11:
 		$Sprite.set_offset(Vector2(0, -5))
 	elif $Sprite.get_frame() == 12:
@@ -394,7 +395,7 @@ func play_water_circle_animation():
 		emit_signal("water", position, "up")
 	elif $Sprite.get_frame() == 13:
 		$Sprite.set_offset(Vector2(5, -5))
-		emit_signal("water", Vector2(position.x, position.y-grid.tile_size.x), "right")
+		emit_signal("water", Vector2(position.x, position.y-farm.tile_size.x), "right")
 	elif $Sprite.get_frame() == 14:
 		$Sprite.set_offset(Vector2(5, 0))
 	elif $Sprite.get_frame() == 15:
@@ -404,10 +405,10 @@ func play_water_circle_animation():
 		$Sprite.set_offset(Vector2(5, 5))
 	elif $Sprite.get_frame() == 17:
 		$Sprite.set_offset(Vector2(10, 10))
-		emit_signal("water", Vector2(position.x, position.y+grid.tile_size.x), "right")
+		emit_signal("water", Vector2(position.x, position.y+farm.tile_size.x), "right")
 	elif $Sprite.get_frame() == 18:
 		$Sprite.set_offset(Vector2(0, 5))
-		emit_signal("water", Vector2(position.x, position.y-grid.tile_size.x), "down")
+		emit_signal("water", Vector2(position.x, position.y-farm.tile_size.x), "down")
 	elif $Sprite.get_frame() == 19:
 		$Sprite.set_offset(Vector2())
 	elif $Sprite.get_frame() == 20:
