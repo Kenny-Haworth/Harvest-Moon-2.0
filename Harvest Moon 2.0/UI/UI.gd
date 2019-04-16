@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var item = get_node("TextureRect")
+onready var item = get_node("CurrentlyEquippedItem")
 onready var ItemList = get_node("ItemList")
 var item2 = preload("res://player/hammer/hammerDown1.png")
 var item3 = preload("res://player/seeds/seeds1.png")
