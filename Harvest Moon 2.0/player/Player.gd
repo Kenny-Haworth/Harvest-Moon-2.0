@@ -1,17 +1,17 @@
 extends KinematicBody2D
 
 var type
-var farm
+var Farm
 
 #prevents sleep spam
 var sleepDelay = 500 #.5 second
 var sleepTime = 0
 
 #prevents time of day spam
-var changeTimeDelay = 2500 #2.5 seconds, the difference between these numbers is how long the day scene is held for
-var timeChangeCycle = 2 #2 seconds
+var changeTimeDelay = 30000 #timeChangeCycle - changeTimeDelay(s) == how long the shader is held for at full opacity strength
+var timeChangeCycle = 15 #30 seconds
 var changeTime = 0
-var timeChange = false #true auto-changes time of day, false requires manual changing with the button K
+var timeChange = true #true auto-changes time of day, false requires manual changing with the button K
 
 #keeps track of the time of day
 var time = 3 #1 morning, 2 afternoon, 3 evening, 4 night
@@ -28,6 +28,19 @@ onready var TweenNightOut = get_node("Shaders/Night/TweenNightOut")
 
 #for weather
 onready var Rain = get_node("Rain")
+
+#for controlling the inventory
+var inventoryOpen = false
+var closeInventoryDelay = 250 #.25 seconds, the amount of time until an action can be taken after closing the inventory (or the inventory can be re-opened again)
+var inventoryCloseTime = -500 #negative by default for inventory closed
+onready var Inventory = get_node("Camera2D/Inventory")
+
+#for picking up crops
+var crop_number
+var holdingItem = false #for tracking if the player is holding an item
+onready var Eggplant = get_node("PickCrops/Eggplant")
+onready var Strawberry = get_node("PickCrops/Strawberry")
+onready var Turnip = get_node("PickCrops/Turnip")
 
 #signal functions
 signal sleep()
@@ -54,11 +67,28 @@ var target_direction = Vector2()
 var is_moving = false
 
 func _ready():
-	farm = get_parent()
-	type = farm.PLAYER
+	Farm = get_parent()
+	type = Farm.PLAYER
 	set_physics_process(true)
+	
+#for controlling the inventory
+func _input(event):
+	#open the inventory if it is closed
+	if event.is_action_pressed("I") and not inventoryOpen:
+		inventoryOpen = true
+	#close the inventory if it is open and the player has selected an item
+	if event.is_action_pressed("ui_accept") and inventoryOpen:
+		inventoryOpen = false
+		inventoryCloseTime = OS.get_ticks_msec()
 
 func _physics_process(delta):
+	
+	#show the inventory
+	if inventoryOpen or OS.get_ticks_msec() < inventoryCloseTime + closeInventoryDelay:
+		if inventoryOpen:
+			Inventory._open_inventory() #shows the inventory
+		return #forces the method to end here, and none of the other code below is executed
+	
 	direction = Vector2()
 	
 	if not animationCommit: #if the playing is currently doing an animation, they cannot move
@@ -81,70 +111,114 @@ func _physics_process(delta):
 		changeTime = OS.get_ticks_msec()
 		changeTime()
 		
-	#hammer time
+	#player has pressed to perform an action based on equipped item
 	if Input.is_action_pressed("ui_accept"):
-		animationCommit = true
-		if facingDirection == "left" or facingDirection == "right":
-			lastAnimation = "hammer left"
-		elif facingDirection == "down":
-			lastAnimation = "hammer down"
-		elif facingDirection == "up":
-			lastAnimation = "hammer up"
+		#hammer
+		if Inventory.activeItem == 2:
+			animationCommit = true
+			if facingDirection == "left" or facingDirection == "right":
+				lastAnimation = "hammer left"
+			elif facingDirection == "down":
+				lastAnimation = "hammer down"
+			elif facingDirection == "up":
+				lastAnimation = "hammer up"
+				
+		#throw seeds
+		elif Inventory.activeItem >= 5:
+			animationCommit = true
+			lastAnimation = "seeds"
+			
+		#hoe
+		elif Inventory.activeItem == 1:
+			animationCommit = true
+			if facingDirection == "left" or facingDirection == "right":
+				lastAnimation = "hoe left"
+			elif facingDirection == "down":
+				lastAnimation = "hoe down"
+			elif facingDirection == "up":
+				lastAnimation = "hoe up"
+			
+		#sickle
+		elif Inventory.activeItem == 0:
+			animationCommit = true
+			if facingDirection == "left" or facingDirection == "right":
+				lastAnimation = "sickle left"
+			elif facingDirection == "down":
+				lastAnimation = "sickle down"
+			elif facingDirection == "up":
+				lastAnimation = "sickle up"
+				
+		#axe
+		elif Inventory.activeItem == 3:
+			animationCommit = true
+			if facingDirection == "left" or facingDirection == "right":
+				lastAnimation = "axe left"
+			elif facingDirection == "down":
+				lastAnimation = "axe down"
+			elif facingDirection == "up":
+				lastAnimation = "axe up"
+				
+		#watering can:
+		elif Inventory.activeItem == 4:
+			animationCommit = true
+			if facingDirection == "left" or facingDirection == "right":
+				lastAnimation = "water left"
+			elif facingDirection == "down":
+				lastAnimation = "water down"
+			elif facingDirection == "up":
+				lastAnimation = "water up"
+			
+	#special action
+	if Input.is_action_pressed("R"):
+		#watering can circle
+		if Inventory.activeItem == 4:
+			animationCommit = true
+			lastAnimation = "water circle"
+			
+		#sickle circle
+		elif Inventory.activeItem == 0:
+			animationCommit = true
+			lastAnimation = "sickle circle"
+			
+	#to ensure the crop the player is holding is in the correct position
+	if holdingItem:
+		set_crop_offset()
 		
-	#throw seeds
-	if Input.is_action_pressed("T"):
-		animationCommit = true
-		lastAnimation = "seeds"
+	#pickup/drop item
+	if Input.is_action_pressed("Q"):
 		
-	#hoe
-	if Input.is_action_pressed("H"):
-		animationCommit = true
-		if facingDirection == "left" or facingDirection == "right":
-			lastAnimation = "hoe left"
-		elif facingDirection == "down":
-			lastAnimation = "hoe down"
-		elif facingDirection == "up":
-			lastAnimation = "hoe up"
+		#the player wants to pick up an item
+		if not holdingItem and animationCommit == false:
 			
-	#sickle
-	if Input.is_action_pressed("P"):
-		animationCommit = true
-		if facingDirection == "left" or facingDirection == "right":
-			lastAnimation = "sickle left"
-		elif facingDirection == "down":
-			lastAnimation = "sickle down"
-		elif facingDirection == "up":
-			lastAnimation = "sickle up"
+			#check if a crop is fully grown and ready for harvest on this square
+			crop_number = Farm.check_square_for_harvest(position, facingDirection)
 			
-	#sickle circle
-	if Input.is_action_pressed("O"):
-		animationCommit = true
-		lastAnimation = "sickle circle"
+			#check to make sure a crop ready for harvest
+			#otherwise, don't do anything
+			if crop_number != -1:
+				holdingItem = true
+				if facingDirection == "left" or facingDirection == "right":
+					lastAnimation = "pickup left"
+				elif facingDirection == "down":
+					lastAnimation = "pickup down"
+				elif facingDirection == "up":
+					lastAnimation = "pickup up"
+				animationCommit = true
 		
-	#axe
-	if Input.is_action_pressed("X"):
-		animationCommit = true
-		if facingDirection == "left" or facingDirection == "right":
-			lastAnimation = "axe left"
-		elif facingDirection == "down":
-			lastAnimation = "axe down"
-		elif facingDirection == "up":
-			lastAnimation = "axe up"
+		#the player wants to drop their item
+		elif holdingItem and animationCommit == false:
 			
-	#watering can
-	if Input.is_action_pressed("I"):
-		animationCommit = true
-		if facingDirection == "left" or facingDirection == "right":
-			lastAnimation = "water left"
-		elif facingDirection == "down":
-			lastAnimation = "water down"
-		elif facingDirection == "up":
-			lastAnimation = "water up"
-			
-	#watering can circle
-	if Input.is_action_pressed("U"):
-		animationCommit = true
-		lastAnimation = "water circle"
+			#check to make sure the crop the player is holding can be dropped on this square
+			#otherwise, don't do anything
+			if (Farm.check_square_for_drop(position, facingDirection)):
+				holdingItem = false
+				if facingDirection == "left" or facingDirection == "right":
+					lastAnimation = "drop left"
+				elif facingDirection == "down":
+					lastAnimation = "drop down"
+				elif facingDirection == "up":
+					lastAnimation = "drop up"
+				animationCommit = true
 		
 	if direction != Vector2():
 		speed = MAX_SPEED
@@ -154,44 +228,68 @@ func _physics_process(delta):
 	#the player was standing still but has pressed to move to another location
 	if not is_moving and direction != Vector2():
 		target_direction = direction
-		if farm.is_cell_vacant(position, target_direction):
-			target_pos = farm.update_child_pos(self)
+		if Farm.is_cell_vacant(position, target_direction):
+			target_pos = Farm.update_child_pos(self)
 			is_moving = true
 				
 			#animate the player's running
 			if direction.x == 1 and lastAnimation == "right": #for diagonal animation
 				$Sprite.flip_h = true
-				$Sprite.play("Walk Left")
+				if not holdingItem:
+					$Sprite.play("Walk Left")
+				else:
+					$Sprite.play("Hold Walk Left")
 				lastAnimation = "right"
 			elif direction.x == -1 and lastAnimation == "left":
 				$Sprite.flip_h = false
-				$Sprite.play("Walk Left")
+				if not holdingItem:
+					$Sprite.play("Walk Left")
+				else:
+					$Sprite.play("Hold Walk Left")
 				lastAnimation = "left"
 			elif direction.y == -1 and lastAnimation == "up":
-				$Sprite.play("Walk Up")
+				if not holdingItem:
+					$Sprite.play("Walk Up")
+				else:
+					$Sprite.play("Hold Walk Up")
 				lastAnimation = "up"
 			elif direction.y == 1 and lastAnimation == "down":
-				$Sprite.play("Walk Down")
+				if not holdingItem:
+					$Sprite.play("Walk Down")
+				else:
+					$Sprite.play("Hold Walk Down")
 				lastAnimation = "down"
 			else: #for single direction animation
 				if direction.x == 1:
 					$Sprite.flip_h = true
-					$Sprite.play("Walk Left")
+					if not holdingItem:
+						$Sprite.play("Walk Left")
+					else:
+						$Sprite.play("Hold Walk Left")
 					lastAnimation = "right"
 					facingDirection = "right"
 				elif direction.x == -1:
 					$Sprite.flip_h = false
-					$Sprite.play("Walk Left")
+					if not holdingItem:
+						$Sprite.play("Walk Left")
+					else:
+						$Sprite.play("Hold Walk Left")
 					lastAnimation = "left"
 					facingDirection = "left"
 				elif direction.y == -1:
 					$Sprite.flip_h = false
-					$Sprite.play("Walk Up")
+					if not holdingItem:
+						$Sprite.play("Walk Up")
+					else:
+						$Sprite.play("Hold Walk Up")
 					lastAnimation = "up"
 					facingDirection = "up"
 				elif direction.y == 1:
 					$Sprite.flip_h = false
-					$Sprite.play("Walk Down")
+					if not holdingItem:
+						$Sprite.play("Walk Down")
+					else:
+						$Sprite.play("Hold Walk Down")
 					lastAnimation = "down"
 					facingDirection = "down"
 			
@@ -215,11 +313,20 @@ func _physics_process(delta):
 		
 		#play sprite animations
 		if lastAnimation == "up":
-			$Sprite.play("Idle Up")
+			if not holdingItem:
+				$Sprite.play("Idle Up")
+			else:
+				$Sprite.play("Hold Idle Up")
 		elif lastAnimation == "down":
-			$Sprite.play("Idle Down")
+			if not holdingItem:
+				$Sprite.play("Idle Down")
+			else:
+				$Sprite.play("Hold Idle Down")
 		elif lastAnimation == "left" or lastAnimation == "right":
-			$Sprite.play("Idle Left")
+			if not holdingItem:
+				$Sprite.play("Idle Left")
+			else:
+				$Sprite.play("Hold Idle Left")
 		elif lastAnimation == "hammer up":
 			$Sprite.play("Hammer Up")
 		elif lastAnimation == "hammer down":
@@ -256,6 +363,18 @@ func _physics_process(delta):
 			$Sprite.play("Water Left")
 		elif lastAnimation == "water circle":
 			$Sprite.play("Water Circle")
+		elif lastAnimation == "pickup up":
+			$Sprite.play("Pickup Up")
+		elif lastAnimation == "pickup down":
+			$Sprite.play("Pickup Down")
+		elif lastAnimation == "pickup left":
+			$Sprite.play("Pickup Left")
+		elif lastAnimation == "drop up":
+			$Sprite.play("Drop Up")
+		elif lastAnimation == "drop down":
+			$Sprite.play("Drop Down")
+		elif lastAnimation == "drop left":
+			$Sprite.play("Drop Left")
 	
 	#track the hammer animation
 	if lastAnimation == "hammer left":
@@ -271,7 +390,16 @@ func _physics_process(delta):
 	#track the seed animation
 	elif lastAnimation == "seeds":
 		if $Sprite.get_frame() == 3:
-			emit_signal("seeds", position)
+			#spread turnip seeds
+			if Inventory.activeItem == 5:
+				emit_signal("seeds", position, 0)
+			#spread strawberry seeds
+			elif Inventory.activeItem == 6:
+				emit_signal("seeds", position, 30)
+			#spread eggplant seeds
+			elif Inventory.activeItem == 7:
+				emit_signal("seeds", position, 12)
+				
 			animationCommit = false
 			facingDirection = "down"
 			
@@ -336,6 +464,28 @@ func _physics_process(delta):
 	elif lastAnimation == "water circle":
 		play_water_circle_animation()
 		
+	#track the pickup animation
+	elif lastAnimation == "pickup left":
+		if facingDirection == "right":
+			play_moving_animation_pickup(1, 0)
+		else:
+			play_moving_animation_pickup(-1, 0)
+	elif lastAnimation == "pickup up":
+		play_moving_animation_pickup(0, -1)
+	elif lastAnimation == "pickup down":
+		play_moving_animation_pickup(0, 1)
+		
+	#track the drop animation
+	elif lastAnimation == "drop left":
+		if facingDirection == "right":
+			play_moving_animation_drop(1, 0)
+		else:
+			play_moving_animation_drop(-1, 0)
+	elif lastAnimation == "drop up":
+		play_moving_animation_drop(0, -1)
+	elif lastAnimation == "drop down":
+		play_moving_animation_drop(0, 1)
+		
 func play_moving_animation(x_multiplier, y_multiplier, frame_count, action):
 	if $Sprite.get_frame() == frame_count-2:
 		$Sprite.set_offset(Vector2($Sprite.get_frame() * x_multiplier, $Sprite.get_frame() * y_multiplier))
@@ -370,6 +520,145 @@ func play_moving_animation_watering(x_multiplier, y_multiplier):
 	if ($Sprite.get_frame() == 17):
 		emit_signal("water", position, facingDirection)
 		
+func play_moving_animation_pickup(x_multiplier, y_multiplier):
+	
+	#the player is picking up an eggplant
+	if crop_number == 17:
+		if $Sprite.get_frame() == 0:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+		elif $Sprite.get_frame() == 1:
+			$Sprite.set_offset(Vector2(20 * x_multiplier, 20 * y_multiplier))
+		elif $Sprite.get_frame() == 2:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+			Eggplant.set_offset(Vector2(10 * x_multiplier + 1, 10 * y_multiplier + -7))
+			Eggplant.show()
+			Farm.harvest_crop(position, facingDirection)
+		elif $Sprite.get_frame() == 3:
+			$Sprite.set_offset(Vector2())
+			set_crop_offset()
+			animationCommit = false
+			
+	#the player is picking up a strawberry
+	elif crop_number == 35:
+		if $Sprite.get_frame() == 0:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+		elif $Sprite.get_frame() == 1:
+			$Sprite.set_offset(Vector2(20 * x_multiplier, 20 * y_multiplier))
+		elif $Sprite.get_frame() == 2:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+			Strawberry.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier + -7))
+			Strawberry.show()
+			Farm.harvest_crop(position, facingDirection)
+		elif $Sprite.get_frame() == 3:
+			$Sprite.set_offset(Vector2())
+			set_crop_offset()
+			animationCommit = false
+		
+	#the player is picking up a turnip
+	elif crop_number == 5:
+		if $Sprite.get_frame() == 0:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+		elif $Sprite.get_frame() == 1:
+			$Sprite.set_offset(Vector2(20 * x_multiplier, 20 * y_multiplier))
+		elif $Sprite.get_frame() == 2:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+			Turnip.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier + -7))
+			Turnip.show()
+			Farm.harvest_crop(position, facingDirection)
+		elif $Sprite.get_frame() == 3:
+			$Sprite.set_offset(Vector2())
+			set_crop_offset()
+			animationCommit = false
+		
+func play_moving_animation_drop(x_multiplier, y_multiplier):
+	
+	#the player is dropping an eggpplant
+	if crop_number == 17:
+		if $Sprite.get_frame() == 0:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+			Eggplant.set_offset(Vector2(10 * x_multiplier + 1, 10 * y_multiplier + -7))
+		elif $Sprite.get_frame() == 1:
+			$Sprite.set_offset(Vector2(20 * x_multiplier, 20 * y_multiplier))
+			Eggplant.hide()
+			Farm.drop_crop(position, facingDirection, crop_number)
+		elif $Sprite.get_frame() == 2:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+		elif $Sprite.get_frame() == 3:
+			$Sprite.set_offset(Vector2())
+			animationCommit = false
+			
+	#the player is dropping a strawberry
+	elif crop_number == 35:
+		if $Sprite.get_frame() == 0:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+			Strawberry.set_offset(Vector2(10 * x_multiplier + 1, 10 * y_multiplier + -7))
+		elif $Sprite.get_frame() == 1:
+			$Sprite.set_offset(Vector2(20 * x_multiplier, 20 * y_multiplier))
+			Strawberry.hide()
+			Farm.drop_crop(position, facingDirection, crop_number)
+		elif $Sprite.get_frame() == 2:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+		elif $Sprite.get_frame() == 3:
+			$Sprite.set_offset(Vector2())
+			animationCommit = false
+			
+	#the player is dropping a turnip
+	elif crop_number == 5:
+		if $Sprite.get_frame() == 0:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+			Turnip.set_offset(Vector2(10 * x_multiplier + 1, 10 * y_multiplier + -7))
+		elif $Sprite.get_frame() == 1:
+			$Sprite.set_offset(Vector2(20 * x_multiplier, 20 * y_multiplier))
+			Turnip.hide()
+			Farm.drop_crop(position, facingDirection, crop_number)
+		elif $Sprite.get_frame() == 2:
+			$Sprite.set_offset(Vector2(10 * x_multiplier, 10 * y_multiplier))
+		elif $Sprite.get_frame() == 3:
+			$Sprite.set_offset(Vector2())
+			animationCommit = false
+
+#sets the crop's offset depending on the direction the player is facing and what crop they have in their hand
+func set_crop_offset():
+	
+	#show the crop behind the player if they are facing up
+	if facingDirection == "up":
+		get_node("PickCrops").show_behind_parent = true
+	else:
+		get_node("PickCrops").show_behind_parent = false
+	
+	#the player is holding an eggpplant
+	if crop_number == 17:
+		if facingDirection == "right":
+			Eggplant.set_offset(Vector2(7, -7))
+		elif facingDirection == "left":
+			Eggplant.set_offset(Vector2(-7, -7))
+		elif facingDirection == "up":
+			Eggplant.set_offset(Vector2(1, -16))
+		elif facingDirection == "down":
+			Eggplant.set_offset(Vector2(1, -7))
+			
+	#the player is holding a strawberry
+	elif crop_number == 35:
+		if facingDirection == "right":
+			Strawberry.set_offset(Vector2(4, -7))
+		elif facingDirection == "left":
+			Strawberry.set_offset(Vector2(-5, -7))
+		elif facingDirection == "up":
+			Strawberry.set_offset(Vector2(0, -15))
+		elif facingDirection == "down":
+			Strawberry.set_offset(Vector2(0, -7))
+			
+	#the player is holding a turnip
+	elif crop_number == 5:
+		if facingDirection == "right":
+			Turnip.set_offset(Vector2(4, -8))
+		elif facingDirection == "left":
+			Turnip.set_offset(Vector2(-5, -8))
+		elif facingDirection == "up":
+			Turnip.set_offset(Vector2(0, -13))
+		elif facingDirection == "down":
+			Turnip.set_offset(Vector2(0, -8))
+		
 func play_water_circle_animation():
 	$Sprite.flip_h = false
 	if $Sprite.get_frame() == 5:
@@ -379,7 +668,7 @@ func play_water_circle_animation():
 		$Sprite.set_offset(Vector2(-5, 5))
 	elif $Sprite.get_frame() == 7:
 		$Sprite.set_offset(Vector2(-10, 10))
-		emit_signal("water", Vector2(position.x-farm.tile_size.x, position.y), "down")
+		emit_signal("water", Vector2(position.x-Farm.tile_size.x, position.y), "down")
 	elif $Sprite.get_frame() == 8:
 		$Sprite.set_offset(Vector2(-5, 0))
 	elif $Sprite.get_frame() == 9:
@@ -387,7 +676,7 @@ func play_water_circle_animation():
 		emit_signal("water", position, "left")
 	elif $Sprite.get_frame() == 10:
 		$Sprite.set_offset(Vector2(-5, -5))
-		emit_signal("water", Vector2(position.x-farm.tile_size.x, position.y), "up")
+		emit_signal("water", Vector2(position.x-Farm.tile_size.x, position.y), "up")
 	elif $Sprite.get_frame() == 11:
 		$Sprite.set_offset(Vector2(0, -5))
 	elif $Sprite.get_frame() == 12:
@@ -395,7 +684,7 @@ func play_water_circle_animation():
 		emit_signal("water", position, "up")
 	elif $Sprite.get_frame() == 13:
 		$Sprite.set_offset(Vector2(5, -5))
-		emit_signal("water", Vector2(position.x, position.y-farm.tile_size.x), "right")
+		emit_signal("water", Vector2(position.x, position.y-Farm.tile_size.x), "right")
 	elif $Sprite.get_frame() == 14:
 		$Sprite.set_offset(Vector2(5, 0))
 	elif $Sprite.get_frame() == 15:
@@ -405,10 +694,10 @@ func play_water_circle_animation():
 		$Sprite.set_offset(Vector2(5, 5))
 	elif $Sprite.get_frame() == 17:
 		$Sprite.set_offset(Vector2(10, 10))
-		emit_signal("water", Vector2(position.x, position.y+farm.tile_size.x), "right")
+		emit_signal("water", Vector2(position.x, position.y+Farm.tile_size.x), "right")
 	elif $Sprite.get_frame() == 18:
 		$Sprite.set_offset(Vector2(0, 5))
-		emit_signal("water", Vector2(position.x, position.y-farm.tile_size.x), "down")
+		emit_signal("water", Vector2(position.x, position.y-Farm.tile_size.x), "down")
 	elif $Sprite.get_frame() == 19:
 		$Sprite.set_offset(Vector2())
 	elif $Sprite.get_frame() == 20:
@@ -439,6 +728,7 @@ func changeTime():
 		TweenEveningOut.start() #fade out the evening
 		TweenNightIn.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.67), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenNightIn.start() #fade in the night
+		#TODO: call a method to water tilled tiles if the player is on the farm and it is raining
 		Rain.set_one_shot(false)
 		Rain.set_emitting(true)
 		time = 1

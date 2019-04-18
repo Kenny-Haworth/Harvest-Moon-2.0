@@ -247,4 +247,5 @@
 26/occluder_offset = Vector2( 16, 16 )
 26/navigation_offset = Vector2( 16, 16 )
 26/shapes = [  ]
+_sections_unfolded = [ "16", "17", "19", "20", "21", "22", "23", "24", "25", "26" ]
 
