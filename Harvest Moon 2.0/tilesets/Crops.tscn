@@ -1,0 +1,488 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/Crops.png" type="Texture" id=1]
+
+[node name="Crops" type="Node2D"]
+
+z_index = 3
+_sections_unfolded = [ "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Turnip1" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 80, 0, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Turnip2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 64, -1, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Turnip3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 120, 0 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 48, -1, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Turnip4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 180, 0 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 32, -1, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Turnip5" type="Sprite" parent="." index="4"]
+
+position = Vector2( 240, 0 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 16, -1, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Turnip6" type="Sprite" parent="." index="5"]
+
+position = Vector2( 300, 0 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="Tomato1" type="Sprite" parent="." index="6"]
+
+position = Vector2( 0, 60 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 80, 33, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Tomato2" type="Sprite" parent="." index="7"]
+
+position = Vector2( 60, 60 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 64, 33, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Tomato3" type="Sprite" parent="." index="8"]
+
+position = Vector2( 120, 60 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 48, 33, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Tomato4" type="Sprite" parent="." index="9"]
+
+position = Vector2( 180, 60 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 32, 32.5, 16, 15 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Tomato5" type="Sprite" parent="." index="10"]
+
+position = Vector2( 240, 60 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 16, 32.5, 16, 15 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Tomato6" type="Sprite" parent="." index="11"]
+
+position = Vector2( 300, 60 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 0, 32.5, 16, 15 )
+
+[node name="Eggplant1" type="Sprite" parent="." index="12"]
+
+position = Vector2( 0, 120 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 80, 48, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Eggplant2" type="Sprite" parent="." index="13"]
+
+position = Vector2( 60, 120 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 64, 48, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Eggplant3" type="Sprite" parent="." index="14"]
+
+position = Vector2( 120, 120 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 48, 48, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Eggplant4" type="Sprite" parent="." index="15"]
+
+position = Vector2( 180, 120 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 32, 48, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Eggplant5" type="Sprite" parent="." index="16"]
+
+position = Vector2( 240, 120 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 16, 47.5, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Eggplant6" type="Sprite" parent="." index="17"]
+
+position = Vector2( 300.743, 120.859 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 0, 48, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Melon1" type="Sprite" parent="." index="18"]
+
+position = Vector2( 0, 180 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 176, 32, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Melon2" type="Sprite" parent="." index="19"]
+
+position = Vector2( 60, 180 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 160, 32, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Melon3" type="Sprite" parent="." index="20"]
+
+position = Vector2( 120, 180 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 144, 32, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Melon4" type="Sprite" parent="." index="21"]
+
+position = Vector2( 180, 180 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 128, 32, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Melon5" type="Sprite" parent="." index="22"]
+
+position = Vector2( 240, 180 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 112.5, 32, 15, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Melon6" type="Sprite" parent="." index="23"]
+
+position = Vector2( 300, 180 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 95.5, 32.5, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Wheat1" type="Sprite" parent="." index="24"]
+
+position = Vector2( 0, 240 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 176, 64, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Wheat2" type="Sprite" parent="." index="25"]
+
+position = Vector2( 60, 240 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 160, 64, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Wheat3" type="Sprite" parent="." index="26"]
+
+position = Vector2( 120, 240 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 144, 64, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Wheat4" type="Sprite" parent="." index="27"]
+
+position = Vector2( 180, 240 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 128.5, 64, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Wheat5" type="Sprite" parent="." index="28"]
+
+position = Vector2( 240, 240 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 112, 63.5, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Wheat6" type="Sprite" parent="." index="29"]
+
+position = Vector2( 300, 240 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 95.5, 64, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Strawberry1" type="Sprite" parent="." index="30"]
+
+position = Vector2( 0, 310 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 80, 96, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Strawberry2" type="Sprite" parent="." index="31"]
+
+position = Vector2( 60, 310 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 64, 96, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Strawberry3" type="Sprite" parent="." index="32"]
+
+position = Vector2( 120, 310 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 48, 96, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Strawberry4" type="Sprite" parent="." index="33"]
+
+position = Vector2( 180, 310 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 32, 96, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Strawberry5" type="Sprite" parent="." index="34"]
+
+position = Vector2( 240, 310 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 16, 96.5, 16, 15 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Strawberry6" type="Sprite" parent="." index="35"]
+
+position = Vector2( 300, 310 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 0, 96, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Potato1" type="Sprite" parent="." index="36"]
+
+position = Vector2( 0, 370 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 80, 112, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Potato2" type="Sprite" parent="." index="37"]
+
+position = Vector2( 60, 370 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 64, 112, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Potato3" type="Sprite" parent="." index="38"]
+
+position = Vector2( 120, 370 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 48, 112, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Potato4" type="Sprite" parent="." index="39"]
+
+position = Vector2( 180, 370 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 32, 112, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Potato5" type="Sprite" parent="." index="40"]
+
+position = Vector2( 240, 370 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 16, 112, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Potato6" type="Sprite" parent="." index="41"]
+
+position = Vector2( 300, 370 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 0, 111.5, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Corn1" type="Sprite" parent="." index="42"]
+
+position = Vector2( 0, 430 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 80, 144, 16, 16 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="Corn2" type="Sprite" parent="." index="43"]
+
+position = Vector2( 60, 430 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 64, 144, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Corn3" type="Sprite" parent="." index="44"]
+
+position = Vector2( 120, 430 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 48, 144, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Corn4" type="Sprite" parent="." index="45"]
+
+position = Vector2( 180, 430 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 32, 144, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Corn5" type="Sprite" parent="." index="46"]
+
+position = Vector2( 240, 430 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 16, 144, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Corn6" type="Sprite" parent="." index="47"]
+
+position = Vector2( 300, 430 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 8, 8 )
+region_enabled = true
+region_rect = Rect2( 0, 144, 16, 16 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+
