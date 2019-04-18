@@ -9,7 +9,7 @@ var grid_size = Vector2(30, 16)
 var grid = []
 
 onready var Player = preload("res://player/Player.tscn")
-
+onready var UI = preload("res://UI/UI.tscn")
 func _ready():
 	for x in range(grid_size.x):
 		grid.append([])
@@ -18,9 +18,10 @@ func _ready():
 			
 	#spawn the player
 	var new_player = Player.instance()
+	var new_UI = UI.instance()
 	new_player.position = map_to_world(Vector2(0,0)) + half_tile_size
 	add_child(new_player)
-	
+	add_child(new_UI)
 	get_node("Player").connect("sleep", self, "sleep")
 	get_node("Player").connect("hammer", self, "smash_hammer")
 	get_node("Player").connect("seeds", self, "spread_seeds")
