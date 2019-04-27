@@ -11,13 +11,13 @@ config_version=3
 [application]
 
 config/name="Harvest Moon 2.0"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://menu/main/MainMenu.tscn"
 config/icon="res://player/idle/Idle Down.png"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1280
+window/size/height=800
 
 [input]
 

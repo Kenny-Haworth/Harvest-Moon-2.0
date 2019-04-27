@@ -7,7 +7,7 @@
 [ext_resource path="res://tilesets/tres files/exploreTiles.tres" type="TileSet" id=5]
 [ext_resource path="res://grid/GridVisualizer.gd" type="Script" id=6]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Farm" type="Node2D" parent="." index="0"]
 
