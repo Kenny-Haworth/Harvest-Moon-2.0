@@ -9,9 +9,12 @@
 
 [node name="Game" type="Node"]
 
+_sections_unfolded = [ "Pause" ]
+
 [node name="Farm" type="Node2D" parent="." index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Crops" type="TileMap" parent="Farm" index="0"]
 
