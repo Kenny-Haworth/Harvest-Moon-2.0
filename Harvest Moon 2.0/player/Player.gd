@@ -35,7 +35,7 @@ var closeInventoryDelay = 250 #.25 seconds, the amount of time until an action c
 var inventoryCloseTime = -500 #negative by default for inventory closed
 onready var Inventory = get_node("Camera2D/Inventory")
 
-#for picking up crops
+#for pick ing up crops
 var crop_number
 var holdingItem = false #for tracking if the player is holding an item
 onready var Eggplant = get_node("PickCrops/Eggplant")
@@ -71,7 +71,7 @@ func _ready():
 	type = Farm.PLAYER
 	set_physics_process(true)
 	
-#for controlling the inventory
+#for controlling the inventory and pause menu
 func _input(event):
 	#open the inventory if it is closed
 	if event.is_action_pressed("I") and not inventoryOpen:
@@ -81,8 +81,7 @@ func _input(event):
 		inventoryOpen = false
 		inventoryCloseTime = OS.get_ticks_msec()
 
-func _physics_process(delta):
-	
+func _physics_process(delta):	
 	#show the inventory
 	if inventoryOpen or OS.get_ticks_msec() < inventoryCloseTime + closeInventoryDelay:
 		if inventoryOpen:
