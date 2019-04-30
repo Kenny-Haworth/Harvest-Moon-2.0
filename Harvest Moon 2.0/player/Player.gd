@@ -111,8 +111,24 @@ func _physics_process(delta):
 		changeTime = OS.get_ticks_msec()
 		changeTime()
 		
+	#Weather and day change keys
+	if Input.is_action_pressed("K"):
+		$UI/VBoxContainer/Date/Weather.set_weather("sun")
+	if Input.is_action_pressed("O"):
+		$UI/VBoxContainer/Date/Weather.set_weather("cloud")
+	if Input.is_action_pressed("P"):
+		$UI/VBoxContainer/Date/Layout/Time.set_new_day()
+		$UI/VBoxContainer/Date/Layout/Day.set_new_day()
+	if Input.is_action_pressed("N"):
+		$UI/VBoxContainer/Date/Layout/Season.set_season("Spring")
+	if Input.is_action_pressed("H"):
+		$UI/VBoxContainer/Date/Layout/Season.set_season("Summer")
+		
 	#player has pressed to perform an action based on equipped item
 	if Input.is_action_pressed("ui_accept"):
+		#resource consumption
+		$UI/VBoxContainer/CanvasLayer/Energy.use_energy()
+
 		#hammer
 		if Inventory.activeItem == 2:
 			animationCommit = true
