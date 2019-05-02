@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/terrain.png" type="Texture" id=1]
+
+[node name="Dirt" type="Node2D"]
+
+position = Vector2( 0.0821075, 0 )
+
+[node name="Dry" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+offset = Vector2( 0, 0.5 )
+region_enabled = true
+region_rect = Rect2( 0, 22, 32, 31 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="Normal" type="Sprite" parent="." index="1"]
+
+position = Vector2( 63.9179, 0 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 0.5 )
+region_enabled = true
+region_rect = Rect2( 32, 22, 32, 31 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="Wet" type="Sprite" parent="." index="2"]
+
+position = Vector2( 127.918, 0 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 0.5 )
+region_enabled = true
+region_rect = Rect2( 64, 22, 32, 31 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+

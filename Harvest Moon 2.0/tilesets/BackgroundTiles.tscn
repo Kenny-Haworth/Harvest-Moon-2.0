@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/tileset.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mud1" type="Sprite" parent="." index="0"]
+
+position = Vector2( 24.351, 24.351 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 400, 240, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Grass1" type="Sprite" parent="." index="1"]
+
+position = Vector2( 120.351, 24.351 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 240, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Town" type="Sprite" parent="." index="2"]
+
+position = Vector2( 216.351, 24.351 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 240, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Town2" type="Sprite" parent="." index="3"]
+
+position = Vector2( 312.351, 24.351 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 592, 240, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Town3" type="Sprite" parent="." index="4"]
+
+position = Vector2( 408.351, 24.351 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 240, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Town4" type="Sprite" parent="." index="5"]
+
+position = Vector2( 504.351, 24.351 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 688, 240, 48, 48 )
+_sections_unfolded = [ "Region" ]
+
+
