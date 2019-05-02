@@ -7,7 +7,7 @@ var activeItem = 0
 func _ready():
 	set_process_unhandled_key_input(true)
 	set_physics_process(true)
-	itemList.connect("item_activated", self, "_on_ItemList_item_activated")
+	itemList.connect("item_activated", self, "on_ItemList_item_activated")
 	itemList.set_max_columns(10)
 	itemList.set_fixed_icon_size(Vector2(24,24))
 	itemList.set_icon_mode(ItemList.ICON_MODE_TOP)
@@ -33,8 +33,8 @@ func _physics_process(delta):
 		set_process(false)
 		hide()
 
-func _on_ItemList_item_activated(index):
-	print(itemList.get_item_metadata(index))
+func on_ItemList_item_activated(index):
+	#print(itemList.get_item_metadata(index))
 	activeItem = index
 
 func _input(event):

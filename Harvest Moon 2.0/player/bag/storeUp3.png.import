@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/exploreTiles.png-5aac1ec192a5a947d0b09e955ccf1ff9.stex"
+path="res://.import/storeUp3.png-fb5a26230f1f265d368c164de275d947.stex"
 
 [deps]
 
-source_file="res://tilesets/exploreTiles.png"
-dest_files=[ "res://.import/exploreTiles.png-5aac1ec192a5a947d0b09e955ccf1ff9.stex" ]
+source_file="res://player/bag/storeUp3.png"
+dest_files=[ "res://.import/storeUp3.png-fb5a26230f1f265d368c164de275d947.stex" ]
 
 [params]
 
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

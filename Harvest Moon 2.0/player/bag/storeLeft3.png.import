@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crops.png-e94c04c97b95ec264055bc4ca2b4d353.stex"
+path="res://.import/storeLeft3.png-0078274c2fc0ac3a8d3e67166ff8ecc8.stex"
 
 [deps]
 
-source_file="res://tilesets/crops.png"
-dest_files=[ "res://.import/crops.png-e94c04c97b95ec264055bc4ca2b4d353.stex" ]
+source_file="res://player/bag/storeLeft3.png"
+dest_files=[ "res://.import/storeLeft3.png-0078274c2fc0ac3a8d3e67166ff8ecc8.stex" ]
 
 [params]
 

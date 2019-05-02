@@ -2,7 +2,7 @@
 
 [ext_resource path="res://tilesets/terrain.png" type="Texture" id=1]
 
-[node name="Dirt" type="Node2D" index="0"]
+[node name="Dirt" type="Node2D"]
 
 position = Vector2( 0.0821075, 0 )
 
