@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/exploreTiles.png-5aac1ec192a5a947d0b09e955ccf1ff9.stex"
+path="res://.import/background.png-2419b9010d49ffff39981e078893e4d9.stex"
 
 [deps]
 
-source_file="res://tilesets/exploreTiles.png"
-dest_files=[ "res://.import/exploreTiles.png-5aac1ec192a5a947d0b09e955ccf1ff9.stex" ]
+source_file="res://menu/main/background.png"
+dest_files=[ "res://.import/background.png-2419b9010d49ffff39981e078893e4d9.stex" ]
 
 [params]
 

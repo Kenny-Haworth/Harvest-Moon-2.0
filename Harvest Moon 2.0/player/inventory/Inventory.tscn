@@ -58,7 +58,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="Inventory" type="Panel"]
+[node name="Inventory" type="Panel" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -76,7 +76,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Margin", "Mouse", "Size Flags", "Theme", "custom_styles" ]
 
 [node name="ItemList" type="ItemList" parent="." index="0"]
 
@@ -102,6 +102,6 @@ select_mode = 0
 allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Columns", "Focus", "Grow Direction", "Icon", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Columns", "Focus", "Grow Direction", "Icon", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 
