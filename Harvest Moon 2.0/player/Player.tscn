@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=2]
+[gd_scene load_steps=240 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/hold/pickupDown1.png" type="Texture" id=2]
@@ -212,24 +212,31 @@
 [ext_resource path="res://player/hoe/hoeLeft9.png" type="Texture" id=210]
 [ext_resource path="res://player/hoe/hoeLeft10.png" type="Texture" id=211]
 [ext_resource path="res://player/hoe/hoeLeft11.png" type="Texture" id=212]
-[ext_resource path="res://player/inventory/Inventory.tscn" type="PackedScene" id=213]
-[ext_resource path="res://menu/pause/Pause.gd" type="Script" id=214]
-[ext_resource path="res://menu/controls/Controls.gd" type="Script" id=215]
-[ext_resource path="res://menu/controls/Keys/Up.png" type="Texture" id=216]
-[ext_resource path="res://menu/controls/Keys/Down.png" type="Texture" id=217]
-[ext_resource path="res://menu/controls/Keys/Left.png" type="Texture" id=218]
-[ext_resource path="res://menu/controls/Keys/Right.png" type="Texture" id=219]
-[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=220]
-[ext_resource path="res://menu/controls/Keys/I.png" type="Texture" id=221]
-[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=222]
-[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=223]
-[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=224]
-[ext_resource path="res://menu/Dialog.gd" type="Script" id=225]
-[ext_resource path="res://shaders/morning.jpg" type="Texture" id=226]
-[ext_resource path="res://shaders/evening.jpg" type="Texture" id=227]
-[ext_resource path="res://shaders/night.jpg" type="Texture" id=228]
-[ext_resource path="res://shaders/raindrop.png" type="Texture" id=229]
-[ext_resource path="res://tilesets/Crops.png" type="Texture" id=230]
+[ext_resource path="res://shaders/morning.jpg" type="Texture" id=213]
+[ext_resource path="res://shaders/evening.jpg" type="Texture" id=214]
+[ext_resource path="res://shaders/night.jpg" type="Texture" id=215]
+[ext_resource path="res://shaders/raindrop.png" type="Texture" id=216]
+[ext_resource path="res://player/inventory/Inventory.tscn" type="PackedScene" id=217]
+[ext_resource path="res://menu/pause/Pause.gd" type="Script" id=218]
+[ext_resource path="res://menu/controls/Controls.gd" type="Script" id=219]
+[ext_resource path="res://menu/controls/Keys/Up.png" type="Texture" id=220]
+[ext_resource path="res://menu/controls/Keys/Down.png" type="Texture" id=221]
+[ext_resource path="res://menu/controls/Keys/Left.png" type="Texture" id=222]
+[ext_resource path="res://menu/controls/Keys/Right.png" type="Texture" id=223]
+[ext_resource path="res://menu/controls/Keys/W.png" type="Texture" id=224]
+[ext_resource path="res://menu/controls/Keys/S.png" type="Texture" id=225]
+[ext_resource path="res://menu/controls/Keys/A.png" type="Texture" id=226]
+[ext_resource path="res://menu/controls/Keys/D.png" type="Texture" id=227]
+[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=228]
+[ext_resource path="res://menu/controls/Keys/Space.png" type="Texture" id=229]
+[ext_resource path="res://menu/controls/Keys/Tab.png" type="Texture" id=230]
+[ext_resource path="res://menu/controls/Keys/B.png" type="Texture" id=231]
+[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=232]
+[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=233]
+[ext_resource path="res://menu/controls/Keys/E.png" type="Texture" id=234]
+[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=235]
+[ext_resource path="res://menu/Dialog.gd" type="Script" id=236]
+[ext_resource path="res://tilesets/Crops.png" type="Texture" id=237]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -455,7 +462,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Initial Velocity", "Tangential Accel", "Trail" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 z_index = 2
 input_pickable = false
@@ -473,7 +480,141 @@ playing = true
 flip_h = true
 _sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="1"]
+[node name="Shaders" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Morning" type="Sprite" parent="Shaders" index="0"]
+
+editor/display_folded = true
+modulate = Color( 0.67, 0.666667, 0.666667, 0 )
+show_behind_parent = true
+scale = Vector2( 2, 2 )
+texture = ExtResource( 213 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="TweenMorningIn" type="Tween" parent="Shaders/Morning" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="TweenMorningOut" type="Tween" parent="Shaders/Morning" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Afternoon" type="Sprite" parent="Shaders" index="1"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="TweenAfternoonIn" type="Tween" parent="Shaders/Afternoon" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="TweenAfternoonOut" type="Tween" parent="Shaders/Afternoon" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Evening" type="Sprite" parent="Shaders" index="2"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+position = Vector2( 3.03255, 13.218 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 214 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="TweenEveningIn" type="Tween" parent="Shaders/Evening" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="TweenEveningOut" type="Tween" parent="Shaders/Evening" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Night" type="Sprite" parent="Shaders" index="3"]
+
+editor/display_folded = true
+modulate = Color( 0.392157, 0.431373, 0.431373, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 215 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="TweenNightIn" type="Tween" parent="Shaders/Night" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="TweenNightOut" type="Tween" parent="Shaders/Night" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Rain" type="Particles2D" parent="." index="2"]
+
+position = Vector2( 2.40356, -179.962 )
+rotation = 1.5708
+emitting = false
+amount = 400
+lifetime = 1.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -0.732468, -349.594, 375.057, 698.366 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = ExtResource( 216 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
 
 anchor_mode = 1
 rotating = false
@@ -502,7 +643,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Inventory" parent="Camera2D" index="0" instance=ExtResource( 213 )]
+[node name="Inventory" parent="Camera2D" index="0" instance=ExtResource( 217 )]
 
 [node name="Pause" type="Control" parent="Camera2D" index="1"]
 
@@ -524,7 +665,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 214 )
+script = ExtResource( 218 )
 _sections_unfolded = [ "Material", "Pause", "Rect", "Visibility" ]
 
 [node name="Background" type="ColorRect" parent="Camera2D/Pause" index="0"]
@@ -665,6 +806,7 @@ align = 1
 [node name="Controls" type="Control" parent="Camera2D" index="2"]
 
 pause_mode = 2
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -681,8 +823,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 215 )
-_sections_unfolded = [ "Pause", "Rect" ]
+script = ExtResource( 219 )
+_sections_unfolded = [ "Anchor", "Pause", "Rect" ]
 
 [node name="Background" type="ColorRect" parent="Camera2D/Controls" index="0"]
 
@@ -704,11 +846,14 @@ color = Color( 0.328125, 0.328125, 0.328125, 0.56498 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Camera2D/Controls" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -143.0
+margin_top = -53.0
+margin_right = 440.0
+margin_bottom = 290.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -723,8 +868,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 403.0
-margin_bottom = 308.0
+margin_left = 61.0
+margin_top = 41.0
+margin_right = 586.0
+margin_bottom = 365.0
+rect_min_size = Vector2( 50, 50 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -733,7 +881,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 10
 alignment = 0
-_sections_unfolded = [ "custom_constants" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Title" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer" index="0"]
 
@@ -741,7 +889,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 403.0
+margin_right = 525.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -756,16 +904,37 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="Controls" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 24.0
-margin_right = 403.0
-margin_bottom = 308.0
+margin_right = 525.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 525, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 0
+_sections_unfolded = [ "Grow Direction", "Rect", "Scroll" ]
+
+[node name="Controls" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 505.0
+margin_bottom = 455.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -775,15 +944,15 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="LeftMargin" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls" index="0"]
+[node name="LeftMargin" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 315.0
-margin_bottom = 284.0
+margin_right = 249.0
+margin_bottom = 455.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -794,7 +963,7 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 0
 _sections_unfolded = [ "Margin", "custom_constants" ]
 
-[node name="Description" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -802,25 +971,80 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 8.0
-margin_right = 315.0
-margin_bottom = 284.0
+margin_right = 249.0
+margin_bottom = 455.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/separation = 22
+custom_constants/separation = 10
 alignment = 0
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "custom_constants" ]
 
-[node name="Up" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="0"]
+[node name="Regular" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 315.0
+margin_right = 249.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Default Controls"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Indent" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 249.0
+margin_bottom = 318.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Description" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 249.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 21
+alignment = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="Move player" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 241.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -828,101 +1052,81 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player up"
+text = "Move player"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Down" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="1"]
+[node name="Change direction of player" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 315.0
-margin_bottom = 50.0
+margin_top = 35.0
+margin_right = 241.0
+margin_bottom = 49.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player down"
+text = "Change direction of player"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Left" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="2"]
+[node name="Action" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 315.0
-margin_bottom = 86.0
+margin_top = 70.0
+margin_right = 241.0
+margin_bottom = 84.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player left"
+text = "Action key"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Right" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="3"]
+[node name="Super Action" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 108.0
-margin_right = 315.0
-margin_bottom = 122.0
+margin_top = 105.0
+margin_right = 241.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player right"
+text = "Super action key (hold to use)"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Use Select" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="4"]
+[node name="Inventory" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 144.0
-margin_right = 315.0
-margin_bottom = 158.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Use equipped item or select item from inventory"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Inventory" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 180.0
-margin_right = 315.0
-margin_bottom = 194.0
+margin_top = 140.0
+margin_right = 241.0
+margin_bottom = 154.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
@@ -934,35 +1138,55 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Pickup" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="6"]
+[node name="Store" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 216.0
-margin_right = 315.0
-margin_bottom = 230.0
+margin_top = 175.0
+margin_right = 241.0
+margin_bottom = 189.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Pick up item"
+text = "Store item in bag"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Pause" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="7"]
+[node name="Pickup" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 252.0
-margin_right = 315.0
-margin_bottom = 266.0
+margin_top = 210.0
+margin_right = 241.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Pick up/drop item"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Pause" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 245.0
+margin_right = 241.0
+margin_bottom = 259.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
@@ -974,16 +1198,170 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Images" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls" index="1"]
+[node name="Sleep" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Indent/Description" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 280.0
+margin_right = 241.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Sleep (must be next to bed)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Inventory Controls" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 328.0
+margin_right = 249.0
+margin_bottom = 342.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Inventory Controls"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 319.0
-margin_right = 403.0
-margin_bottom = 284.0
+margin_top = 352.0
+margin_right = 249.0
+margin_bottom = 438.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/MarginContainer" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 249.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 22
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Close Inventory" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 241.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Close inventory (does not equip item)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Equip" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/MarginContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 241.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Equip item"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Swap" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/MarginContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 241.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Swap items"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RightContainer" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 253.0
+margin_right = 505.0
+margin_bottom = 455.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_top = 17
+custom_constants/margin_left = 0
+_sections_unfolded = [ "Grow Direction", "Rect", "custom_constants" ]
+
+[node name="Images" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 17.0
+margin_right = 252.0
+margin_bottom = 455.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -991,9 +1369,212 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-_sections_unfolded = [ "Margin", "custom_constants" ]
+_sections_unfolded = [ "Margin", "Material", "Rect", "custom_constants" ]
 
-[node name="Up" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="0"]
+[node name="Move Images" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 252.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Up" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 220 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 221 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Left" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 222 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Right" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 223 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Change Direction" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 252.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Up" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Change Direction" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 224 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Change Direction" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 225 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Left" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Change Direction" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 226 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Right" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Change Direction" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 227 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Use" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 252.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Enter" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Use" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1007,56 +1588,38 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 216 )
+texture = ExtResource( 228 )
 stretch_mode = 0
-_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+_sections_unfolded = [ "Rect" ]
 
-[node name="Down" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="1"]
+[node name="Space" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Use" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 84.0
-margin_bottom = 68.0
+margin_left = 88.0
+margin_right = 248.0
+margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 217 )
+texture = ExtResource( 229 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Left" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="2"]
+[node name="Super Use" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="3"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 84.0
-margin_bottom = 104.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 218 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Right" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="3"]
-
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 108.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1064,18 +1627,53 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 219 )
+alignment = 0
+
+[node name="Enter" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Super Use" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 84.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 228 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Use Select" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="4"]
+[node name="Space" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Super Use" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 88.0
+margin_right = 248.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 229 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Inventory" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 144.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 176.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1083,18 +1681,18 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 220 )
+texture = ExtResource( 230 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Inventory" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="5"]
+[node name="Store" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 180.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 212.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1102,18 +1700,18 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 221 )
+texture = ExtResource( 231 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Pickup" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="6"]
+[node name="Pickup" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 216.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 248.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1121,18 +1719,18 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 222 )
+texture = ExtResource( 232 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Pause" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="7"]
+[node name="Pause" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 252.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 284.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1140,12 +1738,199 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 223 )
+texture = ExtResource( 233 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
+[node name="Bed" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 288.0
+margin_right = 252.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 234 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Lower" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 324.0
+margin_right = 252.0
+margin_bottom = 438.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_top = 10
+custom_constants/margin_left = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 10.0
+margin_right = 252.0
+margin_bottom = 114.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Inventory2" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 252.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 230 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="E" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 252.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Equip" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/E" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 234 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/E" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 115.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "or right click"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="S" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 252.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Swap" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/S" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 225 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label2" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/S" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_right = 252.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "(once to select, twice to snap to a
+new location) or right click"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Go back" type="MarginContainer" parent="Camera2D/Controls" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -1201,7 +1986,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 224 )
+icon = ExtResource( 235 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -1231,7 +2016,7 @@ _sections_unfolded = [ "Margin", "Rect" ]
 
 [node name="Dialog" type="Panel" parent="Camera2D" index="3"]
 
-editor/display_folded = true
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1246,7 +2031,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 225 )
+script = ExtResource( 236 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Dialog" index="0"]
 
@@ -1269,7 +2055,7 @@ bbcode_text = "Hello Farmer!
 
 Welcome to HarvestMoon2.0!
 
-You've inherited an old plot of land from your recently deceased grandpa. He wanted you to take care of the land after he passed. You can till the soil using your hoe, located in your inventory. You can open your inventory by pressing \"I\". You will also find seeds among other tools, like your watering can in your inventory. You will need to water your crops before the end of each day in order to see your crops grow! Other controls and tips can be found on the \"Controls\" menu, which you can find by pressing the escape key.
+You've inherited an old plot of land from your recently deceased grandpa. He wanted you to take care of the land after he passed. You can till the soil using your hoe, located in your inventory. You can open your inventory by pressing \"tab\". You will also find seeds among other tools, like your watering can in your inventory. You will need to water your crops before the end of each day in order to see your crops grow. Other controls and tips can be found on the \"Controls\" menu, which you can find by pressing the \"escape\" key.
 
 Happy farming!"
 visible_characters = -1
@@ -1280,7 +2066,7 @@ text = "Hello Farmer!
 
 Welcome to HarvestMoon2.0!
 
-You've inherited an old plot of land from your recently deceased grandpa. He wanted you to take care of the land after he passed. You can till the soil using your hoe, located in your inventory. You can open your inventory by pressing \"I\". You will also find seeds among other tools, like your watering can in your inventory. You will need to water your crops before the end of each day in order to see your crops grow! Other controls and tips can be found on the \"Controls\" menu, which you can find by pressing the escape key.
+You've inherited an old plot of land from your recently deceased grandpa. He wanted you to take care of the land after he passed. You can till the soil using your hoe, located in your inventory. You can open your inventory by pressing \"tab\". You will also find seeds among other tools, like your watering can in your inventory. You will need to water your crops before the end of each day in order to see your crops grow. Other controls and tips can be found on the \"Controls\" menu, which you can find by pressing the \"escape\" key.
 
 Happy farming!"
 scroll_active = true
@@ -1315,139 +2101,6 @@ flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Rect" ]
 
-[node name="Shaders" type="Node2D" parent="." index="2"]
-
-_sections_unfolded = [ "Material", "Visibility" ]
-
-[node name="Morning" type="Sprite" parent="Shaders" index="0"]
-
-editor/display_folded = true
-modulate = Color( 0.67, 0.666667, 0.666667, 0 )
-show_behind_parent = true
-scale = Vector2( 2, 2 )
-texture = ExtResource( 226 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="TweenMorningIn" type="Tween" parent="Shaders/Morning" index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="TweenMorningOut" type="Tween" parent="Shaders/Morning" index="1"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Afternoon" type="Sprite" parent="Shaders" index="1"]
-
-editor/display_folded = true
-modulate = Color( 1, 1, 1, 0 )
-_sections_unfolded = [ "Visibility", "Z Index" ]
-
-[node name="TweenAfternoonIn" type="Tween" parent="Shaders/Afternoon" index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="TweenAfternoonOut" type="Tween" parent="Shaders/Afternoon" index="1"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Evening" type="Sprite" parent="Shaders" index="2"]
-
-editor/display_folded = true
-modulate = Color( 1, 1, 1, 0 )
-show_behind_parent = true
-position = Vector2( 3.03255, 13.218 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 227 )
-_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
-
-[node name="TweenEveningIn" type="Tween" parent="Shaders/Evening" index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="TweenEveningOut" type="Tween" parent="Shaders/Evening" index="1"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Night" type="Sprite" parent="Shaders" index="3"]
-
-editor/display_folded = true
-modulate = Color( 0.392157, 0.431373, 0.431373, 0 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 228 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="TweenNightIn" type="Tween" parent="Shaders/Night" index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="TweenNightOut" type="Tween" parent="Shaders/Night" index="1"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Rain" type="Particles2D" parent="." index="3"]
-
-position = Vector2( 2.40356, -179.962 )
-rotation = 1.5708
-emitting = false
-amount = 400
-lifetime = 1.5
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -0.732468, -349.594, 375.057, 698.366 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 2 )
-texture = ExtResource( 229 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Visibility", "Z Index" ]
-
 [node name="PickCrops" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
@@ -1457,7 +2110,7 @@ _sections_unfolded = [ "Visibility", "Z Index" ]
 
 visible = false
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 230 )
+texture = ExtResource( 237 )
 offset = Vector2( 1, -16 )
 region_enabled = true
 region_rect = Rect2( 0, 47.5, 16, 16 )
@@ -1467,7 +2120,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 visible = false
 scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 230 )
+texture = ExtResource( 237 )
 offset = Vector2( 0, -15 )
 region_enabled = true
 region_rect = Rect2( 0, 96, 16, 16 )
@@ -1476,7 +2129,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 [node name="Turnip" type="Sprite" parent="PickCrops" index="2"]
 
 visible = false
-texture = ExtResource( 230 )
+texture = ExtResource( 237 )
 offset = Vector2( 0, -13 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
