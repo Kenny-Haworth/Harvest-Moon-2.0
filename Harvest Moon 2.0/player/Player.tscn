@@ -1,129 +1,129 @@
-[gd_scene load_steps=222 format=2]
+[gd_scene load_steps=233 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://player/hold/holdLeftIdle.png" type="Texture" id=2]
-[ext_resource path="res://player/walking/Down4.png" type="Texture" id=3]
-[ext_resource path="res://player/walking/Down5.png" type="Texture" id=4]
-[ext_resource path="res://player/hold/pickupUp1.png" type="Texture" id=5]
-[ext_resource path="res://player/idle/Idle Up.png" type="Texture" id=6]
-[ext_resource path="res://player/idle/Idle Down.png" type="Texture" id=7]
-[ext_resource path="res://player/watering/waterLeft1.png" type="Texture" id=8]
-[ext_resource path="res://player/watering/waterLeft2.png" type="Texture" id=9]
-[ext_resource path="res://player/watering/waterLeft3.png" type="Texture" id=10]
-[ext_resource path="res://player/watering/waterLeft4.png" type="Texture" id=11]
-[ext_resource path="res://player/watering/waterLeft5.png" type="Texture" id=12]
-[ext_resource path="res://player/watering/waterLeft6.png" type="Texture" id=13]
-[ext_resource path="res://player/watering/waterLeft7.png" type="Texture" id=14]
-[ext_resource path="res://player/watering/waterLeft8.png" type="Texture" id=15]
-[ext_resource path="res://player/watering/waterLeft9.png" type="Texture" id=16]
-[ext_resource path="res://player/watering/waterLeft10.png" type="Texture" id=17]
-[ext_resource path="res://player/watering/waterLeft11.png" type="Texture" id=18]
-[ext_resource path="res://player/watering/waterLeft13.png" type="Texture" id=19]
-[ext_resource path="res://player/watering/waterLeft12.png" type="Texture" id=20]
-[ext_resource path="res://player/idle/Idle Left.png" type="Texture" id=21]
-[ext_resource path="res://player/watering/waterDown1.png" type="Texture" id=22]
-[ext_resource path="res://player/watering/waterDown2.png" type="Texture" id=23]
-[ext_resource path="res://player/watering/waterDown3.png" type="Texture" id=24]
-[ext_resource path="res://player/watering/waterDown4.png" type="Texture" id=25]
-[ext_resource path="res://player/watering/waterDown5.png" type="Texture" id=26]
-[ext_resource path="res://player/watering/waterDown6.png" type="Texture" id=27]
-[ext_resource path="res://player/watering/waterDown7.png" type="Texture" id=28]
-[ext_resource path="res://player/watering/waterDown8.png" type="Texture" id=29]
-[ext_resource path="res://player/watering/waterDown9.png" type="Texture" id=30]
-[ext_resource path="res://player/watering/waterDown10.png" type="Texture" id=31]
-[ext_resource path="res://player/watering/waterDown11.png" type="Texture" id=32]
-[ext_resource path="res://player/watering/waterDown12.png" type="Texture" id=33]
-[ext_resource path="res://player/watering/waterDown13.png" type="Texture" id=34]
-[ext_resource path="res://player/watering/waterDown12Inverted.png" type="Texture" id=35]
-[ext_resource path="res://player/watering/waterDown13Inverted.png" type="Texture" id=36]
-[ext_resource path="res://player/hold/pickupLeft1.png" type="Texture" id=37]
-[ext_resource path="res://player/axe/axeLeft1.png" type="Texture" id=38]
-[ext_resource path="res://player/axe/axeLeft2.png" type="Texture" id=39]
-[ext_resource path="res://player/axe/axeLeft3.png" type="Texture" id=40]
-[ext_resource path="res://player/axe/axeLeft4.png" type="Texture" id=41]
-[ext_resource path="res://player/axe/axeLeft5.png" type="Texture" id=42]
-[ext_resource path="res://player/axe/axeLeft6.png" type="Texture" id=43]
-[ext_resource path="res://player/axe/axeLeft7.png" type="Texture" id=44]
-[ext_resource path="res://player/axe/axeLeft8.png" type="Texture" id=45]
-[ext_resource path="res://player/axe/axeLeft9.png" type="Texture" id=46]
-[ext_resource path="res://player/axe/axeLeft10.png" type="Texture" id=47]
-[ext_resource path="res://player/axe/axeLeft11.png" type="Texture" id=48]
-[ext_resource path="res://player/axe/axeLeft12.png" type="Texture" id=49]
-[ext_resource path="res://player/axe/axeDown1.png" type="Texture" id=50]
-[ext_resource path="res://player/axe/axeDown2.png" type="Texture" id=51]
-[ext_resource path="res://player/axe/axeDown3.png" type="Texture" id=52]
-[ext_resource path="res://player/axe/axeDown4.png" type="Texture" id=53]
-[ext_resource path="res://player/axe/axeDown5.png" type="Texture" id=54]
-[ext_resource path="res://player/axe/axeDown6.png" type="Texture" id=55]
-[ext_resource path="res://player/axe/axeDown7.png" type="Texture" id=56]
-[ext_resource path="res://player/axe/axeDown8.png" type="Texture" id=57]
-[ext_resource path="res://player/axe/axeDown9.png" type="Texture" id=58]
-[ext_resource path="res://player/axe/axeDown10.png" type="Texture" id=59]
-[ext_resource path="res://player/axe/axeDown11.png" type="Texture" id=60]
-[ext_resource path="res://player/axe/axeDown12.png" type="Texture" id=61]
-[ext_resource path="res://player/hold/holdUpIdle.png" type="Texture" id=62]
-[ext_resource path="res://player/hold/holdDownIdle.png" type="Texture" id=63]
-[ext_resource path="res://player/hammer/hammerUp1.png" type="Texture" id=64]
-[ext_resource path="res://player/hammer/hammerUp2.png" type="Texture" id=65]
-[ext_resource path="res://player/hammer/hammerUp3.png" type="Texture" id=66]
-[ext_resource path="res://player/hammer/hammerUp4.png" type="Texture" id=67]
-[ext_resource path="res://player/hammer/hammerUp5.png" type="Texture" id=68]
-[ext_resource path="res://player/hammer/hammerUp6.png" type="Texture" id=69]
-[ext_resource path="res://player/hammer/hammerUp7.png" type="Texture" id=70]
-[ext_resource path="res://player/hammer/hammerUp8.png" type="Texture" id=71]
-[ext_resource path="res://player/hammer/hammerUp9.png" type="Texture" id=72]
-[ext_resource path="res://player/hammer/hammerUp10.png" type="Texture" id=73]
-[ext_resource path="res://player/hammer/hammerUp11.png" type="Texture" id=74]
-[ext_resource path="res://player/hammer/hammerUp12.png" type="Texture" id=75]
-[ext_resource path="res://player/sickle/sickleUp1.png" type="Texture" id=76]
-[ext_resource path="res://player/sickle/sickleUp2.png" type="Texture" id=77]
-[ext_resource path="res://player/sickle/sickleUp3.png" type="Texture" id=78]
-[ext_resource path="res://player/sickle/sickleUp4.png" type="Texture" id=79]
-[ext_resource path="res://player/sickle/sickleUp5.png" type="Texture" id=80]
-[ext_resource path="res://player/sickle/sickleUp6.png" type="Texture" id=81]
-[ext_resource path="res://player/sickle/sickleUp7.png" type="Texture" id=82]
-[ext_resource path="res://player/sickle/sickleUp8.png" type="Texture" id=83]
-[ext_resource path="res://player/sickle/sickleUp9.png" type="Texture" id=84]
-[ext_resource path="res://player/sickle/sickleUp10.png" type="Texture" id=85]
-[ext_resource path="res://player/sickle/sickleUp11.png" type="Texture" id=86]
-[ext_resource path="res://player/sickle/sickleCircle1.png" type="Texture" id=87]
-[ext_resource path="res://player/sickle/sickleCircle2.png" type="Texture" id=88]
-[ext_resource path="res://player/sickle/sickleCircle3.png" type="Texture" id=89]
-[ext_resource path="res://player/sickle/sickleCircle4.png" type="Texture" id=90]
-[ext_resource path="res://player/sickle/sickleLeft1.png" type="Texture" id=91]
-[ext_resource path="res://player/sickle/sickleLeft2.png" type="Texture" id=92]
-[ext_resource path="res://player/sickle/sickleLeft3.png" type="Texture" id=93]
-[ext_resource path="res://player/sickle/sickleLeft4.png" type="Texture" id=94]
-[ext_resource path="res://player/sickle/sickleLeft5.png" type="Texture" id=95]
-[ext_resource path="res://player/sickle/sickleLeft6.png" type="Texture" id=96]
-[ext_resource path="res://player/sickle/sickleLeft7.png" type="Texture" id=97]
-[ext_resource path="res://player/sickle/sickleLeft8.png" type="Texture" id=98]
-[ext_resource path="res://player/sickle/sickleLeft9.png" type="Texture" id=99]
-[ext_resource path="res://player/sickle/sickleLeft10.png" type="Texture" id=100]
-[ext_resource path="res://player/sickle/sickleLeft11.png" type="Texture" id=101]
-[ext_resource path="res://player/watering/waterUp12.png" type="Texture" id=102]
-[ext_resource path="res://player/watering/waterUp13.png" type="Texture" id=103]
-[ext_resource path="res://player/watering/waterUp13Inverted.png" type="Texture" id=104]
-[ext_resource path="res://player/watering/waterUp12Inverted.png" type="Texture" id=105]
-[ext_resource path="res://player/watering/waterLeft12Inverted.png" type="Texture" id=106]
-[ext_resource path="res://player/watering/waterLeft13Inverted.png" type="Texture" id=107]
-[ext_resource path="res://player/hold/holdLeftWalk1.png" type="Texture" id=108]
-[ext_resource path="res://player/hold/holdLeftWalk2.png" type="Texture" id=109]
-[ext_resource path="res://player/walking/Up1.png" type="Texture" id=110]
-[ext_resource path="res://player/walking/Up2.png" type="Texture" id=111]
-[ext_resource path="res://player/hammer/hammerDown1.png" type="Texture" id=112]
-[ext_resource path="res://player/hammer/hammerDown2.png" type="Texture" id=113]
-[ext_resource path="res://player/hammer/hammerDown3.png" type="Texture" id=114]
-[ext_resource path="res://player/hammer/hammerDown4.png" type="Texture" id=115]
-[ext_resource path="res://player/hammer/hammerDown5.png" type="Texture" id=116]
-[ext_resource path="res://player/hammer/hammerDown6.png" type="Texture" id=117]
-[ext_resource path="res://player/hammer/hammerDown7.png" type="Texture" id=118]
-[ext_resource path="res://player/hammer/hammerDown8.png" type="Texture" id=119]
-[ext_resource path="res://player/hammer/hammerDown9.png" type="Texture" id=120]
-[ext_resource path="res://player/hammer/hammerDown10.png" type="Texture" id=121]
-[ext_resource path="res://player/hammer/hammerDown11.png" type="Texture" id=122]
-[ext_resource path="res://player/hammer/hammerDown12.png" type="Texture" id=123]
-[ext_resource path="res://player/hold/pickupDown1.png" type="Texture" id=124]
+[ext_resource path="res://player/hold/pickupDown1.png" type="Texture" id=2]
+[ext_resource path="res://player/idle/Idle Down.png" type="Texture" id=3]
+[ext_resource path="res://player/hold/holdLeftIdle.png" type="Texture" id=4]
+[ext_resource path="res://player/walking/Down4.png" type="Texture" id=5]
+[ext_resource path="res://player/walking/Down5.png" type="Texture" id=6]
+[ext_resource path="res://player/hold/pickupUp1.png" type="Texture" id=7]
+[ext_resource path="res://player/idle/Idle Up.png" type="Texture" id=8]
+[ext_resource path="res://player/watering/waterLeft1.png" type="Texture" id=9]
+[ext_resource path="res://player/watering/waterLeft2.png" type="Texture" id=10]
+[ext_resource path="res://player/watering/waterLeft3.png" type="Texture" id=11]
+[ext_resource path="res://player/watering/waterLeft4.png" type="Texture" id=12]
+[ext_resource path="res://player/watering/waterLeft5.png" type="Texture" id=13]
+[ext_resource path="res://player/watering/waterLeft6.png" type="Texture" id=14]
+[ext_resource path="res://player/watering/waterLeft7.png" type="Texture" id=15]
+[ext_resource path="res://player/watering/waterLeft8.png" type="Texture" id=16]
+[ext_resource path="res://player/watering/waterLeft9.png" type="Texture" id=17]
+[ext_resource path="res://player/watering/waterLeft10.png" type="Texture" id=18]
+[ext_resource path="res://player/watering/waterLeft11.png" type="Texture" id=19]
+[ext_resource path="res://player/watering/waterLeft13.png" type="Texture" id=20]
+[ext_resource path="res://player/watering/waterLeft12.png" type="Texture" id=21]
+[ext_resource path="res://player/idle/Idle Left.png" type="Texture" id=22]
+[ext_resource path="res://player/watering/waterDown1.png" type="Texture" id=23]
+[ext_resource path="res://player/watering/waterDown2.png" type="Texture" id=24]
+[ext_resource path="res://player/watering/waterDown3.png" type="Texture" id=25]
+[ext_resource path="res://player/watering/waterDown4.png" type="Texture" id=26]
+[ext_resource path="res://player/watering/waterDown5.png" type="Texture" id=27]
+[ext_resource path="res://player/watering/waterDown6.png" type="Texture" id=28]
+[ext_resource path="res://player/watering/waterDown7.png" type="Texture" id=29]
+[ext_resource path="res://player/watering/waterDown8.png" type="Texture" id=30]
+[ext_resource path="res://player/watering/waterDown9.png" type="Texture" id=31]
+[ext_resource path="res://player/watering/waterDown10.png" type="Texture" id=32]
+[ext_resource path="res://player/watering/waterDown11.png" type="Texture" id=33]
+[ext_resource path="res://player/watering/waterDown12.png" type="Texture" id=34]
+[ext_resource path="res://player/watering/waterDown13.png" type="Texture" id=35]
+[ext_resource path="res://player/watering/waterDown12Inverted.png" type="Texture" id=36]
+[ext_resource path="res://player/watering/waterDown13Inverted.png" type="Texture" id=37]
+[ext_resource path="res://player/hold/pickupLeft1.png" type="Texture" id=38]
+[ext_resource path="res://player/axe/axeLeft1.png" type="Texture" id=39]
+[ext_resource path="res://player/axe/axeLeft2.png" type="Texture" id=40]
+[ext_resource path="res://player/axe/axeLeft3.png" type="Texture" id=41]
+[ext_resource path="res://player/axe/axeLeft4.png" type="Texture" id=42]
+[ext_resource path="res://player/axe/axeLeft5.png" type="Texture" id=43]
+[ext_resource path="res://player/axe/axeLeft6.png" type="Texture" id=44]
+[ext_resource path="res://player/axe/axeLeft7.png" type="Texture" id=45]
+[ext_resource path="res://player/axe/axeLeft8.png" type="Texture" id=46]
+[ext_resource path="res://player/axe/axeLeft9.png" type="Texture" id=47]
+[ext_resource path="res://player/axe/axeLeft10.png" type="Texture" id=48]
+[ext_resource path="res://player/axe/axeLeft11.png" type="Texture" id=49]
+[ext_resource path="res://player/axe/axeLeft12.png" type="Texture" id=50]
+[ext_resource path="res://player/axe/axeDown1.png" type="Texture" id=51]
+[ext_resource path="res://player/axe/axeDown2.png" type="Texture" id=52]
+[ext_resource path="res://player/axe/axeDown3.png" type="Texture" id=53]
+[ext_resource path="res://player/axe/axeDown4.png" type="Texture" id=54]
+[ext_resource path="res://player/axe/axeDown5.png" type="Texture" id=55]
+[ext_resource path="res://player/axe/axeDown6.png" type="Texture" id=56]
+[ext_resource path="res://player/axe/axeDown7.png" type="Texture" id=57]
+[ext_resource path="res://player/axe/axeDown8.png" type="Texture" id=58]
+[ext_resource path="res://player/axe/axeDown9.png" type="Texture" id=59]
+[ext_resource path="res://player/axe/axeDown10.png" type="Texture" id=60]
+[ext_resource path="res://player/axe/axeDown11.png" type="Texture" id=61]
+[ext_resource path="res://player/axe/axeDown12.png" type="Texture" id=62]
+[ext_resource path="res://player/hold/holdUpIdle.png" type="Texture" id=63]
+[ext_resource path="res://player/hold/holdDownIdle.png" type="Texture" id=64]
+[ext_resource path="res://player/hammer/hammerUp1.png" type="Texture" id=65]
+[ext_resource path="res://player/hammer/hammerUp2.png" type="Texture" id=66]
+[ext_resource path="res://player/hammer/hammerUp3.png" type="Texture" id=67]
+[ext_resource path="res://player/hammer/hammerUp4.png" type="Texture" id=68]
+[ext_resource path="res://player/hammer/hammerUp5.png" type="Texture" id=69]
+[ext_resource path="res://player/hammer/hammerUp6.png" type="Texture" id=70]
+[ext_resource path="res://player/hammer/hammerUp7.png" type="Texture" id=71]
+[ext_resource path="res://player/hammer/hammerUp8.png" type="Texture" id=72]
+[ext_resource path="res://player/hammer/hammerUp9.png" type="Texture" id=73]
+[ext_resource path="res://player/hammer/hammerUp10.png" type="Texture" id=74]
+[ext_resource path="res://player/hammer/hammerUp11.png" type="Texture" id=75]
+[ext_resource path="res://player/hammer/hammerUp12.png" type="Texture" id=76]
+[ext_resource path="res://player/sickle/sickleUp1.png" type="Texture" id=77]
+[ext_resource path="res://player/sickle/sickleUp2.png" type="Texture" id=78]
+[ext_resource path="res://player/sickle/sickleUp3.png" type="Texture" id=79]
+[ext_resource path="res://player/sickle/sickleUp4.png" type="Texture" id=80]
+[ext_resource path="res://player/sickle/sickleUp5.png" type="Texture" id=81]
+[ext_resource path="res://player/sickle/sickleUp6.png" type="Texture" id=82]
+[ext_resource path="res://player/sickle/sickleUp7.png" type="Texture" id=83]
+[ext_resource path="res://player/sickle/sickleUp8.png" type="Texture" id=84]
+[ext_resource path="res://player/sickle/sickleUp9.png" type="Texture" id=85]
+[ext_resource path="res://player/sickle/sickleUp10.png" type="Texture" id=86]
+[ext_resource path="res://player/sickle/sickleUp11.png" type="Texture" id=87]
+[ext_resource path="res://player/sickle/sickleCircle1.png" type="Texture" id=88]
+[ext_resource path="res://player/sickle/sickleCircle2.png" type="Texture" id=89]
+[ext_resource path="res://player/sickle/sickleCircle3.png" type="Texture" id=90]
+[ext_resource path="res://player/sickle/sickleCircle4.png" type="Texture" id=91]
+[ext_resource path="res://player/sickle/sickleLeft1.png" type="Texture" id=92]
+[ext_resource path="res://player/sickle/sickleLeft2.png" type="Texture" id=93]
+[ext_resource path="res://player/sickle/sickleLeft3.png" type="Texture" id=94]
+[ext_resource path="res://player/sickle/sickleLeft4.png" type="Texture" id=95]
+[ext_resource path="res://player/sickle/sickleLeft5.png" type="Texture" id=96]
+[ext_resource path="res://player/sickle/sickleLeft6.png" type="Texture" id=97]
+[ext_resource path="res://player/sickle/sickleLeft7.png" type="Texture" id=98]
+[ext_resource path="res://player/sickle/sickleLeft8.png" type="Texture" id=99]
+[ext_resource path="res://player/sickle/sickleLeft9.png" type="Texture" id=100]
+[ext_resource path="res://player/sickle/sickleLeft10.png" type="Texture" id=101]
+[ext_resource path="res://player/sickle/sickleLeft11.png" type="Texture" id=102]
+[ext_resource path="res://player/watering/waterUp12.png" type="Texture" id=103]
+[ext_resource path="res://player/watering/waterUp13.png" type="Texture" id=104]
+[ext_resource path="res://player/watering/waterUp13Inverted.png" type="Texture" id=105]
+[ext_resource path="res://player/watering/waterUp12Inverted.png" type="Texture" id=106]
+[ext_resource path="res://player/watering/waterLeft12Inverted.png" type="Texture" id=107]
+[ext_resource path="res://player/watering/waterLeft13Inverted.png" type="Texture" id=108]
+[ext_resource path="res://player/hold/holdLeftWalk1.png" type="Texture" id=109]
+[ext_resource path="res://player/hold/holdLeftWalk2.png" type="Texture" id=110]
+[ext_resource path="res://player/walking/Up1.png" type="Texture" id=111]
+[ext_resource path="res://player/walking/Up2.png" type="Texture" id=112]
+[ext_resource path="res://player/hammer/hammerDown1.png" type="Texture" id=113]
+[ext_resource path="res://player/hammer/hammerDown2.png" type="Texture" id=114]
+[ext_resource path="res://player/hammer/hammerDown3.png" type="Texture" id=115]
+[ext_resource path="res://player/hammer/hammerDown4.png" type="Texture" id=116]
+[ext_resource path="res://player/hammer/hammerDown5.png" type="Texture" id=117]
+[ext_resource path="res://player/hammer/hammerDown6.png" type="Texture" id=118]
+[ext_resource path="res://player/hammer/hammerDown7.png" type="Texture" id=119]
+[ext_resource path="res://player/hammer/hammerDown8.png" type="Texture" id=120]
+[ext_resource path="res://player/hammer/hammerDown9.png" type="Texture" id=121]
+[ext_resource path="res://player/hammer/hammerDown10.png" type="Texture" id=122]
+[ext_resource path="res://player/hammer/hammerDown11.png" type="Texture" id=123]
+[ext_resource path="res://player/hammer/hammerDown12.png" type="Texture" id=124]
 [ext_resource path="res://player/seeds/seeds1.png" type="Texture" id=125]
 [ext_resource path="res://player/seeds/seeds2.png" type="Texture" id=126]
 [ext_resource path="res://player/seeds/seeds3.png" type="Texture" id=127]
@@ -214,171 +214,182 @@
 [ext_resource path="res://player/hoe/hoeLeft11.png" type="Texture" id=212]
 [ext_resource path="res://player/inventory/Inventory.tscn" type="PackedScene" id=213]
 [ext_resource path="res://menu/pause/Pause.gd" type="Script" id=214]
-[ext_resource path="res://shaders/morning.jpg" type="Texture" id=215]
-[ext_resource path="res://shaders/evening.jpg" type="Texture" id=216]
-[ext_resource path="res://shaders/night.jpg" type="Texture" id=217]
-[ext_resource path="res://shaders/raindrop.png" type="Texture" id=218]
-[ext_resource path="res://tilesets/Crops.png" type="Texture" id=219]
+[ext_resource path="res://menu/controls/Controls.gd" type="Script" id=215]
+[ext_resource path="res://menu/controls/Keys/Up.png" type="Texture" id=216]
+[ext_resource path="res://menu/controls/Keys/Down.png" type="Texture" id=217]
+[ext_resource path="res://menu/controls/Keys/Left.png" type="Texture" id=218]
+[ext_resource path="res://menu/controls/Keys/Right.png" type="Texture" id=219]
+[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=220]
+[ext_resource path="res://menu/controls/Keys/I.png" type="Texture" id=221]
+[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=222]
+[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=223]
+[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=224]
+[ext_resource path="res://menu/Dialog.gd" type="Script" id=225]
+[ext_resource path="res://shaders/morning.jpg" type="Texture" id=226]
+[ext_resource path="res://shaders/evening.jpg" type="Texture" id=227]
+[ext_resource path="res://shaders/night.jpg" type="Texture" id=228]
+[ext_resource path="res://shaders/raindrop.png" type="Texture" id=229]
+[ext_resource path="res://tilesets/Crops.png" type="Texture" id=230]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Hold Idle Left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Walk Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "Drop Up",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Water Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 36 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Water Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Pickup Left",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "Idle Left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Axe Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Axe Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 62 ) ],
-"loop": true,
-"name": "Hold Idle Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 63 ) ],
-"loop": true,
-"name": "Hold Idle Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "Hammer Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "Sickle Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Sickle Circle",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Sickle Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 62 ) ],
-"loop": false,
-"name": "Pickup Up",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Idle Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 32 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 22 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Water Circle",
-"speed": 9.0
-}, {
-"frames": [ ExtResource( 108 ), ExtResource( 109 ) ],
-"loop": true,
-"name": "Hold Walk Left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 110 ), ExtResource( 111 ) ],
-"loop": true,
-"name": "Walk Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "Hammer Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 124 ), ExtResource( 124 ), ExtResource( 124 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "Drop Down",
 "speed": 7.5
 }, {
-"frames": [ ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Hold Idle Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walk Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "Drop Up",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "Water Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Water Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 38 ), ExtResource( 38 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "Pickup Left",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "Idle Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "Axe Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Axe Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 63 ) ],
+"loop": true,
+"name": "Hold Idle Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 64 ) ],
+"loop": true,
+"name": "Hold Idle Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "Hammer Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "Sickle Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Sickle Circle",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "Sickle Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 63 ) ],
+"loop": false,
+"name": "Pickup Up",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Idle Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 23 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Water Circle",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 109 ), ExtResource( 110 ) ],
+"loop": true,
+"name": "Hold Walk Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 111 ), ExtResource( 112 ) ],
+"loop": true,
+"name": "Walk Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Hammer Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "Seeds",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "Hoe Down",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "Hoe Up",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "Axe Up",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "Hammer Left",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 124 ), ExtResource( 124 ), ExtResource( 124 ), ExtResource( 63 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 64 ) ],
 "loop": false,
 "name": "Pickup Down",
 "speed": 7.5
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 37 ), ExtResource( 37 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 38 ), ExtResource( 38 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "Drop Left",
 "speed": 7.5
 }, {
-"frames": [ ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 102 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 103 ), ExtResource( 102 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 103 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 182 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 103 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 104 ), ExtResource( 103 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 104 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 182 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "Water Up",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "Sickle Down",
 "speed": 12.5
@@ -398,7 +409,7 @@ animations = [ {
 "name": "Walk Left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "Hoe Left",
 "speed": 12.5
@@ -444,7 +455,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Initial Velocity", "Tangential Accel", "Trail" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 z_index = 2
 input_pickable = false
@@ -496,6 +507,7 @@ __meta__ = {
 [node name="Pause" type="Control" parent="Camera2D" index="1"]
 
 pause_mode = 2
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -521,10 +533,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -243.0
-margin_top = -152.0
-margin_right = 339.0
-margin_bottom = 189.0
+margin_left = -612.0
+margin_top = -316.0
+margin_right = 723.0
+margin_bottom = 379.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -650,6 +662,659 @@ text = "Quit"
 flat = false
 align = 1
 
+[node name="Controls" type="Control" parent="Camera2D" index="2"]
+
+pause_mode = 2
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -75.0
+margin_right = -90.0
+margin_bottom = -75.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 215 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="Background" type="ColorRect" parent="Camera2D/Controls" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -517.0
+margin_top = -213.0
+margin_right = 820.0
+margin_bottom = 484.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.328125, 0.328125, 0.328125, 0.56498 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Camera2D/Controls" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 403.0
+margin_bottom = 308.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 10
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Title" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 403.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Controls Scheme"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="Controls" type="HBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 403.0
+margin_bottom = 308.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="LeftMargin" type="MarginContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 315.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_top = 8
+custom_constants/margin_left = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="Description" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 8.0
+margin_right = 315.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 22
+alignment = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="Up" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 315.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player up"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Down" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 315.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player down"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Left" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 315.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player left"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Right" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 315.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player right"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Use Select" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 315.0
+margin_bottom = 158.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Use equipped item or select item from inventory"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Inventory" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 180.0
+margin_right = 315.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Open inventory"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Pickup" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 315.0
+margin_bottom = 230.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Pick up item"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Pause" type="Label" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 252.0
+margin_right = 315.0
+margin_bottom = 266.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Pause game"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Images" type="VBoxContainer" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 319.0
+margin_right = 403.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="Up" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 84.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 216 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 84.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 217 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Left" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 84.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 218 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Right" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 84.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 219 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Use Select" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 84.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 220 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Inventory" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 180.0
+margin_right = 84.0
+margin_bottom = 212.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 221 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pickup" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 84.0
+margin_bottom = 248.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 222 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pause" type="TextureRect" parent="Camera2D/Controls/CenterContainer/VBoxContainer/Controls/Images" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 252.0
+margin_right = 84.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 223 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Go back" type="MarginContainer" parent="Camera2D/Controls" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -135.0
+margin_top = -40.0
+margin_right = -43.0
+margin_bottom = -20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+_sections_unfolded = [ "Material", "Rect", "custom_constants" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/Controls/Go back" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 162.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Button" type="Button" parent="Camera2D/Controls/Go back/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 28.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 224 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pause Menu" type="Label" parent="Camera2D/Controls/Go back/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 3.0
+margin_right = 162.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Back to pause menu"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Dialog" type="Panel" parent="Camera2D" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -359.0
+margin_top = -188.0
+margin_right = 371.0
+margin_bottom = 201.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 225 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Dialog" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.0
+margin_top = -94.5
+margin_right = 117.0
+margin_bottom = 51.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = "Hello Farmer!
+
+Welcome to HarvestMoon2.0!
+
+You've inherited an old plot of land from your recently deceased grandpa. He wanted you to take care of the land after he passed. You can till the soil using your hoe, located in your inventory. You can open your inventory by pressing \"I\". You will also find seeds among other tools, like your watering can in your inventory. You will need to water your crops before the end of each day in order to see your crops grow! Other controls and tips can be found on the \"Controls\" menu, which you can find by pressing the escape key.
+
+Happy farming!"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Hello Farmer!
+
+Welcome to HarvestMoon2.0!
+
+You've inherited an old plot of land from your recently deceased grandpa. He wanted you to take care of the land after he passed. You can till the soil using your hoe, located in your inventory. You can open your inventory by pressing \"I\". You will also find seeds among other tools, like your watering can in your inventory. You will need to water your crops before the end of each day in order to see your crops grow! Other controls and tips can be found on the \"Controls\" menu, which you can find by pressing the escape key.
+
+Happy farming!"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="Close" type="Button" parent="Camera2D/Dialog" index="1"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -125.0
+margin_right = 47.0
+margin_bottom = -105.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "To the game!"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Rect" ]
+
 [node name="Shaders" type="Node2D" parent="." index="2"]
 
 _sections_unfolded = [ "Material", "Visibility" ]
@@ -660,7 +1325,7 @@ editor/display_folded = true
 modulate = Color( 0.67, 0.666667, 0.666667, 0 )
 show_behind_parent = true
 scale = Vector2( 2, 2 )
-texture = ExtResource( 215 )
+texture = ExtResource( 226 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="TweenMorningIn" type="Tween" parent="Shaders/Morning" index="0"]
@@ -712,7 +1377,7 @@ modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 position = Vector2( 3.03255, 13.218 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 216 )
+texture = ExtResource( 227 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 [node name="TweenEveningIn" type="Tween" parent="Shaders/Evening" index="0"]
@@ -738,7 +1403,7 @@ playback/speed = 1.0
 editor/display_folded = true
 modulate = Color( 0.392157, 0.431373, 0.431373, 0 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 217 )
+texture = ExtResource( 228 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="TweenNightIn" type="Tween" parent="Shaders/Night" index="0"]
@@ -777,7 +1442,7 @@ visibility_rect = Rect2( -0.732468, -349.594, 375.057, 698.366 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 2 )
-texture = ExtResource( 218 )
+texture = ExtResource( 229 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -792,7 +1457,7 @@ _sections_unfolded = [ "Visibility", "Z Index" ]
 
 visible = false
 scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 219 )
+texture = ExtResource( 230 )
 offset = Vector2( 1, -16 )
 region_enabled = true
 region_rect = Rect2( 0, 47.5, 16, 16 )
@@ -802,7 +1467,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 visible = false
 scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 219 )
+texture = ExtResource( 230 )
 offset = Vector2( 0, -15 )
 region_enabled = true
 region_rect = Rect2( 0, 96, 16, 16 )
@@ -811,7 +1476,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 [node name="Turnip" type="Sprite" parent="PickCrops" index="2"]
 
 visible = false
-texture = ExtResource( 219 )
+texture = ExtResource( 230 )
 offset = Vector2( 0, -13 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
@@ -822,5 +1487,9 @@ _sections_unfolded = [ "Offset", "Transform" ]
 [connection signal="pressed" from="Camera2D/Pause/Buttons/Controls" to="Camera2D/Pause" method="_on_Controls_pressed"]
 
 [connection signal="pressed" from="Camera2D/Pause/Buttons/Quit" to="Camera2D/Pause" method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="Camera2D/Controls/Go back/HBoxContainer/Button" to="Camera2D/Controls" method="_on_Button_pressed"]
+
+[connection signal="pressed" from="Camera2D/Dialog/Close" to="Camera2D/Dialog" method="_on_Close_pressed"]
 
 
