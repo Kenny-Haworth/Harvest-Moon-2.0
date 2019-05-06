@@ -18,6 +18,8 @@ config/icon="res://player/idle/Idle Down.png"
 
 window/size/width=1280
 window/size/height=800
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
