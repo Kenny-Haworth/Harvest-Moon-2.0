@@ -4,6 +4,7 @@
 
 [node name="Pause" type="Control"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -15,6 +16,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="Background" type="ColorRect" parent="." index="0"]
 
@@ -123,7 +125,7 @@ text = "Controls"
 flat = false
 align = 1
 
-[node name="Options" type="Button" parent="Buttons" index="2"]
+[node name="Quit" type="Button" parent="Buttons" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -150,5 +152,7 @@ align = 1
 [connection signal="pressed" from="Buttons/Resume" to="." method="_on_Resume_pressed"]
 
 [connection signal="pressed" from="Buttons/Controls" to="." method="_on_Controls_pressed"]
+
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
 
 

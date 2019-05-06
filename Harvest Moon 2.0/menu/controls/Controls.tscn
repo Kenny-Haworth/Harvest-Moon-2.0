@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://menu/controls/Controls.gd" type="Script" id=1]
-[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=2]
-[ext_resource path="res://menu/controls/Keys/Up.png" type="Texture" id=3]
-[ext_resource path="res://menu/controls/Keys/Down.png" type="Texture" id=4]
-[ext_resource path="res://menu/controls/Keys/Left.png" type="Texture" id=5]
-[ext_resource path="res://menu/controls/Keys/Right.png" type="Texture" id=6]
-[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=7]
-[ext_resource path="res://menu/controls/Keys/I.png" type="Texture" id=8]
-[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=9]
-[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=10]
+[ext_resource path="res://menu/controls/MainControls.gd" type="Script" id=1]
+[ext_resource path="res://menu/controls/Keys/Up.png" type="Texture" id=2]
+[ext_resource path="res://menu/controls/Keys/Down.png" type="Texture" id=3]
+[ext_resource path="res://menu/controls/Keys/Left.png" type="Texture" id=4]
+[ext_resource path="res://menu/controls/Keys/Right.png" type="Texture" id=5]
+[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=6]
+[ext_resource path="res://menu/controls/Keys/I.png" type="Texture" id=7]
+[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=8]
+[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=9]
+[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=10]
 
 [node name="Controls" type="Control"]
 
@@ -27,9 +27,465 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 
-[node name="Go back" type="MarginContainer" parent="." index="0"]
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.328125, 0.328125, 0.328125, 0.56498 )
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 438.0
+margin_top = 246.0
+margin_right = 841.0
+margin_bottom = 554.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 10
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 403.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Controls Scheme"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="Controls" type="HBoxContainer" parent="CenterContainer/VBoxContainer" index="1"]
 
 editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 403.0
+margin_bottom = 308.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="LeftMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/Controls" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 315.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_top = 8
+custom_constants/margin_left = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="Description" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Controls/LeftMargin" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 8.0
+margin_right = 315.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 22
+alignment = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="Up" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 315.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player up"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Down" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 315.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player down"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Left" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 315.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player left"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Right" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 315.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move player right"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Use Select" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 315.0
+margin_bottom = 158.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Use equipped item or select item from inventory"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Inventory" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 180.0
+margin_right = 315.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Open inventory"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Pickup" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 315.0
+margin_bottom = 230.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Pick up item"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Pause" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 252.0
+margin_right = 315.0
+margin_bottom = 266.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Pause game"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Images" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Controls" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 319.0
+margin_right = 403.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="Up" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 84.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 84.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Left" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 84.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Right" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 84.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Use Select" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 84.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Inventory" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 180.0
+margin_right = 84.0
+margin_bottom = 212.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pickup" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 84.0
+margin_bottom = 248.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pause" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 252.0
+margin_right = 84.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 9 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Go back" type="MarginContainer" parent="." index="2"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -45,7 +501,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/margin_top = 15
 custom_constants/margin_left = 15
-_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Go back" index="0"]
 
@@ -85,7 +540,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 2 )
+icon = ExtResource( 10 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -112,414 +567,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "Rect" ]
-
-[node name="Title" type="Label" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 4.0
-margin_top = 250.0
-margin_right = 1284.0
-margin_bottom = 214.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Controls Scheme"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
-
-[node name="Controls" type="HBoxContainer" parent="." index="2"]
-
-editor/display_folded = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -207.0
-margin_top = -127.5
-margin_right = 207.0
-margin_bottom = 127.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Margin" ]
-
-[node name="LeftMargin" type="MarginContainer" parent="Controls" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 315.0
-margin_bottom = 284.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_top = 8
-custom_constants/margin_left = 0
-_sections_unfolded = [ "Margin", "custom_constants" ]
-
-[node name="Description" type="VBoxContainer" parent="Controls/LeftMargin" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 8.0
-margin_right = 315.0
-margin_bottom = 284.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/separation = 22
-alignment = 0
-_sections_unfolded = [ "Margin" ]
-
-[node name="Up" type="Label" parent="Controls/LeftMargin/Description" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 315.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Move player up"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Down" type="Label" parent="Controls/LeftMargin/Description" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 315.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Move player down"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Left" type="Label" parent="Controls/LeftMargin/Description" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 315.0
-margin_bottom = 86.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Move player left"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Right" type="Label" parent="Controls/LeftMargin/Description" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 108.0
-margin_right = 315.0
-margin_bottom = 122.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Move player right"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Use Select" type="Label" parent="Controls/LeftMargin/Description" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 144.0
-margin_right = 315.0
-margin_bottom = 158.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Use equipped item or select item from inventory"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Inventory" type="Label" parent="Controls/LeftMargin/Description" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 180.0
-margin_right = 315.0
-margin_bottom = 194.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Open inventory"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Pickup" type="Label" parent="Controls/LeftMargin/Description" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 216.0
-margin_right = 315.0
-margin_bottom = 230.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Pick up item"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Pause" type="Label" parent="Controls/LeftMargin/Description" index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 252.0
-margin_right = 315.0
-margin_bottom = 266.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Pause game"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Images" type="VBoxContainer" parent="Controls" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 319.0
-margin_right = 403.0
-margin_bottom = 284.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Margin", "custom_constants" ]
-
-[node name="Up" type="TextureRect" parent="Controls/Images" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Down" type="TextureRect" parent="Controls/Images" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 84.0
-margin_bottom = 68.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Left" type="TextureRect" parent="Controls/Images" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 84.0
-margin_bottom = 104.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 5 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Right" type="TextureRect" parent="Controls/Images" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 108.0
-margin_right = 84.0
-margin_bottom = 140.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 6 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Use Select" type="TextureRect" parent="Controls/Images" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 144.0
-margin_right = 84.0
-margin_bottom = 176.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 7 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Inventory" type="TextureRect" parent="Controls/Images" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 180.0
-margin_right = 84.0
-margin_bottom = 212.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 8 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Pickup" type="TextureRect" parent="Controls/Images" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 216.0
-margin_right = 84.0
-margin_bottom = 248.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 9 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Pause" type="TextureRect" parent="Controls/Images" index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 252.0
-margin_right = 84.0
-margin_bottom = 284.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 10 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="Go back/HBoxContainer/Button" to="." method="_on_Button_pressed"]
 
