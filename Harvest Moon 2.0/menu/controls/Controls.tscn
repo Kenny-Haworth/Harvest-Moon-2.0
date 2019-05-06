@@ -1,17 +1,24 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://menu/controls/MainControls.gd" type="Script" id=1]
 [ext_resource path="res://menu/controls/Keys/Up.png" type="Texture" id=2]
 [ext_resource path="res://menu/controls/Keys/Down.png" type="Texture" id=3]
 [ext_resource path="res://menu/controls/Keys/Left.png" type="Texture" id=4]
 [ext_resource path="res://menu/controls/Keys/Right.png" type="Texture" id=5]
-[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=6]
-[ext_resource path="res://menu/controls/Keys/I.png" type="Texture" id=7]
-[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=8]
-[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=9]
-[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=10]
+[ext_resource path="res://menu/controls/Keys/W.png" type="Texture" id=6]
+[ext_resource path="res://menu/controls/Keys/S.png" type="Texture" id=7]
+[ext_resource path="res://menu/controls/Keys/A.png" type="Texture" id=8]
+[ext_resource path="res://menu/controls/Keys/D.png" type="Texture" id=9]
+[ext_resource path="res://menu/controls/Keys/Enter.png" type="Texture" id=10]
+[ext_resource path="res://menu/controls/Keys/Space.png" type="Texture" id=11]
+[ext_resource path="res://menu/controls/Keys/Tab.png" type="Texture" id=12]
+[ext_resource path="res://menu/controls/Keys/B.png" type="Texture" id=13]
+[ext_resource path="res://menu/controls/Keys/Q.png" type="Texture" id=14]
+[ext_resource path="res://menu/controls/Keys/Escape.png" type="Texture" id=15]
+[ext_resource path="res://menu/controls/Keys/E.png" type="Texture" id=16]
+[ext_resource path="res://menu/controls/Keys/Back.png" type="Texture" id=17]
 
-[node name="Controls" type="Control"]
+[node name="Controls" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -43,10 +50,14 @@ color = Color( 0.328125, 0.328125, 0.328125, 0.56498 )
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -400.0
+margin_right = 640.0
+margin_bottom = 400.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -61,10 +72,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 438.0
-margin_top = 246.0
-margin_right = 841.0
-margin_bottom = 554.0
+margin_left = 380.0
+margin_top = 238.0
+margin_right = 900.0
+margin_bottom = 568.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -73,7 +84,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 10
 alignment = 0
-_sections_unfolded = [ "custom_constants" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
 
@@ -81,7 +92,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 403.0
+margin_right = 520.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -96,7 +107,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="Controls" type="HBoxContainer" parent="CenterContainer/VBoxContainer" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -104,8 +115,30 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 24.0
-margin_right = 403.0
-margin_bottom = 308.0
+margin_right = 520.0
+margin_bottom = 334.0
+rect_min_size = Vector2( 520, 310 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 0
+_sections_unfolded = [ "Grow Direction", "Rect", "Scroll" ]
+
+[node name="Controls" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 505.0
+margin_bottom = 444.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -115,15 +148,14 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="LeftMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/Controls" index="0"]
+[node name="LeftMargin" type="MarginContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 315.0
-margin_bottom = 284.0
+margin_right = 249.0
+margin_bottom = 444.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -134,16 +166,69 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 0
 _sections_unfolded = [ "Margin", "custom_constants" ]
 
-[node name="Description" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Controls/LeftMargin" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 8.0
+margin_right = 249.0
+margin_bottom = 444.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Default" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Default Controls"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Upper" type="MarginContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 8.0
-margin_right = 315.0
-margin_bottom = 284.0
+margin_top = 18.0
+margin_right = 249.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Description" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 249.0
+margin_bottom = 302.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -154,13 +239,13 @@ custom_constants/separation = 22
 alignment = 0
 _sections_unfolded = [ "Margin" ]
 
-[node name="Up" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="0"]
+[node name="Move player" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -168,20 +253,20 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player up"
+text = "Move player"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Down" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="1"]
+[node name="Change direction" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 36.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -189,19 +274,19 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player down"
+text = "Change direction of player"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Left" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="2"]
+[node name="Action" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 72.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 86.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -209,19 +294,19 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player left"
+text = "Action key"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Right" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="3"]
+[node name="Super Action" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 108.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 122.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -229,40 +314,20 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Move player right"
+text = "Super action key (hold to use)"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Use Select" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="4"]
+[node name="Inventory" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 144.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 158.0
-rect_pivot_offset = Vector2( -65.8062, 304.541 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Use equipped item or select item from inventory"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Inventory" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 180.0
-margin_right = 315.0
-margin_bottom = 194.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
 mouse_filter = 2
@@ -274,14 +339,34 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Pickup" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="6"]
+[node name="Store" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 180.0
+margin_right = 241.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Store item in bag"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Pickup" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 216.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 230.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -289,19 +374,19 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Pick up item"
+text = "Pick up/drop item"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Pause" type="Label" parent="CenterContainer/VBoxContainer/Controls/LeftMargin/Description" index="7"]
+[node name="Pause" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 252.0
-margin_right = 315.0
+margin_right = 241.0
 margin_bottom = 266.0
 rect_pivot_offset = Vector2( -65.8062, 304.541 )
 rect_clip_content = false
@@ -314,16 +399,171 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Images" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Controls" index="1"]
+[node name="Sleep" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Upper/Description" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 288.0
+margin_right = 241.0
+margin_bottom = 302.0
+rect_pivot_offset = Vector2( -65.8062, 304.541 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Sleep (must be next to bed)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Inventory Controls" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 324.0
+margin_right = 249.0
+margin_bottom = 338.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Inventory Controls"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Lower" type="MarginContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 319.0
-margin_right = 403.0
-margin_bottom = 284.0
+margin_top = 342.0
+margin_right = 249.0
+margin_bottom = 428.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Lower" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 249.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 22
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Close Inventory" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Lower/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 241.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Close inventory (does not equip item)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Equip" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Lower/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 241.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Equip item"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Swap" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/LeftMargin/VBoxContainer/Lower/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 241.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Swap items"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="RightContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 253.0
+margin_right = 505.0
+margin_bottom = 444.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_top = 16
+custom_constants/margin_left = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="Images" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 16.0
+margin_right = 252.0
+margin_bottom = 444.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -333,7 +573,210 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Margin", "custom_constants" ]
 
-[node name="Up" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="0"]
+[node name="Move Images" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 252.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Up" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Left" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Right" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Move Images" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Face Direction" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 252.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Up" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Face Direction" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Face Direction" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Left" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Face Direction" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Right" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Face Direction" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 9 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Use" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 252.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Up" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Use" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -347,56 +790,38 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 10 )
 stretch_mode = 0
 _sections_unfolded = [ "Focus", "Mouse", "Rect" ]
 
-[node name="Down" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="1"]
+[node name="Down" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Use" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 84.0
-margin_bottom = 68.0
+margin_left = 88.0
+margin_right = 248.0
+margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 11 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Left" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="2"]
+[node name="Super Use" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="3"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 84.0
-margin_bottom = 104.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 4 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Right" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="3"]
-
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 108.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -404,18 +829,53 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 5 )
+alignment = 0
+
+[node name="Up" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Super Use" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 84.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+stretch_mode = 0
+_sections_unfolded = [ "Focus", "Mouse", "Rect" ]
+
+[node name="Down" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Super Use" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 88.0
+margin_right = 248.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Use Select" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="4"]
+[node name="Inventory" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 144.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 176.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -423,19 +883,220 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Inventory" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="5"]
+[node name="Store" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 180.0
-margin_right = 84.0
+margin_right = 252.0
 margin_bottom = 212.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 13 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pickup" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 216.0
+margin_right = 252.0
+margin_bottom = 248.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Pause" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 252.0
+margin_right = 252.0
+margin_bottom = 284.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 15 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Bed" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 288.0
+margin_right = 252.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 16 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Lower" type="MarginContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 324.0
+margin_right = 252.0
+margin_bottom = 428.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_left = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 252.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Material", "Pause", "custom_constants" ]
+
+[node name="Inventory2" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 252.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="E" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 36.0
+margin_right = 252.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Equip" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/E" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 16 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/E" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 115.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "or right click"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="S" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 252.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Swap" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/S" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 32.0
+margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -446,46 +1107,30 @@ texture = ExtResource( 7 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Pickup" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="6"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/Controls/RightContainer/Images/Lower/VBoxContainer/S" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 216.0
-margin_right = 84.0
-margin_bottom = 248.0
+margin_left = 36.0
+margin_right = 252.0
+margin_bottom = 31.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 8 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="Pause" type="TextureRect" parent="CenterContainer/VBoxContainer/Controls/Images" index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 252.0
-margin_right = 84.0
-margin_bottom = 284.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 9 )
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
+size_flags_vertical = 4
+text = "(once to select, twice to snap to a
+new location) or right click"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Go back" type="MarginContainer" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -540,7 +1185,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 10 )
+icon = ExtResource( 17 )
 flat = true
 align = 1
 _sections_unfolded = [ "Rect" ]
