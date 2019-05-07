@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/watering.wav-0e845d37dd2af2197f4edcc28c1d18e8.sample"
+
+[deps]
+
+source_file="res://sound/tools/watering.wav"
+dest_files=[ "res://.import/watering.wav-0e845d37dd2af2197f4edcc28c1d18e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

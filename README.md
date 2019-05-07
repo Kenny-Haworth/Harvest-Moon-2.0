@@ -9,4 +9,5 @@ Group Members:
   <li>Jeffrey Nguyen</li>
   <li>Serena Ing</li>
   <li>Anthony Nuno</li>
+  <li>Diego Bautista</li>
 </ul>
