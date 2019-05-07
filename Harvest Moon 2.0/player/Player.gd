@@ -9,13 +9,17 @@ const sleepDelay = 8000 #8 seconds
 var sleepTime = -8000
 
 #handles what time of day it is and when to change it for the shaders
-const changeTimeDelay = 30000 #(msec) 30 seconds, timeChangeCycle - changeTimeDelay(s) == how long the shader is held for at full opacity strength
-const timeChangeCycle = 15 #(seconds) 15 seconds
+onready var Date = get_node("UI/Date/Layout")
+const changeTimeDelay = 10000 #(msec) 10 seconds, prevents time of day spam
+const timeChangeCycle = 20 #(seconds) 20 seconds, how long the transitions take
 var changeTime = 0
-var time = 3 #1 morning, 2 afternoon, 3 evening, 4 night
 
 #for tweening shaders for time of day
 onready var Shaders = get_node("Shaders")
+onready var Morning = get_node("Shaders/Morning")
+onready var Afternoon = get_node("Shaders/Afternoon")
+onready var Evening = get_node("Shaders/Evening")
+onready var Night = get_node("Shaders/Night")
 onready var TweenMorningIn = get_node("Shaders/Morning/TweenMorningIn")
 onready var TweenMorningOut = get_node("Shaders/Morning/TweenMorningOut")
 onready var TweenAfternoonIn = get_node("Shaders/Afternoon/TweenAfternoonIn")
@@ -26,6 +30,7 @@ onready var TweenNightIn = get_node("Shaders/Night/TweenNightIn")
 onready var TweenNightOut = get_node("Shaders/Night/TweenNightOut")
 
 #for weather
+onready var Weather = get_node("UI/Date/Weather")
 onready var Rain = get_node("Rain")
 
 #for controlling the inventory
@@ -33,6 +38,9 @@ var inventoryOpen = false
 const closeInventoryDelay = 250 #.25 seconds, the amount of time until an action can be taken after closing the inventory
 var inventoryCloseTime = -250 #negative closeInventoryDelay by default for inventory closed
 onready var Inventory = get_node("Camera2D/Inventory")
+
+#for handling the player's energy
+onready var Energy = get_node("UI/CanvasLayer/Energy")
 
 #for picking up crops
 var crop_number
@@ -163,7 +171,8 @@ func _physics_process(delta):
 		do_it_once = false
 	
 	#knocks the player out and progresses to the next day if it is too late in the day
-	if Input.is_action_pressed("O") and OS.get_ticks_msec() > sleepTime + sleepDelay:
+	if Date.hour == 23 and OS.get_ticks_msec() > sleepTime + sleepDelay:
+		$Sprite.set_offset(Vector2()) #reset animation if the player was in the middle of performing an action
 		animationCommit = true #play the pass out animation
 		lastAnimation = "pass out"
 		sleepTime = OS.get_ticks_msec() #prevent sleep spam
@@ -176,13 +185,20 @@ func _physics_process(delta):
 	
 	#change time
 	if (OS.get_ticks_msec() > changeTime + changeTimeDelay):
-		changeTime = OS.get_ticks_msec()
-		changeTime()
+		if Date.hour == 6: #6 in the morning
+			changeTime("afternoon")
+			changeTime = OS.get_ticks_msec()
+		elif Date.hour == 12: #12 in the afternoon
+			changeTime("evening")
+			changeTime = OS.get_ticks_msec()
+		elif Date.hour == 17: #5 in the evening
+			changeTime("night")
+			changeTime = OS.get_ticks_msec()
 	
 	#player has pressed to perform an action based on equipped item
-	#they are also not holding an item or currently performing an animation
+	#they are also not holding an item or currently performing an animation, and they still have energy to use their tools
 	#their parent is also the farm, since they cannot perform an action while not on the farm
-	if (Input.is_action_pressed("ui_accept") and not holdingItem and not animationCommit and Zone.name == "Farm") or (powerHold):
+	if (Input.is_action_pressed("ui_accept") and not holdingItem and not animationCommit and Zone.name == "Farm" and Energy.current > 0) or (powerHold):
 		#hammer
 		#if Inventory.activeItem == 2:
 		if Inventory.equippedItem == "1":
@@ -648,7 +664,9 @@ func _physics_process(delta):
 			else: #player is in the house, needs to be teleported to the bed
 				Game.house_to_sleep()
 			Game.get_node("Farm").sleep() #progress farm logic
-			sleep() #change the tweeners
+			Energy.reset_energy() #give the player back their energy
+			Date.new_day() #increment the day
+			changeTime("morning") #change the tweeners to morning
 			Game.houseMusic.play()
 			animationCommit = false
 			lastAnimation = "down"
@@ -1223,12 +1241,10 @@ func set_crop_offset():
 		elif facingDirection == "down":
 			Turnip.set_offset(TurnipDown)
 
-func changeTime():
-	if time == 1: #morning
-		TweenNightOut.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,.75), Color(0.39,0.43,0.43,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		TweenNightOut.start() #fade out the night
-		TweenMorningIn.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,0), Color(0.67,0.67,0.67,.35), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-		TweenMorningIn.start() #fade in the morning
+func changeTime(time):
+	if time == "morning": #fast tweening, called after sleeping
+		reset_tweeners()
+		Weather.set_weather("sunny")
 		
 		#rain starts in the morning and lasts all day
 		var rainChance = randi()%4 + 1 #1-4
@@ -1238,32 +1254,34 @@ func changeTime():
 				Rain.set_emitting(true)
 				Game.rain.play()
 			Game.get_node("Farm").simulate_rain() #water tilled squares for rain
+			Weather.set_weather("raining") #change the UI's shown weather
 		else: #turns the rain off
 			Rain.set_one_shot(true)
 			Game.rain.stop()
 		
-		time += 1
-	elif time == 2: #afternoon
-		TweenMorningOut.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	elif time == "afternoon":
+		TweenMorningOut.interpolate_property(Morning, "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		TweenMorningOut.start() #fade out the morning
-		TweenAfternoonIn.interpolate_property(get_node("Shaders/Afternoon"), "modulate", Color(1,1,1,0), Color(1,1,1,1), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		TweenAfternoonIn.interpolate_property(Afternoon, "modulate", Color(1,1,1,0), Color(1,1,1,1), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		TweenAfternoonIn.start() #fade in the afternoon
-		time += 1
-	elif time == 3: #evening
-		TweenAfternoonOut.interpolate_property(get_node("Shaders/Afternoon"), "modulate", Color(1,1,1,1), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	
+	elif time == "evening":
+		TweenAfternoonOut.interpolate_property(Afternoon, "modulate", Color(1,1,1,1), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenAfternoonOut.start() #fade out the afternoon
-		TweenEveningIn.interpolate_property(get_node("Shaders/Evening"), "modulate", Color(1,1,1,0), Color(1,1,1,.25), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenEveningIn.interpolate_property(Evening, "modulate", Color(1,1,1,0), Color(1,1,1,.25), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenEveningIn.start() #fade in the evening
-		time += 1
-	elif time == 4: #night
-		TweenEveningOut.interpolate_property(get_node("Shaders/Evening"), "modulate", Color(1,1,1,.25), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	
+	elif time == "night":
+		TweenEveningOut.interpolate_property(Evening, "modulate", Color(1,1,1,.25), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenEveningOut.start() #fade out the evening
-		TweenNightIn.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.75), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		TweenNightIn.interpolate_property(Night, "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.75), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		TweenNightIn.start() #fade in the night
-		time = 1
+		if not Rain.emitting:
+			Weather.set_weather("night")
 
 #changes the tweeners to progress to the next day
-func sleep():
+func reset_tweeners():
+	#stop all currently running tweeners
 	TweenMorningOut.stop_all()
 	TweenMorningIn.stop_all()
 	TweenAfternoonIn.stop_all()
@@ -1273,32 +1291,11 @@ func sleep():
 	TweenNightIn.stop_all()
 	TweenNightOut.stop_all()
 	
-	#tween out any shaders on the screen
-	TweenMorningOut.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), .2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	TweenMorningOut.start() #fade out the morning
-	TweenAfternoonOut.interpolate_property(get_node("Shaders/Afternoon"), "modulate", Color(1,1,1,1), Color(1,1,1,0), .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	TweenAfternoonOut.start() #fade out the afternoon
-	TweenEveningOut.interpolate_property(get_node("Shaders/Evening"), "modulate", Color(1,1,1,.25), Color(1,1,1,0), .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	TweenEveningOut.start() #fade out the evening
-	TweenNightOut.interpolate_property(get_node("Shaders/Night"), "modulate", Color(0.39,0.43,0.43,.75), Color(0.39,0.43,0.43,0), .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	TweenNightOut.start() #fade out the night
-	
-	#tween in the morning
-	TweenMorningIn.interpolate_property(get_node("Shaders/Morning"), "modulate", Color(0.67,0.67,0.67,0), Color(0.67,0.67,0.67,.35), .2, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-	TweenMorningIn.start() #fade in the morning
-	
-	#rain starts in the morning and lasts all day
-	var rainChance = randi()%4 + 1 #1-4
-	if rainChance == 1: #25% chance of rain
-		if not Rain.emitting: #if it is already raining, don't change anything. Otherwise toggle the rain
-			Rain.set_one_shot(false)
-			Rain.set_emitting(true)
-			Game.rain.play()
-		Game.get_node("Farm").simulate_rain() #water tilled squares for rain
-	else: #turns the rain off
-		Rain.set_one_shot(true)
-		Game.rain.stop()
-	time = 2
+	#reset any shaders on the screen, setting the morning to full brightness
+	Morning.modulate = Color(0.67,0.67,0.67,.35)
+	Afternoon.modulate = Color(1,1,1,0)
+	Evening.modulate = Color(1,1,1,0)
+	Night.modulate = Color(0.39,0.43,0.43,0)
 
 #enables shaders and weather if they were disabled or disables them if they were enabled (for indoor vs. outdoor settings)
 func toggle_tweeners():
