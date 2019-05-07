@@ -1,0 +1,61 @@
+[gd_resource type="TileSet" load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/RockWoodWeedsImg.png" type="Texture" id=1]
+
+[resource]
+
+0/name = "Log"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 32, 0, 32, 32 )
+0/is_autotile = false
+0/occluder_offset = Vector2( 16, 16 )
+0/navigation_offset = Vector2( 16, 16 )
+0/shapes = [  ]
+1/name = "Wood"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 32, 32 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 16, 16 )
+1/navigation_offset = Vector2( 16, 16 )
+1/shapes = [  ]
+2/name = "Rock"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 32, 32, 32 )
+2/is_autotile = false
+2/occluder_offset = Vector2( 16, 16 )
+2/navigation_offset = Vector2( 16, 16 )
+2/shapes = [  ]
+3/name = "Rock2"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 32, 32, 32, 32 )
+3/is_autotile = false
+3/occluder_offset = Vector2( 16, 16 )
+3/navigation_offset = Vector2( 16, 16 )
+3/shapes = [  ]
+4/name = "Weed"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 64, 32, 32 )
+4/is_autotile = false
+4/occluder_offset = Vector2( 16, 16 )
+4/navigation_offset = Vector2( 16, 16 )
+4/shapes = [  ]
+5/name = "Invisible"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 32, 64, 32, 32 )
+5/is_autotile = false
+5/occluder_offset = Vector2( 16, 16 )
+5/navigation_offset = Vector2( 16, 16 )
+5/shapes = [  ]
+

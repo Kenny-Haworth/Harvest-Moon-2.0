@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/RockWoodWeedsImg.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+position = Vector2( 86.5443, 111.746 )
+
+[node name="Log" type="Sprite" parent="." index="0"]
+
+position = Vector2( 241.536, 169.3 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Wood" type="Sprite" parent="." index="1"]
+
+position = Vector2( 68.4475, 215.663 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Rock" type="Sprite" parent="." index="2"]
+
+position = Vector2( 25.1753, 30.2104 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Rock2" type="Sprite" parent="." index="3"]
+
+position = Vector2( 111.72, 126.027 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Weed" type="Sprite" parent="." index="4"]
+
+position = Vector2( 337.353, 61.1191 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Invisible" type="Sprite" parent="." index="5"]
+
+position = Vector2( 25.1753, 30.2104 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+

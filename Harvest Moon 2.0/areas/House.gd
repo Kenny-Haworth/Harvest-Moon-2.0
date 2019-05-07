@@ -8,7 +8,7 @@ onready var Objects = get_node("Objects")
 onready var Background = get_node("Background")
 
 #declare the size of this area and the tile sizes of this area
-const grid_size = Vector2(9, 9) #16 tiles x 16 tiles (x,y)
+const grid_size = Vector2(9, 9) #9 tiles x 9 tiles (x,y)
 var tile_size #32 pixels x 32 pixels
 var half_tile_size
 var grid = []
@@ -33,6 +33,12 @@ func _ready():
 #this function tells the player if they are about to be teleported to a new area
 func teleport(position):
 	if Objects.world_to_map(position) == Vector2(4, 8):
+		return true
+	return false
+
+#tells the player if they are standing next to the bed or not
+func can_sleep(position):
+	if Objects.world_to_map(position) == Vector2(5, 3):
 		return true
 	return false
 

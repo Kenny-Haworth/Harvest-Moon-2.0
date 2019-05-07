@@ -16,10 +16,14 @@ onready var Game = get_parent()
 onready var Foreground = get_node("Foreground")
 onready var Crops = get_node("Crops")
 onready var Dirt = get_node("Dirt")
+onready var Junk = get_node("Junk")
 onready var Objects1 = get_node("Objects1")
 onready var Objects2 = get_node("Objects2")
 onready var Background1 = get_node("Background1")
 onready var Background2 = get_node("Background2")
+
+#get the player's inventory (to edit # of seeds when throwing them)
+#onready var Inventory = get_node("Player/Camera2D/Inventory")
 
 #location of other areas to teleport to
 const house_location = Vector2(19, 8)
@@ -37,7 +41,7 @@ func _ready():
 	half_tile_size = Game.half_tile_size
 	
 	#all tilemap children of this node should have the same cell size
-	assert (tile_size == Crops.get_cell_size() and Crops.get_cell_size() == Dirt.get_cell_size() and Dirt.get_cell_size() == Objects1.get_cell_size() and Objects1.get_cell_size() == Objects2.get_cell_size() and Objects2.get_cell_size() == Foreground.get_cell_size() and Foreground.get_cell_size() == Background1.get_cell_size() and Background1.get_cell_size() == Background2.get_cell_size())
+	assert (tile_size == Crops.get_cell_size() and Crops.get_cell_size() == Dirt.get_cell_size() and Dirt.get_cell_size() == Junk.get_cell_size() and Junk.get_cell_size() == Objects1.get_cell_size() and Objects1.get_cell_size() == Objects2.get_cell_size() and Objects2.get_cell_size() == Foreground.get_cell_size() and Foreground.get_cell_size() == Background1.get_cell_size() and Background1.get_cell_size() == Background2.get_cell_size())
 	
 	#add all objects to the grid for this area
 	for x in range(grid_size.x):
@@ -134,9 +138,24 @@ func sleep():
 				Crops.set_cellv(Vector2(x, y), 17)
 				Dirt.set_cell(x,y,0)
 				
-			#finally, any watered dirt without crops should become unwatered at the end of the day as well
+			#any watered dirt without crops should become unwatered at the end of the day
 			elif Dirt.get_cell(x,y) == 2:
 				Dirt.set_cell(x,y,0)
+			
+			#chance to spawn wood, weeds, or stone at the end of the day,
+			#conditions: it is a soil cell, it is not tilled, it does not already have junk on it
+			#5% chance to spawn junk
+			if Background2.get_cell(x,y) == 15 and Dirt.get_cell(x,y) == -1 and Junk.get_cell(x,y) == -1 and randi()%20 + 1 == 1:
+				var junk_type = randi()%3 + 1 #1-3
+				if junk_type == 1:
+					Junk.set_cell(x,y,4) #weeds
+				elif junk_type == 2:
+					if randi()%2+1 == 1:
+						Junk.set_cell(x,y,2) #rock 1
+					else:
+						Junk.set_cell(x,y,3) #rock 2
+				elif junk_type == 3:
+					Junk.set_cell(x,y,0) #wood
 
 #change the tile the player has swung their hammer towards
 func smash_hammer(pos, orientation):
@@ -149,33 +168,74 @@ func smash_hammer(pos, orientation):
 	elif orientation == "left":
 		pos.x -= tile_size.x
 		
-	#un-till the tile of dirt if there are no crops on it
-	if (Crops.get_cellv(Crops.world_to_map(pos)) == -1):
+	#un-till the tile of dirt if there are no crops on it, and it is tilled or tilled and watered
+	if (Crops.get_cellv(Crops.world_to_map(pos)) == -1) and (Dirt.get_cellv(Dirt.world_to_map(pos)) == 0 or Dirt.get_cellv(Dirt.world_to_map(pos)) == 2):
 		Dirt.set_cellv(Dirt.world_to_map(pos), -1)
+		if not Game.hammer.playing: #do not overlap this sound
+			Game.hammer.play()
+	elif (Junk.get_cellv(Junk.world_to_map(pos)) == 2) or (Junk.get_cellv(Junk.world_to_map(pos)) == 3):
+		Junk.set_cellv(Junk.world_to_map(pos), -1)
+		if not Game.hammer.playing:
+			Game.hammer.play()
 
 #spread seeds around the player
 func spread_seeds(pos, seedType):
 	
+	var Inventory = get_node("Player/Camera2D/Inventory")
+	var seedAmount = PlayerInventory_Script.get_number(Inventory.equippedItemSlot)
+	
 	#only spread seeds if the tile is already tilled (it can be watered already too, so 0 or 2)
 	#also, there must not already be crops or seeds on this tile
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+tile_size.x, pos.y))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y))) == -1):
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+tile_size.x, pos.y))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x-tile_size.x, pos.y))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x-tile_size.x, pos.y))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x, pos.y+tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x, pos.y+tile_size.x))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x, pos.y+tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x, pos.y+tile_size.x))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x, pos.y+tile_size.x)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x, pos.y-tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x, pos.y-tile_size.x))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x, pos.y-tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x, pos.y-tile_size.x))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x, pos.y-tile_size.x)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x))) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x))) >= 0) and (Crops.get_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x))) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x)), seedType)
-	if (Dirt.get_cellv(Dirt.world_to_map(pos)) >= 0) and (Crops.get_cellv(Crops.world_to_map(pos)) == -1):
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	if (Dirt.get_cellv(Dirt.world_to_map(pos)) >= 0) and (Crops.get_cellv(Crops.world_to_map(pos)) == -1) and seedAmount != 0:
 		Crops.set_cellv(Crops.world_to_map(pos), seedType)
+		seedAmount = PlayerInventory_Script.inventory_removeItem(Inventory.equippedItemSlot)
+		if not Game.seeds.playing:
+			Game.seeds.play()
+	
+	if seedAmount == 0: #unequip the seeds
+		Inventory.equipItem()
+	
+	Inventory.load_items()
 
 #tills 3 tiles of soil the player is facing towards
 func swing_hoe(pos, orientation):
@@ -202,30 +262,93 @@ func swing_hoe(pos, orientation):
 		y2 -= tile_size.x
 		
 	#create tilled soil
-	#check that the square is first a soil square and that it isn't already watered
-	if Background2.get_cellv(Background2.world_to_map(pos)) == 15 and Dirt.get_cellv(Dirt.world_to_map(pos)) != 2:
+	#check that the square is first a soil square and that it isn't already watered or hoed. It also must have no junk on it
+	if Background2.get_cellv(Background2.world_to_map(pos)) == 15 and Dirt.get_cellv(Dirt.world_to_map(pos)) == -1 and Junk.get_cellv(Junk.world_to_map(pos)) == -1:
 		Dirt.set_cellv(Dirt.world_to_map(pos), 0)
-	if Background2.get_cellv(Background2.world_to_map(Vector2(pos.x+x1,pos.y+y1))) == 15 and Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+x1,pos.y+y1))) != 2:
+		if not Game.hoe.playing:
+			Game.hoe.play()
+	if Background2.get_cellv(Background2.world_to_map(Vector2(pos.x+x1,pos.y+y1))) == 15 and Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+x1,pos.y+y1))) == -1 and Junk.get_cellv(Junk.world_to_map(Vector2(pos.x+x1,pos.y+y1))) == -1:
 		Dirt.set_cellv(Dirt.world_to_map(Vector2(pos.x+x1,pos.y+y1)), 0)
-	if Background2.get_cellv(Background2.world_to_map(Vector2(pos.x+x2,pos.y+y2))) == 15 and Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+x2,pos.y+y2))) != 2:
+		if not Game.hoe.playing:
+			Game.hoe.play()
+	if Background2.get_cellv(Background2.world_to_map(Vector2(pos.x+x2,pos.y+y2))) == 15 and Dirt.get_cellv(Dirt.world_to_map(Vector2(pos.x+x2,pos.y+y2))) == -1 and Junk.get_cellv(Junk.world_to_map(Vector2(pos.x+x2,pos.y+y2))) == -1:
 		Dirt.set_cellv(Dirt.world_to_map(Vector2(pos.x+x2,pos.y+y2)), 0)
+		if not Game.hoe.playing:
+			Game.hoe.play()
 
 func swing_axe(pos, orientation):
-	pass
+	if orientation == "up":
+		pos.y -= tile_size.x
+	elif orientation == "down":
+		pos.y += tile_size.x
+	elif orientation == "right":
+		pos.x += tile_size.x
+	elif orientation == "left":
+		pos.x -= tile_size.x
+	
+	if (Junk.get_cellv(Junk.world_to_map(pos)) == 0):
+		Junk.set_cellv(Junk.world_to_map(pos), 1)
+		if not Game.axe.playing: #do not overlap this sound
+			Game.axe.play()
+	elif (Junk.get_cellv(Junk.world_to_map(pos)) == 1) and not Game.axe.playing: #TODO temporary fix for running code twice
+		Junk.set_cellv(Junk.world_to_map(pos), -1)
+		if not Game.axe.playing: #do not overlap this sound
+			Game.axe.play()
 
+#deletes weeds
 func swing_sickle(pos, orientation):
-	pass
+	if orientation == "up":
+		pos.y -= tile_size.x
+	elif orientation == "down":
+		pos.y += tile_size.x
+	elif orientation == "right":
+		pos.x += tile_size.x
+	elif orientation == "left":
+		pos.x -= tile_size.x
+	
+	if (Junk.get_cellv(Junk.world_to_map(pos)) == 4):
+		Junk.set_cellv(Junk.world_to_map(pos), -1)
+		if not Game.sickle.playing: #do not overlap this sound
+			Game.sickle.play()
 
+#deletes weeds all around
 func swing_sickle_circle(pos):
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x+tile_size.x, pos.y)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x-tile_size.x, pos.y)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x, pos.y+tile_size.x)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x, pos.y-tile_size.x)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x)), -1)
-#	Objects1.set_cellv(Objects1.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x)), -1)
-	pass
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x+tile_size.x, pos.y))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x+tile_size.x, pos.y)), -1)
+		if not Game.sickle.playing: #do not overlap this sound
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x-tile_size.x, pos.y))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x-tile_size.x, pos.y)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x, pos.y+tile_size.x))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x, pos.y+tile_size.x)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x, pos.y-tile_size.x))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x, pos.y-tile_size.x)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x+tile_size.x, pos.y+tile_size.x)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x+tile_size.x, pos.y-tile_size.x)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x-tile_size.x, pos.y+tile_size.x)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x))) == 4):
+		Junk.set_cellv(Junk.world_to_map(Vector2(pos.x-tile_size.x, pos.y-tile_size.x)), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
+	if (Junk.get_cellv(Junk.world_to_map(pos)) == 4):
+		Junk.set_cellv(Junk.world_to_map(pos), -1)
+		if not Game.sickle.playing:
+			Game.sickle.play()
 
 func water_square(pos, orientation):
 	if orientation == "up":
@@ -240,6 +363,8 @@ func water_square(pos, orientation):
 	#the cell must be tilled before it can be watered
 	if (Dirt.get_cellv(Dirt.world_to_map(pos)) == 0):
 		Dirt.set_cellv(Dirt.world_to_map(pos), 2)
+		if not Game.watering.playing:
+			Game.watering.play()
 
 #checks to make sure that there is a fully grown crop on this cell that is ready to harvest
 #the id number of this crop is returned, or -1 if there is no crop ready for harvest on this square
@@ -279,6 +404,8 @@ func harvest_crop(pos, orientation):
 		
 	#remove the crop from this tile
 	Crops.set_cellv(Crops.world_to_map(pos), -1)
+	if not Game.harvest.playing:
+		Game.harvest.play()
 
 #checks to make sure that there is nothing else on this square, so that the player may drop a harvested crop they are holding on this square
 #returns true if the player may drop their item, returns false otherwise
@@ -317,6 +444,8 @@ func drop_crop(pos, orientation, crop_number):
 		pos.x -= tile_size.x
 		
 	Crops.set_cellv(Crops.world_to_map(pos), crop_number)
+	if not Game.drop.playing:
+		Game.drop.play()
 
 #waters all unwatered, tilled soil
 func simulate_rain():

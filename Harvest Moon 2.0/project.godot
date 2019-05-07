@@ -14,6 +14,12 @@ config/name="Harvest Moon 2.0"
 run/main_scene="res://Game.tscn"
 config/icon="res://player/idle/Idle Down.png"
 
+[autoload]
+
+Global_Parser="*res://inventory/Global_Parser.gd"
+Global_ItemData="*res://inventory/Global_ItemData.gd"
+PlayerInventory_Script="*res://inventory/PlayerInventory_Script.gd"
+
 [display]
 
 window/size/width=1366
@@ -57,6 +63,10 @@ S=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","dev
 D=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
  ]
 B=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"unicode":0,"echo":false,"script":null)
+ ]
+mouse_rightbtn=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+mouse_leftbtn=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 
 [rendering]
