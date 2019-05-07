@@ -103,7 +103,7 @@ func readyAgain():
 #this method is only called when the user presses a button
 #it is not called each frame, and so should only be used for input logic
 func _input(event):
-	item.set_texture(Inventory.getActiveItemIcon())
+	
 	#open the inventory if it is closed, the player is not moving, and the player is not performing an animation
 	if event.is_action_pressed("Tab") and not inventoryOpen and speed == 0 and not animationCommit:
 		inventoryOpen = true
@@ -121,7 +121,7 @@ func _input(event):
 	elif (event.is_action_pressed("Tab") or event.is_action_pressed("E") or event.is_action_pressed("mouse_rightbtn")) and inventoryOpen and not Inventory.moving:
 		inventoryOpen = false
 		inventoryCloseTime = OS.get_ticks_msec()
-
+		item.set_texture(Inventory.getActiveItemIcon())
 		#if the player was holding a crop, show it now that the inventory is closed
 		if holdingItem:
 			if crop_number == 5:
