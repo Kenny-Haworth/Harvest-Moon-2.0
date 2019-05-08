@@ -53,6 +53,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="Date" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 439.209, 20.648 )
 scale = Vector2( 0.330748, 0.336553 )
 z_index = 2
@@ -172,6 +173,7 @@ transform = Transform2D( 1, 0, 0, 1, 1125, 450 )
 
 [node name="Energy" type="HBoxContainer" parent="CanvasLayer" index="0"]
 
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

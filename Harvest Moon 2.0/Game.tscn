@@ -12,7 +12,7 @@
 [ext_resource path="res://tilesets/tres files/interiorTiles.tres" type="TileSet" id=10]
 [ext_resource path="res://tilesets/tres files/interiorItemTiles.tres" type="TileSet" id=11]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 

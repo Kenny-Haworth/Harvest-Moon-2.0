@@ -15,6 +15,8 @@ var draggedItemSlot = -1
 onready var initial_mousePos = Vector2()
 onready var cursor_insideItemList = true
 
+#for displaying the equipped item
+onready var equipped_item = get_parent().get_parent().get_node("UI Equipped")
 
 func _ready():
 	set_process_unhandled_key_input(true)
@@ -38,7 +40,7 @@ func _ready():
 	PlayerInventory_Script.inventory_addItem(5)
 	PlayerInventory_Script.inventory_addItems(6, 100)
 	PlayerInventory_Script.inventory_addItems(7, 100)
-	PlayerInventory_Script.inventory_addItems(8, 100)
+	PlayerInventory_Script.inventory_addItems(8, 10)
 	
 	
 	load_items()
@@ -168,6 +170,12 @@ func equipItem():
 	var inventoryItem = PlayerInventory_Script.inventory[String(activeItem)]
 	equippedItem = inventoryItem["id"]
 	equippedItemSlot = activeItem
+	
+	#show the currently equipped item. If there is nothing equipped, set the image to nothing
+	if equippedItem == "0":
+		equipped_item.set_texture(null)
+	else:
+		equipped_item.set_texture(itemList.get_item_icon(equippedItemSlot))
 	
 func move_item():
 	if(draggedItemSlot < 0):

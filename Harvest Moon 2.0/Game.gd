@@ -49,7 +49,6 @@ func _ready():
 	farmMusic = AudioStreamPlayer.new()
 	self.add_child(farmMusic)
 	farmMusic.stream = load("res://sound/Farm1.wav")
-	farmMusic.play()
 	
 	houseMusic = AudioStreamPlayer.new()
 	self.add_child(houseMusic)
@@ -77,12 +76,12 @@ func _ready():
 	harvest.stream = load("res://sound/effects/harvest.wav")
 	harvest.volume_db = -15
 	
-	leftFoot = AudioStreamPlayer.new() #TODO use this sound file
+	leftFoot = AudioStreamPlayer.new()
 	self.add_child(leftFoot)
 	leftFoot.stream = load("res://sound/effects/leftFoot.wav")
 	leftFoot.volume_db = -15
 	
-	rightFoot = AudioStreamPlayer.new() #TODO use this sound file
+	rightFoot = AudioStreamPlayer.new()
 	self.add_child(rightFoot)
 	rightFoot.stream = load("res://sound/effects/rightFoot.wav")
 	rightFoot.volume_db = -15
@@ -92,7 +91,7 @@ func _ready():
 	store.stream = load("res://sound/effects/store.wav")
 	store.volume_db = -15
 	
-	axe = AudioStreamPlayer.new() #TODO this should only play when actually axing something
+	axe = AudioStreamPlayer.new()
 	self.add_child(axe)
 	axe.stream = load("res://sound/tools/axe.wav")
 	
@@ -108,7 +107,7 @@ func _ready():
 	self.add_child(seeds)
 	seeds.stream = load("res://sound/tools/seeds.wav")
 	
-	sickle = AudioStreamPlayer.new() #TODO this should only play when actually sickling something (both normal and sickle circle)
+	sickle = AudioStreamPlayer.new()
 	self.add_child(sickle)
 	sickle.stream = load("res://sound/tools/sickle.wav")
 	
