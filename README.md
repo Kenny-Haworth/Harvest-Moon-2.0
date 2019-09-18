@@ -1,6 +1,9 @@
 # Harvest Moon 2.0
 
-CS 4700 Game Development Final Assignment
+This project is a video game created in Godot, a game engine similar to Unity that uses a Python-like programming language.
+Farm your fields, explore the world, and sleep to progress time!
+
+![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Harvest%20Moon%20Screenshot.PNG)
 
 Group Members:
 <ul>
