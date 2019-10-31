@@ -1,0 +1,2118 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://ui/inventory/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://ui/inventory/Inventory Background.png" type="Texture" id=2]
+[ext_resource path="res://ui/hotbar/Equipped Item Indicator.png" type="Texture" id=3]
+[ext_resource path="res://ui/inventory/tools and items/StrawberrySeeds.png" type="Texture" id=4]
+[ext_resource path="res://ui/inventory/Inventory Stackable Item Label.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/inventory/tools and items/TurnipSeeds.png" type="Texture" id=6]
+[ext_resource path="res://ui/inventory/tools and items/EggplantSeeds.png" type="Texture" id=7]
+[ext_resource path="res://ui/inventory/tools and items/Watering Can.png" type="Texture" id=8]
+[ext_resource path="res://ui/inventory/tools and items/Hoe.png" type="Texture" id=9]
+[ext_resource path="res://ui/inventory/tools and items/Hammer.png" type="Texture" id=10]
+[ext_resource path="res://ui/inventory/tools and items/Axe.png" type="Texture" id=11]
+[ext_resource path="res://ui/inventory/tools and items/Sickle.png" type="Texture" id=12]
+[ext_resource path="res://ui/inventory/Stackable Item Font.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 200
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 13 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Inventory" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1200.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Backdrop" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1200.0
+margin_bottom = 544.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Equipped Item Indicator" type="TextureRect" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 394.0
+margin_right = 150.0
+margin_bottom = 495.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Inventory Grid Container" type="GridContainer" parent="." index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 51.0
+margin_right = 1149.0
+margin_bottom = 373.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/vseparation = 11
+custom_constants/hseparation = 11
+columns = 10
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="Button1" type="Button" parent="Inventory Grid Container" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button1" index="1" instance=ExtResource( 5 )]
+
+text = "9"
+
+[node name="Button2" type="Button" parent="Inventory Grid Container" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 111.0
+margin_right = 211.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button2" index="1" instance=ExtResource( 5 )]
+
+text = "9"
+
+[node name="Button3" type="Button" parent="Inventory Grid Container" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_right = 322.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button3" index="1" instance=ExtResource( 5 )]
+
+text = "9"
+
+[node name="Button4" type="Button" parent="Inventory Grid Container" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 333.0
+margin_right = 433.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button4" index="1" instance=ExtResource( 5 )]
+
+[node name="Button5" type="Button" parent="Inventory Grid Container" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 444.0
+margin_right = 544.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button5" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button5" index="1" instance=ExtResource( 5 )]
+
+[node name="Button6" type="Button" parent="Inventory Grid Container" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 555.0
+margin_right = 655.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button6" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button6" index="1" instance=ExtResource( 5 )]
+
+[node name="Button7" type="Button" parent="Inventory Grid Container" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 666.0
+margin_right = 766.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button7" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button7" index="1" instance=ExtResource( 5 )]
+
+[node name="Button8" type="Button" parent="Inventory Grid Container" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 777.0
+margin_right = 877.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button8" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button8" index="1" instance=ExtResource( 5 )]
+
+[node name="Button9" type="Button" parent="Inventory Grid Container" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 888.0
+margin_right = 988.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button9" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button9" index="1" instance=ExtResource( 5 )]
+
+[node name="Button10" type="Button" parent="Inventory Grid Container" index="9"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 999.0
+margin_right = 1099.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button10" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button10" index="1" instance=ExtResource( 5 )]
+
+[node name="Button11" type="Button" parent="Inventory Grid Container" index="10"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 111.0
+margin_right = 100.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button11" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button11" index="1" instance=ExtResource( 5 )]
+
+[node name="Button12" type="Button" parent="Inventory Grid Container" index="11"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 111.0
+margin_top = 111.0
+margin_right = 211.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button12" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button12" index="1" instance=ExtResource( 5 )]
+
+[node name="Button13" type="Button" parent="Inventory Grid Container" index="12"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_top = 111.0
+margin_right = 322.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button13" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button13" index="1" instance=ExtResource( 5 )]
+
+[node name="Button14" type="Button" parent="Inventory Grid Container" index="13"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 333.0
+margin_top = 111.0
+margin_right = 433.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button14" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button14" index="1" instance=ExtResource( 5 )]
+
+[node name="Button15" type="Button" parent="Inventory Grid Container" index="14"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 444.0
+margin_top = 111.0
+margin_right = 544.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button15" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button15" index="1" instance=ExtResource( 5 )]
+
+[node name="Button16" type="Button" parent="Inventory Grid Container" index="15"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 555.0
+margin_top = 111.0
+margin_right = 655.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button16" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button16" index="1" instance=ExtResource( 5 )]
+
+[node name="Button17" type="Button" parent="Inventory Grid Container" index="16"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 666.0
+margin_top = 111.0
+margin_right = 766.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button17" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button17" index="1" instance=ExtResource( 5 )]
+
+[node name="Button18" type="Button" parent="Inventory Grid Container" index="17"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 777.0
+margin_top = 111.0
+margin_right = 877.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button18" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button18" index="1" instance=ExtResource( 5 )]
+
+[node name="Button19" type="Button" parent="Inventory Grid Container" index="18"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 888.0
+margin_top = 111.0
+margin_right = 988.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button19" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button19" index="1" instance=ExtResource( 5 )]
+
+[node name="Button20" type="Button" parent="Inventory Grid Container" index="19"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 999.0
+margin_top = 111.0
+margin_right = 1099.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button20" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button20" index="1" instance=ExtResource( 5 )]
+
+[node name="Button21" type="Button" parent="Inventory Grid Container" index="20"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 222.0
+margin_right = 100.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button21" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button21" index="1" instance=ExtResource( 5 )]
+
+[node name="Button22" type="Button" parent="Inventory Grid Container" index="21"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 111.0
+margin_top = 222.0
+margin_right = 211.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button22" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button22" index="1" instance=ExtResource( 5 )]
+
+[node name="Button23" type="Button" parent="Inventory Grid Container" index="22"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_top = 222.0
+margin_right = 322.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button23" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button23" index="1" instance=ExtResource( 5 )]
+
+[node name="Button24" type="Button" parent="Inventory Grid Container" index="23"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 333.0
+margin_top = 222.0
+margin_right = 433.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button24" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button24" index="1" instance=ExtResource( 5 )]
+
+[node name="Button25" type="Button" parent="Inventory Grid Container" index="24"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 444.0
+margin_top = 222.0
+margin_right = 544.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button25" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button25" index="1" instance=ExtResource( 5 )]
+
+[node name="Button26" type="Button" parent="Inventory Grid Container" index="25"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 555.0
+margin_top = 222.0
+margin_right = 655.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button26" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button26" index="1" instance=ExtResource( 5 )]
+
+[node name="Button27" type="Button" parent="Inventory Grid Container" index="26"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 666.0
+margin_top = 222.0
+margin_right = 766.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button27" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button27" index="1" instance=ExtResource( 5 )]
+
+[node name="Button28" type="Button" parent="Inventory Grid Container" index="27"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 777.0
+margin_top = 222.0
+margin_right = 877.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button28" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button28" index="1" instance=ExtResource( 5 )]
+
+[node name="Button29" type="Button" parent="Inventory Grid Container" index="28"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 888.0
+margin_top = 222.0
+margin_right = 988.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button29" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button29" index="1" instance=ExtResource( 5 )]
+
+[node name="Button30" type="Button" parent="Inventory Grid Container" index="29"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 999.0
+margin_top = 222.0
+margin_right = 1099.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button30" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Inventory Grid Container/Button30" index="1" instance=ExtResource( 5 )]
+
+[node name="Hotbar Grid Container" type="GridContainer" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 394.0
+margin_right = 1149.0
+margin_bottom = 494.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/hseparation = 11
+columns = 10
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button31" type="Button" parent="Hotbar Grid Container" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button31" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button31" index="1" instance=ExtResource( 5 )]
+
+[node name="Button32" type="Button" parent="Hotbar Grid Container" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 111.0
+margin_right = 211.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button32" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 9 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button32" index="1" instance=ExtResource( 5 )]
+
+[node name="Button33" type="Button" parent="Hotbar Grid Container" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_right = 322.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button33" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button33" index="1" instance=ExtResource( 5 )]
+
+[node name="Button34" type="Button" parent="Hotbar Grid Container" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 333.0
+margin_right = 433.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button34" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 11 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button34" index="1" instance=ExtResource( 5 )]
+
+[node name="Button35" type="Button" parent="Hotbar Grid Container" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 444.0
+margin_right = 544.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button35" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button35" index="1" instance=ExtResource( 5 )]
+
+[node name="Button36" type="Button" parent="Hotbar Grid Container" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 555.0
+margin_right = 655.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button36" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button36" index="1" instance=ExtResource( 5 )]
+
+[node name="Button37" type="Button" parent="Hotbar Grid Container" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 666.0
+margin_right = 766.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button37" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button37" index="1" instance=ExtResource( 5 )]
+
+[node name="Button38" type="Button" parent="Hotbar Grid Container" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 777.0
+margin_right = 877.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button38" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button38" index="1" instance=ExtResource( 5 )]
+
+[node name="Button39" type="Button" parent="Hotbar Grid Container" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 888.0
+margin_right = 988.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button39" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button39" index="1" instance=ExtResource( 5 )]
+
+[node name="Button40" type="Button" parent="Hotbar Grid Container" index="9"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 999.0
+margin_right = 1099.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button40" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button40" index="1" instance=ExtResource( 5 )]
+
+[node name="Dragged Item" type="TextureRect" parent="." index="4"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Dragged Item Label" type="Label" parent="Dragged Item" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 70.0
+margin_top = 63.0
+margin_right = 298.0
+margin_bottom = 383.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="pressed" from="Inventory Grid Container/Button1" to="." method="_on_button_pressed" binds= [ 1 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button2" to="." method="_on_button_pressed" binds= [ 2 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button3" to="." method="_on_button_pressed" binds= [ 3 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button4" to="." method="_on_button_pressed" binds= [ 4 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button5" to="." method="_on_button_pressed" binds= [ 5 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button6" to="." method="_on_button_pressed" binds= [ 6 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button7" to="." method="_on_button_pressed" binds= [ 7 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button8" to="." method="_on_button_pressed" binds= [ 8 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button9" to="." method="_on_button_pressed" binds= [ 9 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button10" to="." method="_on_button_pressed" binds= [ 10 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button11" to="." method="_on_button_pressed" binds= [ 11 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button12" to="." method="_on_button_pressed" binds= [ 12 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button13" to="." method="_on_button_pressed" binds= [ 13 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button14" to="." method="_on_button_pressed" binds= [ 14 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button15" to="." method="_on_button_pressed" binds= [ 15 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button16" to="." method="_on_button_pressed" binds= [ 16 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button17" to="." method="_on_button_pressed" binds= [ 17 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button18" to="." method="_on_button_pressed" binds= [ 18 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button19" to="." method="_on_button_pressed" binds= [ 19 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button20" to="." method="_on_button_pressed" binds= [ 20 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button21" to="." method="_on_button_pressed" binds= [ 21 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button22" to="." method="_on_button_pressed" binds= [ 22 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button23" to="." method="_on_button_pressed" binds= [ 23 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button24" to="." method="_on_button_pressed" binds= [ 24 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button25" to="." method="_on_button_pressed" binds= [ 25 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button26" to="." method="_on_button_pressed" binds= [ 26 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button27" to="." method="_on_button_pressed" binds= [ 27 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button28" to="." method="_on_button_pressed" binds= [ 28 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button29" to="." method="_on_button_pressed" binds= [ 29 ]]
+
+[connection signal="pressed" from="Inventory Grid Container/Button30" to="." method="_on_button_pressed" binds= [ 30 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button31" to="." method="_on_button_pressed" binds= [ 31 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button32" to="." method="_on_button_pressed" binds= [ 32 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button33" to="." method="_on_button_pressed" binds= [ 33 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button34" to="." method="_on_button_pressed" binds= [ 34 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button35" to="." method="_on_button_pressed" binds= [ 35 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button36" to="." method="_on_button_pressed" binds= [ 36 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button37" to="." method="_on_button_pressed" binds= [ 37 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button38" to="." method="_on_button_pressed" binds= [ 38 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button39" to="." method="_on_button_pressed" binds= [ 39 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button40" to="." method="_on_button_pressed" binds= [ 40 ]]
+
+

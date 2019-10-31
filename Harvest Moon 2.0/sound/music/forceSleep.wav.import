@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/forceSleep.wav-e9fb649e1d659dacc5e684273ef5aeeb.sample"
+
+[deps]
+
+source_file="res://sound/music/forceSleep.wav"
+dest_files=[ "res://.import/forceSleep.wav-e9fb649e1d659dacc5e684273ef5aeeb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

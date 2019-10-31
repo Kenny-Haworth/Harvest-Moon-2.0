@@ -1,0 +1,223 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/houseTiles.png" type="Texture" id=1]
+
+
+[node name="ExploreTiles" type="Node2D"]
+
+[node name="GrassTopLeft" type="Sprite" parent="." index="0"]
+
+position = Vector2( -48, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="GrassTopCenter" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="GrassTopRight" type="Sprite" parent="." index="2"]
+
+position = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 32, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="GrassMiddleLeft" type="Sprite" parent="." index="3"]
+
+position = Vector2( -48, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="GrassMiddleCenter" type="Sprite" parent="." index="4"]
+
+position = Vector2( 0, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="GrassMiddleRight" type="Sprite" parent="." index="5"]
+
+position = Vector2( 48, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 32, 32 )
+_sections_unfolded = [ "Animation", "Region" ]
+
+[node name="GrassBottomLeft" type="Sprite" parent="." index="6"]
+
+position = Vector2( -48, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 96, 32, 32 )
+_sections_unfolded = [ "Animation", "Region" ]
+
+[node name="GrassBottomCenter" type="Sprite" parent="." index="7"]
+
+position = Vector2( 0, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 96, 32, 32 )
+_sections_unfolded = [ "Animation", "Region" ]
+
+[node name="GrassBottomRight" type="Sprite" parent="." index="8"]
+
+position = Vector2( 48, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 96, 32, 32 )
+_sections_unfolded = [ "Animation", "Region" ]
+
+[node name="StairsTop" type="Sprite" parent="." index="9"]
+
+position = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 32, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="StairsMiddle" type="Sprite" parent="." index="10"]
+
+position = Vector2( 96, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 96, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="PathTopLeft" type="Sprite" parent="." index="11"]
+
+position = Vector2( 144, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 160, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="PathTopCenter" type="Sprite" parent="." index="12"]
+
+position = Vector2( 192, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 160, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathTopRight" type="Sprite" parent="." index="13"]
+
+position = Vector2( 240, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 160, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathMiddleLeft" type="Sprite" parent="." index="14"]
+
+position = Vector2( 144, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 192, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathMiddleCenter" type="Sprite" parent="." index="15"]
+
+position = Vector2( 192, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 192, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathMiddleRight" type="Sprite" parent="." index="16"]
+
+position = Vector2( 240, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 192, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathBottomLeft" type="Sprite" parent="." index="17"]
+
+position = Vector2( 144, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 224, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathBottomMiddle" type="Sprite" parent="." index="18"]
+
+position = Vector2( 192, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 224, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathBottomRight" type="Sprite" parent="." index="19"]
+
+position = Vector2( 240, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 224, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathUpDown" type="Sprite" parent="." index="20"]
+
+position = Vector2( 288, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 256, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathUpEnd" type="Sprite" parent="." index="21"]
+
+position = Vector2( 288, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 256, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathDownEnd" type="Sprite" parent="." index="22"]
+
+position = Vector2( 288, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 320, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathLeftRight" type="Sprite" parent="." index="23"]
+
+position = Vector2( 336, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 256, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathLeftEnd" type="Sprite" parent="." index="24"]
+
+position = Vector2( 336, 96 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 288, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="PathRightEnd" type="Sprite" parent="." index="25"]
+
+position = Vector2( 336, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 288, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Water" type="Sprite" parent="." index="26"]
+
+position = Vector2( 384, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 672, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+

@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/dialogue/Dialogue.gd" type="Script" id=1]
+
+[node name="Dialogue" type="Panel" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="Game Intro" type="RichTextLabel" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -626.0
+margin_top = -274.0
+margin_right = -125.0
+margin_bottom = -79.0
+rect_scale = Vector2( 2.5, 2.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "Hello Farmer!
+
+You've inherited an old plot of land from your recently passed grandpa. He wanted you to take care of the land after he died. Your objective is to grow crops and take care of the land using the tools in your inventory. Controls can be found on the \"Controls\" menu, which you can find by pressing the \"Esc\" key. You can sleep in your bed to progress to the next day by standing next to your bed and pressing the \"E\" key. Be careful not to stay up too late, or you will get tired and fall asleep on your own!
+
+Happy farming!"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Hello Farmer!
+
+You've inherited an old plot of land from your recently passed grandpa. He wanted you to take care of the land after he died. Your objective is to grow crops and take care of the land using the tools in your inventory. Controls can be found on the \"Controls\" menu, which you can find by pressing the \"Esc\" key. You can sleep in your bed to progress to the next day by standing next to your bed and pressing the \"E\" key. Be careful not to stay up too late, or you will get tired and fall asleep on your own!
+
+Happy farming!"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="To the game button" type="Button" parent="." index="1"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -143.0
+margin_top = -182.0
+margin_right = -48.0
+margin_bottom = -162.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "To the game!"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Rect" ]
+
+[connection signal="pressed" from="To the game button" to="." method="_on_To_the_game_button_pressed"]
+
+

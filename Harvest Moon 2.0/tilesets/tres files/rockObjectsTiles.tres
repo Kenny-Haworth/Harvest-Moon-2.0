@@ -1,9 +1,10 @@
 [gd_resource type="TileSet" load_steps=5 format=2]
 
-[ext_resource path="res://tilesets/exploreTiles.png" type="Texture" id=1]
+[ext_resource path="res://tilesets/houseTiles.png" type="Texture" id=1]
 [ext_resource path="res://tilesets/theOneWithTheLog2.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/theOneWithTheLog.png" type="Texture" id=3]
 [ext_resource path="res://tilesets/terrain.png" type="Texture" id=4]
+
 
 [resource]
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/Pokemon tiles.png" type="Texture" id=1]
+
+[node name="Bubbles" type="Node2D"]
+
+[node name="Bubbles1" type="Sprite" parent="." index="0"]
+
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1575, 156, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="Bubbles2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 64, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1575, 188, 32, 32 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+

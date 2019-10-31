@@ -1,46 +1,26 @@
 extends KinematicBody2D
 
-var type
 var Zone #The zone the player is currently in (Farm or House)
-var Game #the main Game node
 
 #prevents sleep spam
 const sleepDelay = 8000 #8 seconds
 var sleepTime = -8000
 
-#handles what time of day it is and when to change it for the shaders
-onready var Date = get_node("UI/Date/Layout")
-const changeTimeDelay = 10000 #(msec) 10 seconds, prevents time of day spam
-const timeChangeCycle = 20 #(seconds) 20 seconds, how long the transitions take
-var changeTime = 0
+#the main Game node
+onready var Game = get_node("/root/Game")
 
-#for tweening shaders for time of day
-onready var Shaders = get_node("Shaders")
-onready var Morning = get_node("Shaders/Morning")
-onready var Afternoon = get_node("Shaders/Afternoon")
-onready var Evening = get_node("Shaders/Evening")
-onready var Night = get_node("Shaders/Night")
-onready var TweenMorningIn = get_node("Shaders/Morning/TweenMorningIn")
-onready var TweenMorningOut = get_node("Shaders/Morning/TweenMorningOut")
-onready var TweenAfternoonIn = get_node("Shaders/Afternoon/TweenAfternoonIn")
-onready var TweenAfternoonOut = get_node("Shaders/Afternoon/TweenAfternoonOut")
-onready var TweenEveningIn = get_node("Shaders/Evening/TweenEveningIn")
-onready var TweenEveningOut = get_node("Shaders/Evening/TweenEveningOut")
-onready var TweenNightIn = get_node("Shaders/Night/TweenNightIn")
-onready var TweenNightOut = get_node("Shaders/Night/TweenNightOut")
+#to know the current time to knock the player out at 11pm
+onready var TimeManager = get_node("UI/Dashboard/TimeManager")
 
-#for weather
-onready var Weather = get_node("UI/Date/Weather")
-onready var Rain = get_node("Rain")
+#to control sounds
+onready var SoundManager = get_node("/root/Game/Sound")
 
-#for controlling the inventory
-var inventoryOpen = false
-const closeInventoryDelay = 250 #.25 seconds, the amount of time until an action can be taken after closing the inventory
-var inventoryCloseTime = -250 #negative closeInventoryDelay by default for inventory closed
-onready var Inventory = get_node("Camera2D/Inventory")
+#for adding crops to the inventory, preventing the player from moving when the inventory is open
+#and getting the currently equipped item
+onready var Inventory = get_node("UI/Inventory")
 
 #for handling the player's energy
-onready var Energy = get_node("UI/CanvasLayer/Energy")
+onready var EnergyBar = get_node("UI/Energy Bar")
 
 #for picking up crops
 var crop_number
@@ -51,7 +31,7 @@ onready var Strawberry = get_node("PickCrops/Strawberry")
 onready var Turnip = get_node("PickCrops/Turnip")
 
 #for holding the action key for power moves
-var holdTimeDelay = 480 #must be holding the action key for a 480 milliseconds before releasing for a charge move. This is 6 frames/12.5 fps = .48 seconds
+const holdTimeDelay = 480 #must be holding the action key for a 480 milliseconds before releasing for a charge move. This is 6 frames/12.5 fps = .48 seconds
 var holdTime
 var powerHold = false
 
@@ -82,7 +62,7 @@ var teleport = false #for disabling the player when teleporting to a different a
 #for basic 2D movement
 const MAX_SPEED = 250
 var speed = 0
-var direction = Vector2()
+var direction = Vector2() #TODO do these need to be initialized to empty vectors?
 var velocity = Vector2()
 var target_pos = Vector2()
 var target_direction = Vector2()
@@ -91,117 +71,42 @@ var is_moving = false
 #for walking sound
 var stepLeft = true
 var stepRight = false
-var stepDelay = 250 #.2 seconds
+const stepDelay = 250 #.25 seconds
 var stepTime = -250 #negative stepTime by default for not taking a step
 
-#called when the player is loaded in for the first time (only called once)
-func _ready():
+#called when the Player node enters the scene and every time it is reparented
+func _enter_tree():
 	Zone = get_parent()
 	Game = Zone.get_parent()
 	set_physics_process(true)
-
-#gets the new parent since the player has spawned in a different area
-func readyAgain():
-	Zone = get_parent()
-	type = Zone.PLAYER
-	set_physics_process(true)
-
-#this method is only called when the user presses a button
-#it is not called each frame, and so should only be used for input logic
-func _input(event):
-	
-	#open the inventory if it is closed, the player is not moving, and the player is not performing an animation
-	if event.is_action_pressed("Tab") and not inventoryOpen and speed == 0 and not animationCommit:
-		inventoryOpen = true
-
-		#if the player is holding a crop, hide it so it doesn't show in front of the inventory
-		if holdingItem:
-			if crop_number == 5:
-				Turnip.hide()
-			elif crop_number == 35:
-				Strawberry.hide()
-			elif crop_number == 17:
-				Eggplant.hide()
-
-	#close the inventory if it is open and the player has selected an item or chosen to close the inventory again
-	elif (event.is_action_pressed("Tab") or event.is_action_pressed("E") or event.is_action_pressed("mouse_rightbtn")) and inventoryOpen and not Inventory.moving:
-		inventoryOpen = false
-		inventoryCloseTime = OS.get_ticks_msec()
-
-		#if the player was holding a crop, show it now that the inventory is closed
-		if holdingItem:
-			if crop_number == 5:
-				Turnip.show()
-			elif crop_number == 35:
-				Strawberry.show()
-			elif crop_number == 17:
-				Eggplant.show()
 
 #this method is called each frame (60 times in a second, 60fps)
 #button events should be handled by _input(event), which is only called once a button is pressed
 #game logic that must be calculated each frame belongs here
 func _physics_process(delta):
 	
+	#TODO teleporting does not need to be in physics process, it can be moved to when the player moves
 	#allows the player to teleport to a different area as soon as they are finished moving to the next square
 	if Zone.teleport(position):
 		teleport = true
 	
 	if teleport and not is_moving:
 		teleport = false
-		if Zone.name == "Farm": #if you're at your farm, you're going to your house
+		
+		if Zone.name == "Farm" and position == Vector2(624,-16):
+			Game.farm_to_town()
+		elif Zone.name == "Farm":
 			Game.farm_to_house()
-		elif Zone.name == "House": #if you're at your house, you're going to your farm
+		elif Zone.name == "House":
 			Game.house_to_farm()
-	
-	#show the inventory
-	if inventoryOpen or OS.get_ticks_msec() < inventoryCloseTime + closeInventoryDelay:
-		if inventoryOpen:
-			Inventory._open_inventory() #shows the inventory
-			
-		return #forces the method to end here, and none of the other code below is executed
-	
-	#sleep if standing next to the bed
-	if Input.is_action_pressed("E") and Zone.name == "House" and Zone.can_sleep(position) and OS.get_ticks_msec() > sleepTime + sleepDelay:
-		self.position = Vector2(7*32, 2.25*32) #move the player into the bed
-		animationCommit = true #play the pass out animation
-		lastAnimation = "pass out"
-		sleepTime = OS.get_ticks_msec() #prevent sleep spam
-		Game.houseMusic.stop() #switch the music
-		Game.forceSleep.play()
-		do_it_once = false
-	
-	#knocks the player out and progresses to the next day if it is too late in the day
-	if Date.hour == 23 and OS.get_ticks_msec() > sleepTime + sleepDelay:
-		$Sprite.set_offset(Vector2()) #reset animation if the player was in the middle of performing an action
-		animationCommit = true #play the pass out animation
-		lastAnimation = "pass out"
-		sleepTime = OS.get_ticks_msec() #prevent sleep spam
-		if Zone.name == "Farm": #player is on the farm
-			Game.farmMusic.stop()
-		else: #player is in the house
-			Game.houseMusic.stop()
-		Game.forceSleep.play()
-		do_it_once = false
-	
-	#change time
-	if (OS.get_ticks_msec() > changeTime + changeTimeDelay):
-		if Date.hour == 6: #6 in the morning
-			changeTime("afternoon")
-			changeTime = OS.get_ticks_msec()
-		elif Date.hour == 12: #12 in the afternoon
-			changeTime("evening")
-			changeTime = OS.get_ticks_msec()
-		elif Date.hour == 17: #5 in the evening
-			changeTime("night")
-			changeTime = OS.get_ticks_msec()
+		elif Zone.name == "Town":
+			Game.town_to_farm()
 	
 	#player has pressed to perform an action based on equipped item
 	#they are also not holding an item or currently performing an animation, and they still have energy to use their tools
 	#their parent is also the farm, since they cannot perform an action while not on the farm
-	if (Input.is_action_pressed("ui_accept") and not holdingItem and not animationCommit and Zone.name == "Farm" and Energy.current > 0) or (powerHold):
-		#hammer
-		#if Inventory.activeItem == 2:
-		if Inventory.equippedItem == "1":
+	if (Input.is_action_pressed("ui_accept") and not holdingItem and not animationCommit and Zone.name == "Farm" and EnergyBar.has_energy()) or (powerHold):
+		if Inventory.is_equipped("Hammer"):
 			animationCommit = true
 			if facingDirection == "left" or facingDirection == "right":
 				lastAnimation = "hammer left"
@@ -210,15 +115,12 @@ func _physics_process(delta):
 			elif facingDirection == "up":
 				lastAnimation = "hammer up"
 		
-		#throw seeds
-		#elif Inventory.activeItem >= 5:
-		elif Inventory.equippedItem >= "6" and Inventory.equippedItem < "9":
+		#spread seeds
+		elif Inventory.is_equipped("StrawberrySeeds") or Inventory.is_equipped("TurnipSeeds") or Inventory.is_equipped("EggplantSeeds"):
 			animationCommit = true
 			lastAnimation = "seeds"
 		
-		#hoe
-		#elif Inventory.activeItem == 1:
-		elif Inventory.equippedItem == "2":
+		elif Inventory.is_equipped("Hoe"):
 			animationCommit = true
 			if facingDirection == "left" or facingDirection == "right":
 				lastAnimation = "hoe left"
@@ -227,9 +129,7 @@ func _physics_process(delta):
 			elif facingDirection == "up":
 				lastAnimation = "hoe up"
 		
-		#axe
-		#elif Inventory.activeItem == 3:
-		elif Inventory.equippedItem == "4":
+		elif Inventory.is_equipped("Axe"):
 			animationCommit = true
 			if facingDirection == "left" or facingDirection == "right":
 				lastAnimation = "axe left"
@@ -238,9 +138,7 @@ func _physics_process(delta):
 			elif facingDirection == "up":
 				lastAnimation = "axe up"
 		
-		#sickle
-		#elif Inventory.activeItem == 0:
-		elif Inventory.equippedItem == "3":
+		elif Inventory.is_equipped("Sickle"):
 			if not powerHold:
 				powerHold = true
 				animationCommit = true
@@ -259,8 +157,7 @@ func _physics_process(delta):
 				$Sprite.set_frame(6)
 		
 		#watering can:
-		#elif Inventory.activeItem == 4:
-		elif Inventory.equippedItem == "5":
+		elif Inventory.is_equipped("Watering Can"):
 			if not powerHold:
 				powerHold = true
 				animationCommit = true
@@ -288,7 +185,9 @@ func _physics_process(delta):
 	#to ensure the crop the player is holding is in the correct position
 	if holdingItem:
 		set_crop_offset()
-		if Input.is_action_pressed("B"): #the player wants to store an item they are holding in their backpack
+		
+		#the player wants to store an item they are holding in their backpack and they are not performing an animation
+		if Input.is_action_pressed("B") and animationCommit == false:
 			animationCommit = true
 			do_it_once = false
 			if facingDirection == "left" or facingDirection == "right":
@@ -298,8 +197,8 @@ func _physics_process(delta):
 			elif facingDirection == "up":
 				lastAnimation = "store up"
 	
-	#pickup/drop item, only allow if the player isn't moving to stop duplicate crop glitches, and the player must be on the farm
-	if Input.is_action_pressed("Q") and speed == 0 and Zone.name == "Farm":
+	#pickup/drop item, only allow if the player isn't moving to stop duplicate crop glitches, the player must be on the farm
+	if Input.is_action_pressed("Q") and !is_moving and Zone.name == "Farm":
 		
 		#the player wants to pick up an item
 		if not holdingItem and animationCommit == false:
@@ -333,6 +232,34 @@ func _physics_process(delta):
 					lastAnimation = "drop up"
 				animationCommit = true
 	
+	#sleep if standing next to the bed and the player is not moving
+	if Input.is_action_pressed("E") and Zone.name == "House" and Zone.can_sleep(position) and !is_moving and OS.get_ticks_msec() > sleepTime + sleepDelay:
+		self.position = Vector2(7*32, 2.25*32) #move the player into the bed
+		animationCommit = true #play the pass out animation
+		lastAnimation = "pass out"
+		sleepTime = OS.get_ticks_msec() #prevent sleep spam
+		SoundManager.stop_music("house")
+		SoundManager.play_music("forceSleep") #TODO see if you can move to game
+		do_it_once = false
+	
+	#open the shop menu if standing in the shop and the player is not moving TODO change zone name to Shop, not Town
+	elif Input.is_action_pressed("E") and Zone.name == "Town" and Zone.can_shop(position) and !is_moving:
+		print('opening shop!')
+	
+	#knocks the player out and progresses to the next day if it is too late in the day
+	if TimeManager.armyTimeHour == 23 and OS.get_ticks_msec() > sleepTime + sleepDelay:
+		$Sprite.set_offset(Vector2()) #reset animation if the player was in the middle of performing an action
+		animationCommit = true #play the pass out animation
+		powerHold = false #stop any power moves the player is charging
+		lastAnimation = "pass out"
+		sleepTime = OS.get_ticks_msec() #prevent sleep spam
+		if Zone.name == "Farm": #player is on the farm
+			SoundManager.stop_music("farm") #TODO see if you can move to game
+		else: #player is in the house
+			SoundManager.stop_music("house")
+		SoundManager.play_music("forceSleep") #TODO see if you can move to game
+		do_it_once = false
+	
 	direction = Vector2()
 	
 	if not animationCommit: #if the playing is currently doing an animation, they cannot move or turn
@@ -340,9 +267,10 @@ func _physics_process(delta):
 			direction.y = -1
 		elif Input.is_action_pressed("ui_down"):
 			direction.y = 1
-		if Input.is_action_pressed("ui_right"):
+		#if the player is holding shift, they are swapping between items in their inventory, not trying to move
+		if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("shift_right_arrow"):
 			direction.x = 1
-		elif Input.is_action_pressed("ui_left"):
+		elif Input.is_action_pressed("ui_left") and not Input.is_action_pressed("shift_left_arrow"):
 			direction.x = -1
 	
 	if direction != Vector2():
@@ -366,7 +294,8 @@ func _physics_process(delta):
 				facingDirection = "left"
 	
 	#the player was standing still but has pressed to move to another location
-	if not is_moving and direction != Vector2():
+	#only allow the player to move if the inventory is not open
+	if not is_moving and direction != Vector2() and not Inventory.visible:
 		target_direction = direction
 		if Zone.is_cell_vacant(position, target_direction):
 			target_pos = Zone.update_child_pos(self)
@@ -424,14 +353,14 @@ func _physics_process(delta):
 					facingDirection = "down"
 	
 	elif is_moving:
-		
-		if stepLeft and not Game.rightFoot.playing and OS.get_ticks_msec() >= stepDelay + stepTime:
-			Game.leftFoot.play()
+		#play the sound for walking, with a set delay between steps
+		if stepLeft and not SoundManager.is_playing("rightFoot") and OS.get_ticks_msec() >= stepDelay + stepTime:
+			SoundManager.play_effect("leftFoot")
 			stepRight = true
 			stepLeft = false
 			stepTime = OS.get_ticks_msec()
-		elif stepRight and not Game.leftFoot.playing and OS.get_ticks_msec() >= stepDelay + stepTime:
-			Game.rightFoot.play()
+		elif stepRight and not SoundManager.is_playing("leftFoot") and OS.get_ticks_msec() >= stepDelay + stepTime:
+			SoundManager.play_effect("rightFoot")
 			stepLeft = true
 			stepRight = false
 			stepTime = OS.get_ticks_msec()
@@ -546,14 +475,11 @@ func _physics_process(delta):
 	#track the seed animation
 	elif lastAnimation == "seeds":
 		if $Sprite.get_frame() == 3:
-			#spread turnip seeds
-			if Inventory.activeItem == 5:
+			if Inventory.is_equipped("TurnipSeeds"):
 				Zone.spread_seeds(position, 0)
-			#spread strawberry seeds
-			elif Inventory.activeItem == 6:
+			elif Inventory.is_equipped("StrawberrySeeds"):
 				Zone.spread_seeds(position, 30)
-			#spread eggplant seeds
-			elif Inventory.activeItem == 7:
+			elif Inventory.is_equipped("EggplantSeeds"):
 				Zone.spread_seeds(position, 12)
 				
 			animationCommit = false
@@ -659,15 +585,14 @@ func _physics_process(delta):
 	if lastAnimation == "pass out": #TODO requires code generalization for expansion of the game
 		if $Sprite.get_frame() == 15 and not do_it_once: #player is done passing out
 			do_it_once = true
-			if Zone.name == "Farm": #player is on the farm, needs to be teleported to the house
-				Game.farm_to_house_sleep()
-			else: #player is in the house, needs to be teleported to the bed
+			if Zone.name == "House": #player is already in the houes
 				Game.house_to_sleep()
-			Game.get_node("Farm").sleep() #progress farm logic
-			Energy.reset_energy() #give the player back their energy
-			Date.new_day() #increment the day
-			changeTime("morning") #change the tweeners to morning
-			Game.houseMusic.play()
+			else: #player is anywhere else in the world
+				Game.teleport_player_to_bed()
+			Game.get_node("Farm").sleep() #progress farm logic TODO move this and all below to Game script
+			EnergyBar.reset_energy() #restore the player's energy for a new day
+			Game.new_day() #increment the day
+			SoundManager.play_music("house") #TODO move to game new day logic
 			animationCommit = false
 			lastAnimation = "down"
 
@@ -1017,10 +942,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Eggplant.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(11) #adds an eggplant to the inventory
-					Inventory.load_items()
+					Inventory.add("Eggplant")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 		elif facingDirection == "up":
@@ -1036,10 +960,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Eggplant.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(11) #adds an eggplant to the inventory
-					Inventory.load_items()
+					Inventory.add("Eggplant")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 		elif facingDirection == "down":
@@ -1054,10 +977,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Eggplant.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(11) #adds an eggplant to the inventory
-					Inventory.load_items()
+					Inventory.add("Eggplant")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 	
@@ -1086,10 +1008,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Strawberry.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(10) #adds a strawberry to the inventory
-					Inventory.load_items()
+					Inventory.add("Strawberry")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 		elif facingDirection == "up":
@@ -1105,10 +1026,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Strawberry.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(10) #adds a strawberry to the inventory
-					Inventory.load_items()
+					Inventory.add("Strawberry")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 		elif facingDirection == "down":
@@ -1123,10 +1043,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Strawberry.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(10) #adds a strawberry to the inventory
-					Inventory.load_items()
+					Inventory.add("Strawberry")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 	
@@ -1155,10 +1074,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Turnip.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(9) #adds a strawberry to the inventory
-					Inventory.load_items()
+					Inventory.add("Turnip")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 		elif facingDirection == "up":
@@ -1174,10 +1092,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Turnip.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(9) #adds a strawberry to the inventory
-					Inventory.load_items()
+					Inventory.add("Turnip")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 		elif facingDirection == "down":
@@ -1192,10 +1109,9 @@ func play_animation_store(x_multiplier, y_multiplier):
 			elif $Sprite.get_frame() == 3: #reset Sprite
 				Turnip.hide()
 				if not do_it_once: #only perform this code ONCE for the third frame
-					PlayerInventory_Script.inventory_addItem(9) #adds a strawberry to the inventory
-					Inventory.load_items()
+					Inventory.add("Turnip")
 					do_it_once = true
-					Game.store.play()
+					SoundManager.play_effect("store")
 				animationCommit = false
 				holdingItem = false
 
@@ -1240,68 +1156,3 @@ func set_crop_offset():
 			Turnip.set_offset(TurnipUp)
 		elif facingDirection == "down":
 			Turnip.set_offset(TurnipDown)
-
-func changeTime(time):
-	if time == "morning": #fast tweening, called after sleeping
-		reset_tweeners()
-		Weather.set_weather("sunny")
-		
-		#rain starts in the morning and lasts all day
-		var rainChance = randi()%4 + 1 #1-4
-		if rainChance == 1: #25% chance of rain
-			if not Rain.emitting: #if it is already raining, don't change anything. Otherwise toggle the rain
-				Rain.set_one_shot(false)
-				Rain.set_emitting(true)
-				Game.rain.play()
-			Game.get_node("Farm").simulate_rain() #water tilled squares for rain
-			Weather.set_weather("raining") #change the UI's shown weather
-		else: #turns the rain off
-			Rain.set_one_shot(true)
-			Game.rain.stop()
-		
-	elif time == "afternoon":
-		TweenMorningOut.interpolate_property(Morning, "modulate", Color(0.67,0.67,0.67,.35), Color(0.67,0.67,0.67,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-		TweenMorningOut.start() #fade out the morning
-		TweenAfternoonIn.interpolate_property(Afternoon, "modulate", Color(1,1,1,0), Color(1,1,1,1), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_OUT)
-		TweenAfternoonIn.start() #fade in the afternoon
-	
-	elif time == "evening":
-		TweenAfternoonOut.interpolate_property(Afternoon, "modulate", Color(1,1,1,1), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		TweenAfternoonOut.start() #fade out the afternoon
-		TweenEveningIn.interpolate_property(Evening, "modulate", Color(1,1,1,0), Color(1,1,1,.25), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		TweenEveningIn.start() #fade in the evening
-	
-	elif time == "night":
-		TweenEveningOut.interpolate_property(Evening, "modulate", Color(1,1,1,.25), Color(1,1,1,0), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		TweenEveningOut.start() #fade out the evening
-		TweenNightIn.interpolate_property(Night, "modulate", Color(0.39,0.43,0.43,0), Color(0.39,0.43,0.43,.75), timeChangeCycle, Tween.TRANS_LINEAR, Tween.EASE_IN)
-		TweenNightIn.start() #fade in the night
-		if not Rain.emitting:
-			Weather.set_weather("night")
-
-#changes the tweeners to progress to the next day
-func reset_tweeners():
-	#stop all currently running tweeners
-	TweenMorningOut.stop_all()
-	TweenMorningIn.stop_all()
-	TweenAfternoonIn.stop_all()
-	TweenAfternoonOut.stop_all()
-	TweenEveningOut.stop_all()
-	TweenEveningIn.stop_all()
-	TweenNightIn.stop_all()
-	TweenNightOut.stop_all()
-	
-	#reset any shaders on the screen, setting the morning to full brightness
-	Morning.modulate = Color(0.67,0.67,0.67,.35)
-	Afternoon.modulate = Color(1,1,1,0)
-	Evening.modulate = Color(1,1,1,0)
-	Night.modulate = Color(0.39,0.43,0.43,0)
-
-#enables shaders and weather if they were disabled or disables them if they were enabled (for indoor vs. outdoor settings)
-func toggle_tweeners():
-	if Shaders.visible:
-		Shaders.visible = false
-		Rain.visible = false
-	else:
-		Shaders.visible = true
-		Rain.visible = true

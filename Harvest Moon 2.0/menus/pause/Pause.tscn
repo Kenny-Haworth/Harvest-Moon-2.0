@@ -1,58 +1,83 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menus/pause/Pause.gd" type="Script" id=1]
+[ext_resource path="res://menus/controls/Controls Container.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menus/pause/Back to Pause Menu Button/Back to Pause Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menus/pause/Save Game/Save Game.gd" type="Script" id=4]
+[ext_resource path="res://menus/pause/Save Game/Back to Pause Menu from Save Menu.gd" type="Script" id=5]
+[ext_resource path="res://menus/controls/keys/Back.png" type="Texture" id=6]
+[ext_resource path="res://menus/pause/Save Game/Back to Save Menu.gd" type="Script" id=7]
 
-[node name="Pause" type="Control"]
+[node name="PauseMenu" type="Control"]
 
 pause_mode = 2
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -40.0
-margin_top = -25.0
-margin_right = -40.0
-margin_bottom = -25.0
-rect_scale = Vector2( 0.5, 0.5 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -135.0
+margin_right = 240.0
+margin_bottom = 135.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Pause", "Rect", "Visibility" ]
+_sections_unfolded = [ "Mouse", "Pause", "Transform", "Z Index" ]
 
 [node name="Background" type="ColorRect" parent="." index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -612.0
-margin_top = -316.0
-margin_right = 723.0
-margin_bottom = 379.0
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -135.0
+margin_right = 240.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 480, 270 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0.328125, 0.328125, 0.328125, 0.59 )
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
+color = Color( 0, 0, 0, 0.392274 )
+_sections_unfolded = [ "Mouse", "Pause", "Rect", "Visibility" ]
 
-[node name="Title" type="Label" parent="." index="1"]
+[node name="Buttons" type="VBoxContainer" parent="." index="1"]
+
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = -61.0
+margin_right = 66.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 7
+alignment = 1
+_sections_unfolded = [ "Mouse", "Pause", "Rect", "custom_constants" ]
+
+[node name="Paused" type="Label" parent="Buttons" index="0"]
 
 anchor_left = 0.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 35.0
-margin_top = -100.0
-margin_right = -605.0
-margin_bottom = -86.0
-rect_scale = Vector2( 2, 2 )
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 132.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -61,40 +86,21 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 text = "Paused"
 align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Mouse", "Pause", "Rect", "custom_fonts" ]
 
-[node name="Buttons" type="VBoxContainer" parent="." index="2"]
-
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -12.0
-margin_top = -45.0
-margin_right = 53.0
-margin_bottom = 45.0
-rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/separation = 15
-alignment = 1
-_sections_unfolded = [ "Rect" ]
-
-[node name="Resume" type="Button" parent="Buttons" index="0"]
+[node name="Resume" type="Button" parent="Buttons" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 65.0
-margin_bottom = 20.0
+margin_top = 21.0
+margin_right = 132.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -109,16 +115,17 @@ group = null
 text = "Resume"
 flat = false
 align = 1
+_sections_unfolded = [ "Focus", "Mouse", "Pause" ]
 
-[node name="Controls" type="Button" parent="Buttons" index="1"]
+[node name="Controls" type="Button" parent="Buttons" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 35.0
-margin_right = 65.0
-margin_bottom = 55.0
+margin_top = 48.0
+margin_right = 132.0
+margin_bottom = 68.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -133,16 +140,17 @@ group = null
 text = "Controls"
 flat = false
 align = 1
+_sections_unfolded = [ "Focus", "Pause" ]
 
-[node name="Quit" type="Button" parent="Buttons" index="2"]
+[node name="Quit to Main Menu" type="Button" parent="Buttons" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 70.0
-margin_right = 65.0
-margin_bottom = 90.0
+margin_top = 75.0
+margin_right = 132.0
+margin_bottom = 95.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -154,14 +162,459 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Quit"
+text = "Quit to Main Menu"
 flat = false
 align = 1
+_sections_unfolded = [ "Focus", "Pause" ]
+
+[node name="Quit to Desktop" type="Button" parent="Buttons" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 102.0
+margin_right = 132.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit to Desktop"
+flat = false
+align = 1
+_sections_unfolded = [ "Focus", "Pause" ]
+
+[node name="Controls" type="Control" parent="." index="2"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Pause", "Rect" ]
+
+[node name="Controls Container" parent="Controls" index="0" instance=ExtResource( 2 )]
+
+margin_left = -127.0
+margin_top = -104.0
+margin_right = 401.0
+margin_bottom = 332.0
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+_sections_unfolded = [ "Mouse", "Pause", "Rect", "custom_constants" ]
+
+[node name="Back to Pause Menu" parent="Controls" index="1" instance=ExtResource( 3 )]
+
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="Save Game" type="Control" parent="." index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 132.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Mouse", "Rect", "Size Flags" ]
+
+[node name="Save Menu" type="Control" parent="Save Game" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 480.0
+margin_bottom = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Save Options" type="VBoxContainer" parent="Save Game/Save Menu" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -34.0
+margin_right = 79.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="Overwrite" type="Button" parent="Save Game/Save Menu/Save Options" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 159.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Overwrite Current Save"
+flat = false
+align = 1
+_sections_unfolded = [ "Focus", "Pause", "Rect" ]
+
+[node name="New Save" type="Button" parent="Save Game/Save Menu/Save Options" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 159.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "New Save"
+flat = false
+align = 1
+_sections_unfolded = [ "Focus", "Pause" ]
+
+[node name="Quit without Saving" type="Button" parent="Save Game/Save Menu/Save Options" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 159.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit without Saving"
+flat = false
+align = 1
+_sections_unfolded = [ "Focus", "Pause" ]
+
+[node name="Back to Pause Menu from Save Menu" type="Control" parent="Save Game/Save Menu" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 180.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 5 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Backdrop" type="ColorRect" parent="Save Game/Save Menu/Back to Pause Menu from Save Menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 170.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.2, 0.184314, 0.2, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Container" type="HBoxContainer" parent="Save Game/Save Menu/Back to Pause Menu from Save Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 165.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button" type="Button" parent="Save Game/Save Menu/Back to Pause Menu from Save Menu/Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 28.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 6 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Save Game/Save Menu/Back to Pause Menu from Save Menu/Container" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 5.0
+margin_right = 161.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Back to Pause Menu"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="New Save Menu" type="Control" parent="Save Game" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 480.0
+margin_bottom = 270.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="New Save" type="LineEdit" parent="Save Game/New Save Menu" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -99.5
+margin_top = -15.0
+margin_right = 99.5
+margin_bottom = 15.0
+rect_min_size = Vector2( 199, 30 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+max_length = 15
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "Enter a save game name here"
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.4
+caret_position = 0
+
+[node name="Back to Save Menu" type="Control" parent="Save Game/New Save Menu" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 166.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 7 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Backdrop" type="ColorRect" parent="Save Game/New Save Menu/Back to Save Menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 156.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.2, 0.184314, 0.2, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Container" type="HBoxContainer" parent="Save Game/New Save Menu/Back to Save Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 165.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button" type="Button" parent="Save Game/New Save Menu/Back to Save Menu/Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 28.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 6 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Save Game/New Save Menu/Back to Save Menu/Container" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 5.0
+margin_right = 152.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Back to Save Menu"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Rect" ]
 
 [connection signal="pressed" from="Buttons/Resume" to="." method="_on_Resume_pressed"]
 
 [connection signal="pressed" from="Buttons/Controls" to="." method="_on_Controls_pressed"]
 
-[connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Buttons/Quit to Main Menu" to="." method="_on_Quit_to_Main_Menu_pressed"]
+
+[connection signal="pressed" from="Buttons/Quit to Desktop" to="." method="_on_Quit_to_Desktop_pressed"]
+
+[connection signal="pressed" from="Save Game/Save Menu/Save Options/Overwrite" to="Save Game" method="_on_Overwrite_pressed"]
+
+[connection signal="pressed" from="Save Game/Save Menu/Save Options/New Save" to="Save Game" method="_on_New_Save_pressed"]
+
+[connection signal="pressed" from="Save Game/Save Menu/Save Options/Quit without Saving" to="Save Game" method="_on_Quit_without_Saving_pressed"]
+
+[connection signal="pressed" from="Save Game/Save Menu/Back to Pause Menu from Save Menu/Container/Button" to="Save Game/Save Menu/Back to Pause Menu from Save Menu" method="_on_Button_pressed"]
+
+[connection signal="text_entered" from="Save Game/New Save Menu/New Save" to="Save Game" method="_on_New_Save_text_entered"]
+
+[connection signal="pressed" from="Save Game/New Save Menu/Back to Save Menu/Container/Button" to="Save Game/New Save Menu/Back to Save Menu" method="_on_Button_pressed"]
 
 

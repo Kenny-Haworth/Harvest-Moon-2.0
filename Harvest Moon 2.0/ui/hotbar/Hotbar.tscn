@@ -1,0 +1,745 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://ui/hotbar/Hotbar.gd" type="Script" id=1]
+[ext_resource path="res://ui/hotbar/Hotbar.png" type="Texture" id=2]
+[ext_resource path="res://ui/hotbar/Equipped Item Indicator.png" type="Texture" id=3]
+[ext_resource path="res://ui/inventory/tools and items/Watering Can.png" type="Texture" id=4]
+[ext_resource path="res://ui/hotbar/Hotbar Stackable Item Label.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/inventory/tools and items/Hoe.png" type="Texture" id=6]
+[ext_resource path="res://ui/inventory/tools and items/Hammer.png" type="Texture" id=7]
+[ext_resource path="res://ui/inventory/tools and items/Axe.png" type="Texture" id=8]
+[ext_resource path="res://ui/inventory/tools and items/Sickle.png" type="Texture" id=9]
+
+
+[sub_resource type="InputEventKey" id=1]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 49
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=2]
+
+shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventKey" id=3]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 50
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=4]
+
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventKey" id=5]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 51
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=6]
+
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventKey" id=7]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 52
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=8]
+
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventKey" id=9]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 53
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=10]
+
+shortcut = SubResource( 9 )
+
+[sub_resource type="InputEventKey" id=11]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 54
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=12]
+
+shortcut = SubResource( 11 )
+
+[sub_resource type="InputEventKey" id=13]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 55
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=14]
+
+shortcut = SubResource( 13 )
+
+[sub_resource type="InputEventKey" id=15]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 56
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=16]
+
+shortcut = SubResource( 15 )
+
+[sub_resource type="InputEventKey" id=17]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 57
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=18]
+
+shortcut = SubResource( 17 )
+
+[sub_resource type="InputEventKey" id=19]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 48
+unicode = 0
+echo = false
+
+[sub_resource type="ShortCut" id=20]
+
+shortcut = SubResource( 19 )
+
+[node name="Hotbar" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1200.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Backdrop" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1200.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Equipped Item Indicator" type="TextureRect" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 150.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Hotbar Grid Container" type="GridContainer" parent="." index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_top = 51.0
+margin_right = 1150.0
+margin_bottom = 151.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/hseparation = 11
+columns = 10
+_sections_unfolded = [ "Rect" ]
+
+[node name="Button1" type="Button" parent="Hotbar Grid Container" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 2 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Mouse", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button1" index="1" instance=ExtResource( 5 )]
+
+[node name="Button2" type="Button" parent="Hotbar Grid Container" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 111.0
+margin_right = 211.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 4 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button2" index="1" instance=ExtResource( 5 )]
+
+[node name="Button3" type="Button" parent="Hotbar Grid Container" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_right = 322.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 6 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button3" index="1" instance=ExtResource( 5 )]
+
+[node name="Button4" type="Button" parent="Hotbar Grid Container" index="3"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 333.0
+margin_right = 433.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 8 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button4" index="1" instance=ExtResource( 5 )]
+
+[node name="Button5" type="Button" parent="Hotbar Grid Container" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 444.0
+margin_right = 544.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 10 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button5" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 9 )
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button5" index="1" instance=ExtResource( 5 )]
+
+[node name="Button6" type="Button" parent="Hotbar Grid Container" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 555.0
+margin_right = 655.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 12 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button6" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button6" index="1" instance=ExtResource( 5 )]
+
+[node name="Button7" type="Button" parent="Hotbar Grid Container" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 666.0
+margin_right = 766.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 14 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button7" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button7" index="1" instance=ExtResource( 5 )]
+
+[node name="Button8" type="Button" parent="Hotbar Grid Container" index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 777.0
+margin_right = 877.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 16 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button8" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button8" index="1" instance=ExtResource( 5 )]
+
+[node name="Button9" type="Button" parent="Hotbar Grid Container" index="8"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 888.0
+margin_right = 988.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 18 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button9" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button9" index="1" instance=ExtResource( 5 )]
+
+[node name="Button10" type="Button" parent="Hotbar Grid Container" index="9"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 999.0
+margin_right = 1099.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = SubResource( 20 )
+group = null
+flat = true
+align = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button10" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 4
+_sections_unfolded = [ "Rect" ]
+
+[node name="Stackable Item Label" parent="Hotbar Grid Container/Button10" index="1" instance=ExtResource( 5 )]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button1" to="." method="_button_pressed" binds= [ 1 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button2" to="." method="_button_pressed" binds= [ 2 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button3" to="." method="_button_pressed" binds= [ 3 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button4" to="." method="_button_pressed" binds= [ 4 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button5" to="." method="_button_pressed" binds= [ 5 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button6" to="." method="_button_pressed" binds= [ 6 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button7" to="." method="_button_pressed" binds= [ 7 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button8" to="." method="_button_pressed" binds= [ 8 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button9" to="." method="_button_pressed" binds= [ 9 ]]
+
+[connection signal="pressed" from="Hotbar Grid Container/Button10" to="." method="_button_pressed" binds= [ 10 ]]
+
+

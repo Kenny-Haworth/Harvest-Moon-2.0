@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://tilesets/exploreTiles.png" type="Texture" id=1]
+[ext_resource path="res://tilesets/houseTiles.png" type="Texture" id=1]
 
 [resource]
 

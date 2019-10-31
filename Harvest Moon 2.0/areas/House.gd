@@ -3,9 +3,8 @@ extends Node2D
 #get the master node
 onready var Game = get_parent()
 
-#get all the necessary tilemaps for this area (in top draw order)
+#get all the necessary tilemaps for this area
 onready var Objects = get_node("Objects")
-onready var Background = get_node("Background")
 
 #declare the size of this area and the tile sizes of this area
 const grid_size = Vector2(9, 9) #9 tiles x 9 tiles (x,y)
@@ -13,15 +12,10 @@ var tile_size #32 pixels x 32 pixels
 var half_tile_size
 var grid = []
 
-enum ENTITY_TYPES {PLAYER}
-
 func _ready():
 	tile_size = Game.tile_size #get the tile size from Game
 	half_tile_size = Game.half_tile_size
-	
-	#all tilemap children of this node should have the same cell size
-	assert (tile_size == Background.get_cell_size() and Background.get_cell_size() == Objects.get_cell_size())
-	
+
 	for x in range(grid_size.x):
 		grid.append([])
 		for y in range(grid_size.y):
@@ -38,7 +32,7 @@ func teleport(position):
 
 #tells the player if they are standing next to the bed or not
 func can_sleep(position):
-	if Objects.world_to_map(position) == Vector2(5, 3):
+	if Objects.world_to_map(position) == Vector2(5, 3) or Objects.world_to_map(position) == Vector2(6, 4) or Objects.world_to_map(position) == Vector2(7, 4):
 		return true
 	return false
 
@@ -59,7 +53,6 @@ func update_child_pos(child_node):
 	grid[grid_pos.x][grid_pos.y] = null
 	
 	var new_grid_pos = grid_pos + child_node.direction
-	grid[new_grid_pos.x][new_grid_pos.y] = child_node.type
 	
 	var target_pos = Objects.map_to_world(new_grid_pos) + half_tile_size
 	return target_pos
