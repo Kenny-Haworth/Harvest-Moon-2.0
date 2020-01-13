@@ -1,6 +1,12 @@
 extends VBoxContainer
 
+#for telling other classes when to sleep
+signal sleep
+
+#for fading in the proper shaders at the proper time
 onready var Shaders = get_node("/root/Game/Shaders")
+
+#for changing the weather image when night comes
 onready var Weather = get_parent().get_node("Weather")
 
 var day = 1
@@ -61,3 +67,7 @@ func _on_Timer_timeout():
 	#toggle changing the weather image to night when night comes and it is not raining
 	if armyTimeHour == 20: #8pm
 		Weather.set_weather_to_night()
+	
+	#emit the sleep signal if it is 11pm
+	if armyTimeHour == 23 and minute == 0:
+		emit_signal("sleep")

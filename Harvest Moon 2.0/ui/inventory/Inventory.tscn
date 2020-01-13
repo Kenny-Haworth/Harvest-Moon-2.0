@@ -1,28 +1,24 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ui/inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://ui/inventory/Inventory Background.png" type="Texture" id=2]
 [ext_resource path="res://ui/hotbar/Equipped Item Indicator.png" type="Texture" id=3]
 [ext_resource path="res://ui/inventory/tools and items/StrawberrySeeds.png" type="Texture" id=4]
 [ext_resource path="res://ui/inventory/Inventory Stackable Item Label.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/inventory/tools and items/TurnipSeeds.png" type="Texture" id=6]
-[ext_resource path="res://ui/inventory/tools and items/EggplantSeeds.png" type="Texture" id=7]
-[ext_resource path="res://ui/inventory/tools and items/Watering Can.png" type="Texture" id=8]
-[ext_resource path="res://ui/inventory/tools and items/Hoe.png" type="Texture" id=9]
-[ext_resource path="res://ui/inventory/tools and items/Hammer.png" type="Texture" id=10]
-[ext_resource path="res://ui/inventory/tools and items/Axe.png" type="Texture" id=11]
-[ext_resource path="res://ui/inventory/tools and items/Sickle.png" type="Texture" id=12]
-[ext_resource path="res://ui/inventory/Stackable Item Font.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://ui/inventory/tools and items/Gold.png" type="Texture" id=6]
+[ext_resource path="res://ui/inventory/tools and items/Watering Can.png" type="Texture" id=7]
+[ext_resource path="res://ui/inventory/tools and items/Hoe.png" type="Texture" id=8]
+[ext_resource path="res://ui/inventory/Stackable Item Font.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 200
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 13 )
+font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Inventory" type="Control" index="0"]
+[node name="Inventory" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -80,7 +76,6 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Inventory Grid Container" type="GridContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -103,7 +98,6 @@ _sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Button1" type="Button" parent="Inventory Grid Container" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -147,7 +141,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Stackable Item Label" parent="Inventory Grid Container/Button1" index="1" instance=ExtResource( 5 )]
 
-text = "9"
+text = "18"
 
 [node name="Button2" type="Button" parent="Inventory Grid Container" index="1"]
 
@@ -174,7 +168,7 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Margin", "Rect" ]
+_sections_unfolded = [ "Focus", "Margin", "Rect" ]
 
 [node name="Icon" type="TextureRect" parent="Inventory Grid Container/Button2" index="0"]
 
@@ -196,7 +190,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Stackable Item Label" parent="Inventory Grid Container/Button2" index="1" instance=ExtResource( 5 )]
 
-text = "9"
+text = "10"
 
 [node name="Button3" type="Button" parent="Inventory Grid Container" index="2"]
 
@@ -239,13 +233,10 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
 stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 
 [node name="Stackable Item Label" parent="Inventory Grid Container/Button3" index="1" instance=ExtResource( 5 )]
-
-text = "9"
 
 [node name="Button4" type="Button" parent="Inventory Grid Container" index="3"]
 
@@ -292,6 +283,9 @@ stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 
 [node name="Stackable Item Label" parent="Inventory Grid Container/Button4" index="1" instance=ExtResource( 5 )]
+
+margin_right = 322.0
+margin_bottom = 383.0
 
 [node name="Button5" type="Button" parent="Inventory Grid Container" index="4"]
 
@@ -1509,6 +1503,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Hotbar Grid Container" type="GridContainer" parent="." index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1567,7 +1562,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 
@@ -1614,7 +1609,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 
@@ -1645,7 +1640,7 @@ shortcut = null
 group = null
 flat = true
 align = 1
-_sections_unfolded = [ "Margin", "Rect" ]
+_sections_unfolded = [ "Focus", "Margin", "Rect" ]
 
 [node name="Icon" type="TextureRect" parent="Hotbar Grid Container/Button33" index="0"]
 
@@ -1661,7 +1656,6 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 10 )
 stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 
@@ -1708,7 +1702,6 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 11 )
 stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 
@@ -1755,7 +1748,6 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 12 )
 stretch_mode = 4
 _sections_unfolded = [ "Rect" ]
 

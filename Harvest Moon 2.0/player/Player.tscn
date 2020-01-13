@@ -2,239 +2,239 @@
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/animations/idle/Idle Up.png" type="Texture" id=2]
-[ext_resource path="res://player/animations/hold/holdLeftWalk1.png" type="Texture" id=3]
-[ext_resource path="res://player/animations/hold/holdLeftWalk2.png" type="Texture" id=4]
-[ext_resource path="res://player/animations/idle/Idle Down.png" type="Texture" id=5]
-[ext_resource path="res://player/animations/watering/waterLeft1Inverted.png" type="Texture" id=6]
-[ext_resource path="res://player/animations/watering/waterLeft10Inverted.png" type="Texture" id=7]
-[ext_resource path="res://player/animations/watering/waterLeft11Inverted.png" type="Texture" id=8]
-[ext_resource path="res://player/animations/watering/waterDown13.png" type="Texture" id=9]
-[ext_resource path="res://player/animations/watering/waterDown12.png" type="Texture" id=10]
-[ext_resource path="res://player/animations/watering/waterDown13Inverted.png" type="Texture" id=11]
-[ext_resource path="res://player/animations/watering/waterDown12Inverted.png" type="Texture" id=12]
-[ext_resource path="res://player/animations/watering/waterLeft12.png" type="Texture" id=13]
-[ext_resource path="res://player/animations/watering/waterLeft13.png" type="Texture" id=14]
-[ext_resource path="res://player/animations/watering/waterUp13.png" type="Texture" id=15]
-[ext_resource path="res://player/animations/watering/waterUp12.png" type="Texture" id=16]
-[ext_resource path="res://player/animations/watering/waterUp13Inverted.png" type="Texture" id=17]
-[ext_resource path="res://player/animations/watering/waterUp12Inverted.png" type="Texture" id=18]
-[ext_resource path="res://player/animations/watering/waterLeft12Inverted.png" type="Texture" id=19]
-[ext_resource path="res://player/animations/watering/waterLeft13Inverted.png" type="Texture" id=20]
-[ext_resource path="res://player/animations/idle/Idle Left.png" type="Texture" id=21]
-[ext_resource path="res://player/animations/hold/holdDownWalk1.png" type="Texture" id=22]
-[ext_resource path="res://player/animations/hold/holdDownWalk2.png" type="Texture" id=23]
-[ext_resource path="res://player/animations/hold/holdLeftIdle.png" type="Texture" id=24]
-[ext_resource path="res://player/animations/axe/axeLeft1.png" type="Texture" id=25]
-[ext_resource path="res://player/animations/axe/axeLeft2.png" type="Texture" id=26]
-[ext_resource path="res://player/animations/axe/axeLeft3.png" type="Texture" id=27]
-[ext_resource path="res://player/animations/axe/axeLeft4.png" type="Texture" id=28]
-[ext_resource path="res://player/animations/axe/axeLeft5.png" type="Texture" id=29]
-[ext_resource path="res://player/animations/axe/axeLeft6.png" type="Texture" id=30]
-[ext_resource path="res://player/animations/axe/axeLeft7.png" type="Texture" id=31]
-[ext_resource path="res://player/animations/axe/axeLeft8.png" type="Texture" id=32]
-[ext_resource path="res://player/animations/axe/axeLeft9.png" type="Texture" id=33]
-[ext_resource path="res://player/animations/axe/axeLeft10.png" type="Texture" id=34]
-[ext_resource path="res://player/animations/axe/axeLeft11.png" type="Texture" id=35]
-[ext_resource path="res://player/animations/axe/axeLeft12.png" type="Texture" id=36]
-[ext_resource path="res://player/animations/watering/waterLeft1.png" type="Texture" id=37]
-[ext_resource path="res://player/animations/watering/waterLeft10.png" type="Texture" id=38]
-[ext_resource path="res://player/animations/watering/waterLeft11.png" type="Texture" id=39]
-[ext_resource path="res://player/animations/bag/storeLeft3.png" type="Texture" id=40]
-[ext_resource path="res://player/animations/bag/storeLeft2.png" type="Texture" id=41]
-[ext_resource path="res://player/animations/bag/storeLeft1.png" type="Texture" id=42]
-[ext_resource path="res://player/animations/sickle/sickleCircle1.png" type="Texture" id=43]
-[ext_resource path="res://player/animations/sickle/sickleCircle2.png" type="Texture" id=44]
-[ext_resource path="res://player/animations/sickle/sickleCircle3.png" type="Texture" id=45]
-[ext_resource path="res://player/animations/sickle/sickleCircle4.png" type="Texture" id=46]
-[ext_resource path="res://player/animations/hammer/hammerLeft1.png" type="Texture" id=47]
-[ext_resource path="res://player/animations/hammer/hammerLeft2.png" type="Texture" id=48]
-[ext_resource path="res://player/animations/hammer/hammerLeft3.png" type="Texture" id=49]
-[ext_resource path="res://player/animations/hammer/hammerLeft4.png" type="Texture" id=50]
-[ext_resource path="res://player/animations/hammer/hammerLeft5.png" type="Texture" id=51]
-[ext_resource path="res://player/animations/hammer/hammerLeft6.png" type="Texture" id=52]
-[ext_resource path="res://player/animations/hammer/hammerLeft7.png" type="Texture" id=53]
-[ext_resource path="res://player/animations/hammer/hammerLeft8.png" type="Texture" id=54]
-[ext_resource path="res://player/animations/hammer/hammerLeft9.png" type="Texture" id=55]
-[ext_resource path="res://player/animations/hammer/hammerLeft10.png" type="Texture" id=56]
-[ext_resource path="res://player/animations/hammer/hammerLeft11.png" type="Texture" id=57]
-[ext_resource path="res://player/animations/hammer/hammerLeft12.png" type="Texture" id=58]
-[ext_resource path="res://player/animations/walking/left1.png" type="Texture" id=59]
-[ext_resource path="res://player/animations/walking/left2.png" type="Texture" id=60]
-[ext_resource path="res://player/animations/bag/storeUp1.png" type="Texture" id=61]
-[ext_resource path="res://player/animations/bag/storeUp2.png" type="Texture" id=62]
-[ext_resource path="res://player/animations/bag/storeUp3.png" type="Texture" id=63]
-[ext_resource path="res://player/animations/hold/holdUpIdle.png" type="Texture" id=64]
-[ext_resource path="res://player/animations/axe/axeUp1.png" type="Texture" id=65]
-[ext_resource path="res://player/animations/axe/axeUp2.png" type="Texture" id=66]
-[ext_resource path="res://player/animations/axe/axeUp3.png" type="Texture" id=67]
-[ext_resource path="res://player/animations/axe/axeUp4.png" type="Texture" id=68]
-[ext_resource path="res://player/animations/axe/axeUp5.png" type="Texture" id=69]
-[ext_resource path="res://player/animations/axe/axeUp6.png" type="Texture" id=70]
-[ext_resource path="res://player/animations/axe/axeUp7.png" type="Texture" id=71]
-[ext_resource path="res://player/animations/axe/axeUp8.png" type="Texture" id=72]
-[ext_resource path="res://player/animations/axe/axeUp9.png" type="Texture" id=73]
-[ext_resource path="res://player/animations/axe/axeUp10.png" type="Texture" id=74]
-[ext_resource path="res://player/animations/axe/axeUp11.png" type="Texture" id=75]
-[ext_resource path="res://player/animations/axe/axeUp12.png" type="Texture" id=76]
-[ext_resource path="res://player/animations/walking/Up1.png" type="Texture" id=77]
-[ext_resource path="res://player/animations/walking/Up2.png" type="Texture" id=78]
-[ext_resource path="res://player/animations/hoe/hoeUp1.png" type="Texture" id=79]
-[ext_resource path="res://player/animations/hoe/hoeUp2.png" type="Texture" id=80]
-[ext_resource path="res://player/animations/hoe/hoeUp3.png" type="Texture" id=81]
-[ext_resource path="res://player/animations/hoe/hoeUp4.png" type="Texture" id=82]
-[ext_resource path="res://player/animations/hoe/hoeUp5.png" type="Texture" id=83]
-[ext_resource path="res://player/animations/hoe/hoeUp6.png" type="Texture" id=84]
-[ext_resource path="res://player/animations/hoe/hoeUp7.png" type="Texture" id=85]
-[ext_resource path="res://player/animations/hoe/hoeUp8.png" type="Texture" id=86]
-[ext_resource path="res://player/animations/hoe/hoeUp9.png" type="Texture" id=87]
-[ext_resource path="res://player/animations/hoe/hoeUp10.png" type="Texture" id=88]
-[ext_resource path="res://player/animations/hoe/hoeUp11.png" type="Texture" id=89]
-[ext_resource path="res://player/animations/hold/holdDownIdle.png" type="Texture" id=90]
-[ext_resource path="res://player/animations/sickle/sickleDown1.png" type="Texture" id=91]
-[ext_resource path="res://player/animations/sickle/sickleDown2.png" type="Texture" id=92]
-[ext_resource path="res://player/animations/sickle/sickleDown3.png" type="Texture" id=93]
-[ext_resource path="res://player/animations/sickle/sickleDown4.png" type="Texture" id=94]
-[ext_resource path="res://player/animations/sickle/sickleDown5.png" type="Texture" id=95]
-[ext_resource path="res://player/animations/sickle/sickleDown6.png" type="Texture" id=96]
-[ext_resource path="res://player/animations/sickle/sickleDown7.png" type="Texture" id=97]
-[ext_resource path="res://player/animations/sickle/sickleDown8.png" type="Texture" id=98]
-[ext_resource path="res://player/animations/sickle/sickleDown9.png" type="Texture" id=99]
-[ext_resource path="res://player/animations/sickle/sickleDown10.png" type="Texture" id=100]
-[ext_resource path="res://player/animations/sickle/sickleDown11.png" type="Texture" id=101]
-[ext_resource path="res://player/animations/passingOut/passOut1.png" type="Texture" id=102]
-[ext_resource path="res://player/animations/passingOut/passOut2.png" type="Texture" id=103]
-[ext_resource path="res://player/animations/passingOut/passOut3.png" type="Texture" id=104]
-[ext_resource path="res://player/animations/passingOut/passOut4.png" type="Texture" id=105]
-[ext_resource path="res://player/animations/passingOut/passOut5.png" type="Texture" id=106]
-[ext_resource path="res://player/animations/passingOut/passOut6.png" type="Texture" id=107]
-[ext_resource path="res://player/animations/passingOut/passOut7.png" type="Texture" id=108]
-[ext_resource path="res://player/animations/passingOut/passOut10.png" type="Texture" id=109]
-[ext_resource path="res://player/animations/passingOut/passOut11.png" type="Texture" id=110]
-[ext_resource path="res://player/animations/passingOut/passOut8.png" type="Texture" id=111]
-[ext_resource path="res://player/animations/passingOut/passOut9.png" type="Texture" id=112]
-[ext_resource path="res://player/animations/hoe/hoeLeft1.png" type="Texture" id=113]
-[ext_resource path="res://player/animations/hoe/hoeLeft2.png" type="Texture" id=114]
-[ext_resource path="res://player/animations/hoe/hoeLeft3.png" type="Texture" id=115]
-[ext_resource path="res://player/animations/hoe/hoeLeft4.png" type="Texture" id=116]
-[ext_resource path="res://player/animations/hoe/hoeLeft5.png" type="Texture" id=117]
-[ext_resource path="res://player/animations/hoe/hoeLeft6.png" type="Texture" id=118]
-[ext_resource path="res://player/animations/hoe/hoeLeft7.png" type="Texture" id=119]
-[ext_resource path="res://player/animations/hoe/hoeLeft8.png" type="Texture" id=120]
-[ext_resource path="res://player/animations/hoe/hoeLeft9.png" type="Texture" id=121]
-[ext_resource path="res://player/animations/hoe/hoeLeft10.png" type="Texture" id=122]
-[ext_resource path="res://player/animations/hoe/hoeLeft11.png" type="Texture" id=123]
-[ext_resource path="res://player/animations/hold/pickupLeft1.png" type="Texture" id=124]
-[ext_resource path="res://player/animations/hammer/hammerDown1.png" type="Texture" id=125]
-[ext_resource path="res://player/animations/hammer/hammerDown2.png" type="Texture" id=126]
-[ext_resource path="res://player/animations/hammer/hammerDown3.png" type="Texture" id=127]
-[ext_resource path="res://player/animations/hammer/hammerDown4.png" type="Texture" id=128]
-[ext_resource path="res://player/animations/hammer/hammerDown5.png" type="Texture" id=129]
-[ext_resource path="res://player/animations/hammer/hammerDown6.png" type="Texture" id=130]
-[ext_resource path="res://player/animations/hammer/hammerDown7.png" type="Texture" id=131]
-[ext_resource path="res://player/animations/hammer/hammerDown8.png" type="Texture" id=132]
-[ext_resource path="res://player/animations/hammer/hammerDown9.png" type="Texture" id=133]
-[ext_resource path="res://player/animations/hammer/hammerDown10.png" type="Texture" id=134]
-[ext_resource path="res://player/animations/hammer/hammerDown11.png" type="Texture" id=135]
-[ext_resource path="res://player/animations/hammer/hammerDown12.png" type="Texture" id=136]
-[ext_resource path="res://player/animations/hold/pickupUp1.png" type="Texture" id=137]
-[ext_resource path="res://player/animations/bag/storeDown1.png" type="Texture" id=138]
-[ext_resource path="res://player/animations/bag/storeDown2.png" type="Texture" id=139]
-[ext_resource path="res://player/animations/bag/storeDown3.png" type="Texture" id=140]
-[ext_resource path="res://player/animations/sickle/sickleUp1.png" type="Texture" id=141]
-[ext_resource path="res://player/animations/sickle/sickleUp2.png" type="Texture" id=142]
-[ext_resource path="res://player/animations/sickle/sickleUp3.png" type="Texture" id=143]
-[ext_resource path="res://player/animations/sickle/sickleUp4.png" type="Texture" id=144]
-[ext_resource path="res://player/animations/sickle/sickleUp5.png" type="Texture" id=145]
-[ext_resource path="res://player/animations/sickle/sickleUp6.png" type="Texture" id=146]
-[ext_resource path="res://player/animations/sickle/sickleUp7.png" type="Texture" id=147]
-[ext_resource path="res://player/animations/sickle/sickleUp8.png" type="Texture" id=148]
-[ext_resource path="res://player/animations/sickle/sickleUp9.png" type="Texture" id=149]
-[ext_resource path="res://player/animations/sickle/sickleUp10.png" type="Texture" id=150]
-[ext_resource path="res://player/animations/sickle/sickleUp11.png" type="Texture" id=151]
-[ext_resource path="res://player/animations/seeds/seeds1.png" type="Texture" id=152]
-[ext_resource path="res://player/animations/seeds/seeds2.png" type="Texture" id=153]
-[ext_resource path="res://player/animations/seeds/seeds3.png" type="Texture" id=154]
-[ext_resource path="res://player/animations/watering/waterDown1.png" type="Texture" id=155]
-[ext_resource path="res://player/animations/watering/waterDown10.png" type="Texture" id=156]
-[ext_resource path="res://player/animations/watering/waterDown11.png" type="Texture" id=157]
-[ext_resource path="res://player/animations/axe/axeDown1.png" type="Texture" id=158]
-[ext_resource path="res://player/animations/axe/axeDown2.png" type="Texture" id=159]
-[ext_resource path="res://player/animations/axe/axeDown3.png" type="Texture" id=160]
-[ext_resource path="res://player/animations/axe/axeDown4.png" type="Texture" id=161]
-[ext_resource path="res://player/animations/axe/axeDown5.png" type="Texture" id=162]
-[ext_resource path="res://player/animations/axe/axeDown6.png" type="Texture" id=163]
-[ext_resource path="res://player/animations/axe/axeDown7.png" type="Texture" id=164]
-[ext_resource path="res://player/animations/axe/axeDown8.png" type="Texture" id=165]
-[ext_resource path="res://player/animations/axe/axeDown9.png" type="Texture" id=166]
-[ext_resource path="res://player/animations/axe/axeDown10.png" type="Texture" id=167]
-[ext_resource path="res://player/animations/axe/axeDown11.png" type="Texture" id=168]
-[ext_resource path="res://player/animations/axe/axeDown12.png" type="Texture" id=169]
-[ext_resource path="res://player/animations/hold/pickupDown1.png" type="Texture" id=170]
-[ext_resource path="res://player/animations/watering/waterLeft2.png" type="Texture" id=171]
-[ext_resource path="res://player/animations/watering/waterLeft3.png" type="Texture" id=172]
-[ext_resource path="res://player/animations/watering/waterLeft4.png" type="Texture" id=173]
-[ext_resource path="res://player/animations/watering/waterLeft5.png" type="Texture" id=174]
-[ext_resource path="res://player/animations/watering/waterLeft6.png" type="Texture" id=175]
-[ext_resource path="res://player/animations/watering/waterLeft7.png" type="Texture" id=176]
-[ext_resource path="res://player/animations/watering/waterLeft8.png" type="Texture" id=177]
-[ext_resource path="res://player/animations/watering/waterLeft9.png" type="Texture" id=178]
-[ext_resource path="res://player/animations/watering/waterDown2.png" type="Texture" id=179]
-[ext_resource path="res://player/animations/watering/waterDown3.png" type="Texture" id=180]
-[ext_resource path="res://player/animations/watering/waterDown4.png" type="Texture" id=181]
-[ext_resource path="res://player/animations/watering/waterDown5.png" type="Texture" id=182]
-[ext_resource path="res://player/animations/watering/waterDown6.png" type="Texture" id=183]
-[ext_resource path="res://player/animations/watering/waterDown7.png" type="Texture" id=184]
-[ext_resource path="res://player/animations/watering/waterDown8.png" type="Texture" id=185]
-[ext_resource path="res://player/animations/watering/waterDown9.png" type="Texture" id=186]
-[ext_resource path="res://player/animations/sickle/sickleLeft1.png" type="Texture" id=187]
-[ext_resource path="res://player/animations/sickle/sickleLeft2.png" type="Texture" id=188]
-[ext_resource path="res://player/animations/sickle/sickleLeft3.png" type="Texture" id=189]
-[ext_resource path="res://player/animations/sickle/sickleLeft4.png" type="Texture" id=190]
-[ext_resource path="res://player/animations/sickle/sickleLeft5.png" type="Texture" id=191]
-[ext_resource path="res://player/animations/sickle/sickleLeft6.png" type="Texture" id=192]
-[ext_resource path="res://player/animations/sickle/sickleLeft7.png" type="Texture" id=193]
-[ext_resource path="res://player/animations/sickle/sickleLeft8.png" type="Texture" id=194]
-[ext_resource path="res://player/animations/sickle/sickleLeft9.png" type="Texture" id=195]
-[ext_resource path="res://player/animations/sickle/sickleLeft10.png" type="Texture" id=196]
-[ext_resource path="res://player/animations/sickle/sickleLeft11.png" type="Texture" id=197]
-[ext_resource path="res://player/animations/walking/Down4.png" type="Texture" id=198]
-[ext_resource path="res://player/animations/walking/Down5.png" type="Texture" id=199]
-[ext_resource path="res://player/animations/hold/holdUpWalk1.png" type="Texture" id=200]
-[ext_resource path="res://player/animations/hold/holdUpWalk2.png" type="Texture" id=201]
-[ext_resource path="res://player/animations/watering/waterUp1.png" type="Texture" id=202]
-[ext_resource path="res://player/animations/watering/waterUp2.png" type="Texture" id=203]
-[ext_resource path="res://player/animations/watering/waterUp3.png" type="Texture" id=204]
-[ext_resource path="res://player/animations/watering/waterUp4.png" type="Texture" id=205]
-[ext_resource path="res://player/animations/watering/waterUp5.png" type="Texture" id=206]
-[ext_resource path="res://player/animations/watering/waterUp6.png" type="Texture" id=207]
-[ext_resource path="res://player/animations/watering/waterUp7.png" type="Texture" id=208]
-[ext_resource path="res://player/animations/watering/waterUp8.png" type="Texture" id=209]
-[ext_resource path="res://player/animations/watering/waterUp9.png" type="Texture" id=210]
-[ext_resource path="res://player/animations/watering/waterUp10.png" type="Texture" id=211]
-[ext_resource path="res://player/animations/watering/waterUp11.png" type="Texture" id=212]
-[ext_resource path="res://player/animations/hoe/hoeDown1.png" type="Texture" id=213]
-[ext_resource path="res://player/animations/hoe/hoeDown2.png" type="Texture" id=214]
-[ext_resource path="res://player/animations/hoe/hoeDown3.png" type="Texture" id=215]
-[ext_resource path="res://player/animations/hoe/hoeDown4.png" type="Texture" id=216]
-[ext_resource path="res://player/animations/hoe/hoeDown5.png" type="Texture" id=217]
-[ext_resource path="res://player/animations/hoe/hoeDown6.png" type="Texture" id=218]
-[ext_resource path="res://player/animations/hoe/hoeDown7.png" type="Texture" id=219]
-[ext_resource path="res://player/animations/hoe/hoeDown8.png" type="Texture" id=220]
-[ext_resource path="res://player/animations/hoe/hoeDown9.png" type="Texture" id=221]
-[ext_resource path="res://player/animations/hoe/hoeDown10.png" type="Texture" id=222]
-[ext_resource path="res://player/animations/hoe/hoeDown11.png" type="Texture" id=223]
-[ext_resource path="res://player/animations/hammer/hammerUp1.png" type="Texture" id=224]
-[ext_resource path="res://player/animations/hammer/hammerUp2.png" type="Texture" id=225]
-[ext_resource path="res://player/animations/hammer/hammerUp3.png" type="Texture" id=226]
-[ext_resource path="res://player/animations/hammer/hammerUp4.png" type="Texture" id=227]
-[ext_resource path="res://player/animations/hammer/hammerUp5.png" type="Texture" id=228]
-[ext_resource path="res://player/animations/hammer/hammerUp6.png" type="Texture" id=229]
-[ext_resource path="res://player/animations/hammer/hammerUp7.png" type="Texture" id=230]
-[ext_resource path="res://player/animations/hammer/hammerUp8.png" type="Texture" id=231]
-[ext_resource path="res://player/animations/hammer/hammerUp9.png" type="Texture" id=232]
-[ext_resource path="res://player/animations/hammer/hammerUp10.png" type="Texture" id=233]
-[ext_resource path="res://player/animations/hammer/hammerUp11.png" type="Texture" id=234]
-[ext_resource path="res://player/animations/hammer/hammerUp12.png" type="Texture" id=235]
+[ext_resource path="res://player/animations/walking/Down4.png" type="Texture" id=3]
+[ext_resource path="res://player/animations/walking/Down5.png" type="Texture" id=4]
+[ext_resource path="res://player/animations/hold/holdUpIdle.png" type="Texture" id=5]
+[ext_resource path="res://player/animations/hold/pickupDown1.png" type="Texture" id=6]
+[ext_resource path="res://player/animations/hold/holdDownIdle.png" type="Texture" id=7]
+[ext_resource path="res://player/animations/walking/left1.png" type="Texture" id=8]
+[ext_resource path="res://player/animations/walking/left2.png" type="Texture" id=9]
+[ext_resource path="res://player/animations/idle/Idle Down.png" type="Texture" id=10]
+[ext_resource path="res://player/animations/sickle/sickleCircle1.png" type="Texture" id=11]
+[ext_resource path="res://player/animations/sickle/sickleCircle2.png" type="Texture" id=12]
+[ext_resource path="res://player/animations/sickle/sickleCircle3.png" type="Texture" id=13]
+[ext_resource path="res://player/animations/sickle/sickleCircle4.png" type="Texture" id=14]
+[ext_resource path="res://player/animations/idle/Idle Left.png" type="Texture" id=15]
+[ext_resource path="res://player/animations/bag/storeUp1.png" type="Texture" id=16]
+[ext_resource path="res://player/animations/bag/storeUp2.png" type="Texture" id=17]
+[ext_resource path="res://player/animations/bag/storeUp3.png" type="Texture" id=18]
+[ext_resource path="res://player/animations/hammer/hammerLeft1.png" type="Texture" id=19]
+[ext_resource path="res://player/animations/hammer/hammerLeft2.png" type="Texture" id=20]
+[ext_resource path="res://player/animations/hammer/hammerLeft3.png" type="Texture" id=21]
+[ext_resource path="res://player/animations/hammer/hammerLeft4.png" type="Texture" id=22]
+[ext_resource path="res://player/animations/hammer/hammerLeft5.png" type="Texture" id=23]
+[ext_resource path="res://player/animations/hammer/hammerLeft6.png" type="Texture" id=24]
+[ext_resource path="res://player/animations/hammer/hammerLeft7.png" type="Texture" id=25]
+[ext_resource path="res://player/animations/hammer/hammerLeft8.png" type="Texture" id=26]
+[ext_resource path="res://player/animations/hammer/hammerLeft9.png" type="Texture" id=27]
+[ext_resource path="res://player/animations/hammer/hammerLeft10.png" type="Texture" id=28]
+[ext_resource path="res://player/animations/hammer/hammerLeft11.png" type="Texture" id=29]
+[ext_resource path="res://player/animations/hammer/hammerLeft12.png" type="Texture" id=30]
+[ext_resource path="res://player/animations/hold/holdLeftWalk1.png" type="Texture" id=31]
+[ext_resource path="res://player/animations/hold/holdLeftWalk2.png" type="Texture" id=32]
+[ext_resource path="res://player/animations/hoe/hoeUp1.png" type="Texture" id=33]
+[ext_resource path="res://player/animations/hoe/hoeUp2.png" type="Texture" id=34]
+[ext_resource path="res://player/animations/hoe/hoeUp3.png" type="Texture" id=35]
+[ext_resource path="res://player/animations/hoe/hoeUp4.png" type="Texture" id=36]
+[ext_resource path="res://player/animations/hoe/hoeUp5.png" type="Texture" id=37]
+[ext_resource path="res://player/animations/hoe/hoeUp6.png" type="Texture" id=38]
+[ext_resource path="res://player/animations/hoe/hoeUp7.png" type="Texture" id=39]
+[ext_resource path="res://player/animations/hoe/hoeUp8.png" type="Texture" id=40]
+[ext_resource path="res://player/animations/hoe/hoeUp9.png" type="Texture" id=41]
+[ext_resource path="res://player/animations/hoe/hoeUp10.png" type="Texture" id=42]
+[ext_resource path="res://player/animations/hoe/hoeUp11.png" type="Texture" id=43]
+[ext_resource path="res://player/animations/hoe/hoeLeft1.png" type="Texture" id=44]
+[ext_resource path="res://player/animations/hoe/hoeLeft2.png" type="Texture" id=45]
+[ext_resource path="res://player/animations/hoe/hoeLeft3.png" type="Texture" id=46]
+[ext_resource path="res://player/animations/hoe/hoeLeft4.png" type="Texture" id=47]
+[ext_resource path="res://player/animations/hoe/hoeLeft5.png" type="Texture" id=48]
+[ext_resource path="res://player/animations/hoe/hoeLeft6.png" type="Texture" id=49]
+[ext_resource path="res://player/animations/hoe/hoeLeft7.png" type="Texture" id=50]
+[ext_resource path="res://player/animations/hoe/hoeLeft8.png" type="Texture" id=51]
+[ext_resource path="res://player/animations/hoe/hoeLeft9.png" type="Texture" id=52]
+[ext_resource path="res://player/animations/hoe/hoeLeft10.png" type="Texture" id=53]
+[ext_resource path="res://player/animations/hoe/hoeLeft11.png" type="Texture" id=54]
+[ext_resource path="res://player/animations/hoe/hoeDown1.png" type="Texture" id=55]
+[ext_resource path="res://player/animations/hoe/hoeDown2.png" type="Texture" id=56]
+[ext_resource path="res://player/animations/hoe/hoeDown3.png" type="Texture" id=57]
+[ext_resource path="res://player/animations/hoe/hoeDown4.png" type="Texture" id=58]
+[ext_resource path="res://player/animations/hoe/hoeDown5.png" type="Texture" id=59]
+[ext_resource path="res://player/animations/hoe/hoeDown6.png" type="Texture" id=60]
+[ext_resource path="res://player/animations/hoe/hoeDown7.png" type="Texture" id=61]
+[ext_resource path="res://player/animations/hoe/hoeDown8.png" type="Texture" id=62]
+[ext_resource path="res://player/animations/hoe/hoeDown9.png" type="Texture" id=63]
+[ext_resource path="res://player/animations/hoe/hoeDown10.png" type="Texture" id=64]
+[ext_resource path="res://player/animations/hoe/hoeDown11.png" type="Texture" id=65]
+[ext_resource path="res://player/animations/watering/waterUp1.png" type="Texture" id=66]
+[ext_resource path="res://player/animations/watering/waterUp2.png" type="Texture" id=67]
+[ext_resource path="res://player/animations/watering/waterUp3.png" type="Texture" id=68]
+[ext_resource path="res://player/animations/watering/waterUp4.png" type="Texture" id=69]
+[ext_resource path="res://player/animations/watering/waterUp5.png" type="Texture" id=70]
+[ext_resource path="res://player/animations/watering/waterUp6.png" type="Texture" id=71]
+[ext_resource path="res://player/animations/watering/waterUp7.png" type="Texture" id=72]
+[ext_resource path="res://player/animations/watering/waterUp8.png" type="Texture" id=73]
+[ext_resource path="res://player/animations/watering/waterUp9.png" type="Texture" id=74]
+[ext_resource path="res://player/animations/watering/waterUp10.png" type="Texture" id=75]
+[ext_resource path="res://player/animations/watering/waterUp11.png" type="Texture" id=76]
+[ext_resource path="res://player/animations/watering/waterUp12.png" type="Texture" id=77]
+[ext_resource path="res://player/animations/watering/waterUp13.png" type="Texture" id=78]
+[ext_resource path="res://player/animations/bag/storeDown1.png" type="Texture" id=79]
+[ext_resource path="res://player/animations/bag/storeDown2.png" type="Texture" id=80]
+[ext_resource path="res://player/animations/bag/storeDown3.png" type="Texture" id=81]
+[ext_resource path="res://player/animations/hold/holdUpWalk1.png" type="Texture" id=82]
+[ext_resource path="res://player/animations/hold/holdUpWalk2.png" type="Texture" id=83]
+[ext_resource path="res://player/animations/watering/waterLeft1.png" type="Texture" id=84]
+[ext_resource path="res://player/animations/watering/waterLeft10.png" type="Texture" id=85]
+[ext_resource path="res://player/animations/watering/waterLeft11.png" type="Texture" id=86]
+[ext_resource path="res://player/animations/watering/waterUp13Inverted.png" type="Texture" id=87]
+[ext_resource path="res://player/animations/watering/waterUp12Inverted.png" type="Texture" id=88]
+[ext_resource path="res://player/animations/watering/waterLeft12Inverted.png" type="Texture" id=89]
+[ext_resource path="res://player/animations/watering/waterLeft13Inverted.png" type="Texture" id=90]
+[ext_resource path="res://player/animations/watering/waterDown13.png" type="Texture" id=91]
+[ext_resource path="res://player/animations/watering/waterDown12.png" type="Texture" id=92]
+[ext_resource path="res://player/animations/watering/waterDown13Inverted.png" type="Texture" id=93]
+[ext_resource path="res://player/animations/watering/waterDown12Inverted.png" type="Texture" id=94]
+[ext_resource path="res://player/animations/watering/waterLeft12.png" type="Texture" id=95]
+[ext_resource path="res://player/animations/watering/waterLeft13.png" type="Texture" id=96]
+[ext_resource path="res://player/animations/passingOut/passOut1.png" type="Texture" id=97]
+[ext_resource path="res://player/animations/passingOut/passOut2.png" type="Texture" id=98]
+[ext_resource path="res://player/animations/passingOut/passOut3.png" type="Texture" id=99]
+[ext_resource path="res://player/animations/passingOut/passOut4.png" type="Texture" id=100]
+[ext_resource path="res://player/animations/passingOut/passOut5.png" type="Texture" id=101]
+[ext_resource path="res://player/animations/passingOut/passOut6.png" type="Texture" id=102]
+[ext_resource path="res://player/animations/passingOut/passOut7.png" type="Texture" id=103]
+[ext_resource path="res://player/animations/passingOut/passOut10.png" type="Texture" id=104]
+[ext_resource path="res://player/animations/passingOut/passOut11.png" type="Texture" id=105]
+[ext_resource path="res://player/animations/passingOut/passOut8.png" type="Texture" id=106]
+[ext_resource path="res://player/animations/passingOut/passOut9.png" type="Texture" id=107]
+[ext_resource path="res://player/animations/watering/waterLeft2.png" type="Texture" id=108]
+[ext_resource path="res://player/animations/watering/waterLeft3.png" type="Texture" id=109]
+[ext_resource path="res://player/animations/watering/waterLeft4.png" type="Texture" id=110]
+[ext_resource path="res://player/animations/watering/waterLeft5.png" type="Texture" id=111]
+[ext_resource path="res://player/animations/watering/waterLeft6.png" type="Texture" id=112]
+[ext_resource path="res://player/animations/watering/waterLeft7.png" type="Texture" id=113]
+[ext_resource path="res://player/animations/watering/waterLeft8.png" type="Texture" id=114]
+[ext_resource path="res://player/animations/watering/waterLeft9.png" type="Texture" id=115]
+[ext_resource path="res://player/animations/hold/pickupLeft1.png" type="Texture" id=116]
+[ext_resource path="res://player/animations/hold/holdLeftIdle.png" type="Texture" id=117]
+[ext_resource path="res://player/animations/sickle/sickleDown1.png" type="Texture" id=118]
+[ext_resource path="res://player/animations/sickle/sickleDown2.png" type="Texture" id=119]
+[ext_resource path="res://player/animations/sickle/sickleDown3.png" type="Texture" id=120]
+[ext_resource path="res://player/animations/sickle/sickleDown4.png" type="Texture" id=121]
+[ext_resource path="res://player/animations/sickle/sickleDown5.png" type="Texture" id=122]
+[ext_resource path="res://player/animations/sickle/sickleDown6.png" type="Texture" id=123]
+[ext_resource path="res://player/animations/sickle/sickleDown7.png" type="Texture" id=124]
+[ext_resource path="res://player/animations/sickle/sickleDown8.png" type="Texture" id=125]
+[ext_resource path="res://player/animations/sickle/sickleDown9.png" type="Texture" id=126]
+[ext_resource path="res://player/animations/sickle/sickleDown10.png" type="Texture" id=127]
+[ext_resource path="res://player/animations/sickle/sickleDown11.png" type="Texture" id=128]
+[ext_resource path="res://player/animations/sickle/sickleLeft1.png" type="Texture" id=129]
+[ext_resource path="res://player/animations/sickle/sickleLeft2.png" type="Texture" id=130]
+[ext_resource path="res://player/animations/sickle/sickleLeft3.png" type="Texture" id=131]
+[ext_resource path="res://player/animations/sickle/sickleLeft4.png" type="Texture" id=132]
+[ext_resource path="res://player/animations/sickle/sickleLeft5.png" type="Texture" id=133]
+[ext_resource path="res://player/animations/sickle/sickleLeft6.png" type="Texture" id=134]
+[ext_resource path="res://player/animations/sickle/sickleLeft7.png" type="Texture" id=135]
+[ext_resource path="res://player/animations/sickle/sickleLeft8.png" type="Texture" id=136]
+[ext_resource path="res://player/animations/sickle/sickleLeft9.png" type="Texture" id=137]
+[ext_resource path="res://player/animations/sickle/sickleLeft10.png" type="Texture" id=138]
+[ext_resource path="res://player/animations/sickle/sickleLeft11.png" type="Texture" id=139]
+[ext_resource path="res://player/animations/watering/waterLeft1Inverted.png" type="Texture" id=140]
+[ext_resource path="res://player/animations/watering/waterLeft10Inverted.png" type="Texture" id=141]
+[ext_resource path="res://player/animations/watering/waterLeft11Inverted.png" type="Texture" id=142]
+[ext_resource path="res://player/animations/watering/waterDown1.png" type="Texture" id=143]
+[ext_resource path="res://player/animations/watering/waterDown10.png" type="Texture" id=144]
+[ext_resource path="res://player/animations/watering/waterDown11.png" type="Texture" id=145]
+[ext_resource path="res://player/animations/axe/axeUp1.png" type="Texture" id=146]
+[ext_resource path="res://player/animations/axe/axeUp2.png" type="Texture" id=147]
+[ext_resource path="res://player/animations/axe/axeUp3.png" type="Texture" id=148]
+[ext_resource path="res://player/animations/axe/axeUp4.png" type="Texture" id=149]
+[ext_resource path="res://player/animations/axe/axeUp5.png" type="Texture" id=150]
+[ext_resource path="res://player/animations/axe/axeUp6.png" type="Texture" id=151]
+[ext_resource path="res://player/animations/axe/axeUp7.png" type="Texture" id=152]
+[ext_resource path="res://player/animations/axe/axeUp8.png" type="Texture" id=153]
+[ext_resource path="res://player/animations/axe/axeUp9.png" type="Texture" id=154]
+[ext_resource path="res://player/animations/axe/axeUp10.png" type="Texture" id=155]
+[ext_resource path="res://player/animations/axe/axeUp11.png" type="Texture" id=156]
+[ext_resource path="res://player/animations/axe/axeUp12.png" type="Texture" id=157]
+[ext_resource path="res://player/animations/hold/holdDownWalk1.png" type="Texture" id=158]
+[ext_resource path="res://player/animations/hold/holdDownWalk2.png" type="Texture" id=159]
+[ext_resource path="res://player/animations/hammer/hammerUp1.png" type="Texture" id=160]
+[ext_resource path="res://player/animations/hammer/hammerUp2.png" type="Texture" id=161]
+[ext_resource path="res://player/animations/hammer/hammerUp3.png" type="Texture" id=162]
+[ext_resource path="res://player/animations/hammer/hammerUp4.png" type="Texture" id=163]
+[ext_resource path="res://player/animations/hammer/hammerUp5.png" type="Texture" id=164]
+[ext_resource path="res://player/animations/hammer/hammerUp6.png" type="Texture" id=165]
+[ext_resource path="res://player/animations/hammer/hammerUp7.png" type="Texture" id=166]
+[ext_resource path="res://player/animations/hammer/hammerUp8.png" type="Texture" id=167]
+[ext_resource path="res://player/animations/hammer/hammerUp9.png" type="Texture" id=168]
+[ext_resource path="res://player/animations/hammer/hammerUp10.png" type="Texture" id=169]
+[ext_resource path="res://player/animations/hammer/hammerUp11.png" type="Texture" id=170]
+[ext_resource path="res://player/animations/hammer/hammerUp12.png" type="Texture" id=171]
+[ext_resource path="res://player/animations/walking/Up1.png" type="Texture" id=172]
+[ext_resource path="res://player/animations/walking/Up2.png" type="Texture" id=173]
+[ext_resource path="res://player/animations/sickle/sickleUp1.png" type="Texture" id=174]
+[ext_resource path="res://player/animations/sickle/sickleUp2.png" type="Texture" id=175]
+[ext_resource path="res://player/animations/sickle/sickleUp3.png" type="Texture" id=176]
+[ext_resource path="res://player/animations/sickle/sickleUp4.png" type="Texture" id=177]
+[ext_resource path="res://player/animations/sickle/sickleUp5.png" type="Texture" id=178]
+[ext_resource path="res://player/animations/sickle/sickleUp6.png" type="Texture" id=179]
+[ext_resource path="res://player/animations/sickle/sickleUp7.png" type="Texture" id=180]
+[ext_resource path="res://player/animations/sickle/sickleUp8.png" type="Texture" id=181]
+[ext_resource path="res://player/animations/sickle/sickleUp9.png" type="Texture" id=182]
+[ext_resource path="res://player/animations/sickle/sickleUp10.png" type="Texture" id=183]
+[ext_resource path="res://player/animations/sickle/sickleUp11.png" type="Texture" id=184]
+[ext_resource path="res://player/animations/bag/storeLeft1.png" type="Texture" id=185]
+[ext_resource path="res://player/animations/bag/storeLeft2.png" type="Texture" id=186]
+[ext_resource path="res://player/animations/bag/storeLeft3.png" type="Texture" id=187]
+[ext_resource path="res://player/animations/axe/axeLeft1.png" type="Texture" id=188]
+[ext_resource path="res://player/animations/axe/axeLeft2.png" type="Texture" id=189]
+[ext_resource path="res://player/animations/axe/axeLeft3.png" type="Texture" id=190]
+[ext_resource path="res://player/animations/axe/axeLeft4.png" type="Texture" id=191]
+[ext_resource path="res://player/animations/axe/axeLeft5.png" type="Texture" id=192]
+[ext_resource path="res://player/animations/axe/axeLeft6.png" type="Texture" id=193]
+[ext_resource path="res://player/animations/axe/axeLeft7.png" type="Texture" id=194]
+[ext_resource path="res://player/animations/axe/axeLeft8.png" type="Texture" id=195]
+[ext_resource path="res://player/animations/axe/axeLeft9.png" type="Texture" id=196]
+[ext_resource path="res://player/animations/axe/axeLeft10.png" type="Texture" id=197]
+[ext_resource path="res://player/animations/axe/axeLeft11.png" type="Texture" id=198]
+[ext_resource path="res://player/animations/axe/axeLeft12.png" type="Texture" id=199]
+[ext_resource path="res://player/animations/axe/axeDown1.png" type="Texture" id=200]
+[ext_resource path="res://player/animations/axe/axeDown2.png" type="Texture" id=201]
+[ext_resource path="res://player/animations/axe/axeDown3.png" type="Texture" id=202]
+[ext_resource path="res://player/animations/axe/axeDown4.png" type="Texture" id=203]
+[ext_resource path="res://player/animations/axe/axeDown5.png" type="Texture" id=204]
+[ext_resource path="res://player/animations/axe/axeDown6.png" type="Texture" id=205]
+[ext_resource path="res://player/animations/axe/axeDown7.png" type="Texture" id=206]
+[ext_resource path="res://player/animations/axe/axeDown8.png" type="Texture" id=207]
+[ext_resource path="res://player/animations/axe/axeDown9.png" type="Texture" id=208]
+[ext_resource path="res://player/animations/axe/axeDown10.png" type="Texture" id=209]
+[ext_resource path="res://player/animations/axe/axeDown11.png" type="Texture" id=210]
+[ext_resource path="res://player/animations/axe/axeDown12.png" type="Texture" id=211]
+[ext_resource path="res://player/animations/seeds/seeds1.png" type="Texture" id=212]
+[ext_resource path="res://player/animations/seeds/seeds2.png" type="Texture" id=213]
+[ext_resource path="res://player/animations/seeds/seeds3.png" type="Texture" id=214]
+[ext_resource path="res://player/animations/watering/waterDown2.png" type="Texture" id=215]
+[ext_resource path="res://player/animations/watering/waterDown3.png" type="Texture" id=216]
+[ext_resource path="res://player/animations/watering/waterDown4.png" type="Texture" id=217]
+[ext_resource path="res://player/animations/watering/waterDown5.png" type="Texture" id=218]
+[ext_resource path="res://player/animations/watering/waterDown6.png" type="Texture" id=219]
+[ext_resource path="res://player/animations/watering/waterDown7.png" type="Texture" id=220]
+[ext_resource path="res://player/animations/watering/waterDown8.png" type="Texture" id=221]
+[ext_resource path="res://player/animations/watering/waterDown9.png" type="Texture" id=222]
+[ext_resource path="res://player/animations/hold/pickupUp1.png" type="Texture" id=223]
+[ext_resource path="res://player/animations/hammer/hammerDown1.png" type="Texture" id=224]
+[ext_resource path="res://player/animations/hammer/hammerDown2.png" type="Texture" id=225]
+[ext_resource path="res://player/animations/hammer/hammerDown3.png" type="Texture" id=226]
+[ext_resource path="res://player/animations/hammer/hammerDown4.png" type="Texture" id=227]
+[ext_resource path="res://player/animations/hammer/hammerDown5.png" type="Texture" id=228]
+[ext_resource path="res://player/animations/hammer/hammerDown6.png" type="Texture" id=229]
+[ext_resource path="res://player/animations/hammer/hammerDown7.png" type="Texture" id=230]
+[ext_resource path="res://player/animations/hammer/hammerDown8.png" type="Texture" id=231]
+[ext_resource path="res://player/animations/hammer/hammerDown9.png" type="Texture" id=232]
+[ext_resource path="res://player/animations/hammer/hammerDown10.png" type="Texture" id=233]
+[ext_resource path="res://player/animations/hammer/hammerDown11.png" type="Texture" id=234]
+[ext_resource path="res://player/animations/hammer/hammerDown12.png" type="Texture" id=235]
 [ext_resource path="res://shaders/raindrop.png" type="Texture" id=236]
 [ext_resource path="res://tilesets/Crops.png" type="Texture" id=237]
 [ext_resource path="res://ui/hotbar/Hotbar.tscn" type="PackedScene" id=238]
@@ -252,228 +252,228 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "Hold Walk Left",
+"name": "Walk Down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Idle Down",
+"name": "Hold Idle Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Water Circle Right",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "Hold Walk Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "Hold Idle Left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Axe Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 39 ), ExtResource( 37 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Water Circle Left",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Store Left",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Sickle Circle",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Hammer Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 59 ), ExtResource( 60 ) ],
-"loop": true,
-"name": "Walk Left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
-"loop": false,
-"name": "Pull Out Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Axe Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 77 ), ExtResource( 78 ) ],
-"loop": true,
-"name": "Walk Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Hoe Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 90 ) ],
-"loop": true,
-"name": "Hold Idle Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Sickle Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ) ],
-"loop": false,
-"name": "Pass Out",
-"speed": 2.5
-}, {
-"frames": [ ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Hoe Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 124 ), ExtResource( 124 ), ExtResource( 124 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Drop Left",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Hammer Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 137 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Drop Up",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 90 ) ],
-"loop": false,
-"name": "Pull Out Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 150 ), ExtResource( 151 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Sickle Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 152 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Seeds",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 137 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 64 ) ],
-"loop": false,
-"name": "Pickup Up",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 140 ), ExtResource( 139 ), ExtResource( 138 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Store Down",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 63 ), ExtResource( 62 ), ExtResource( 61 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Store Up",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 155 ), ExtResource( 155 ), ExtResource( 156 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 157 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 157 ), ExtResource( 155 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Water Circle Down",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 5 ) ],
-"loop": false,
-"name": "Axe Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 170 ), ExtResource( 170 ), ExtResource( 170 ), ExtResource( 90 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "Pickup Down",
 "speed": 7.5
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 178 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Water Left",
-"speed": 12.5
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Walk Left",
+"speed": 5.0
 }, {
-"frames": [ ExtResource( 170 ), ExtResource( 170 ), ExtResource( 170 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "Drop Down",
 "speed": 7.5
 }, {
-"frames": [ ExtResource( 155 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 157 ), ExtResource( 156 ), ExtResource( 186 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 10 ) ],
 "loop": false,
-"name": "Water Down",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "Pull Out Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 196 ), ExtResource( 196 ), ExtResource( 197 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Sickle Left",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 64 ) ],
-"loop": true,
-"name": "Hold Idle Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 198 ), ExtResource( 199 ) ],
-"loop": true,
-"name": "Walk Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 200 ), ExtResource( 201 ) ],
-"loop": true,
-"name": "Hold Walk Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 210 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Water Up",
-"speed": 12.5
-}, {
-"frames": [ ExtResource( 124 ), ExtResource( 124 ), ExtResource( 124 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "Pickup Left",
-"speed": 7.5
-}, {
-"frames": [ ExtResource( 202 ), ExtResource( 202 ), ExtResource( 211 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 212 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 212 ), ExtResource( 202 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Water Circle Up",
+"name": "Sickle Circle",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 213 ), ExtResource( 214 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 222 ), ExtResource( 223 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Idle Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "Pull Out Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Hammer Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "Hold Walk Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Hoe Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Hoe Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "Hoe Down",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 78 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 74 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Water Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "Pull Out Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 82 ), ExtResource( 83 ) ],
+"loop": true,
+"name": "Hold Walk Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 86 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 86 ), ExtResource( 84 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Water Circle Left",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ), ExtResource( 107 ) ],
+"loop": false,
+"name": "Pass Out",
+"speed": 2.5
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Hold Idle Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 95 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 95 ), ExtResource( 95 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 115 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Water Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 116 ), ExtResource( 116 ), ExtResource( 116 ), ExtResource( 117 ) ],
+"loop": false,
+"name": "Pickup Left",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Sickle Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 66 ), ExtResource( 66 ), ExtResource( 75 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 76 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 76 ), ExtResource( 66 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Water Circle Up",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 117 ) ],
+"loop": true,
+"name": "Hold Idle Left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Sickle Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 140 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 142 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 142 ), ExtResource( 140 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Water Circle Right",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 143 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 145 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 145 ), ExtResource( 143 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Water Circle Down",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Axe Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 158 ), ExtResource( 159 ) ],
+"loop": true,
+"name": "Hold Walk Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "Hammer Up",
 "speed": 12.5
 }, {
-"frames": [ ExtResource( 21 ) ],
+"frames": [ ExtResource( 172 ), ExtResource( 173 ) ],
 "loop": true,
-"name": "Idle Left",
+"name": "Walk Up",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Sickle Up",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 117 ) ],
+"loop": false,
+"name": "Pull Out Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 116 ), ExtResource( 116 ), ExtResource( 116 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Drop Left",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Store Up",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 196 ), ExtResource( 197 ), ExtResource( 197 ), ExtResource( 198 ), ExtResource( 199 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Axe Left",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 81 ), ExtResource( 80 ), ExtResource( 79 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Store Down",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 200 ), ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Axe Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Idle Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 212 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Seeds",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 143 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 92 ), ExtResource( 92 ), ExtResource( 91 ), ExtResource( 91 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 93 ), ExtResource( 145 ), ExtResource( 144 ), ExtResource( 222 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Water Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 223 ), ExtResource( 223 ), ExtResource( 223 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Drop Up",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 223 ), ExtResource( 223 ), ExtResource( 223 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "Pickup Up",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Hammer Down",
+"speed": 12.5
+}, {
+"frames": [ ExtResource( 187 ), ExtResource( 186 ), ExtResource( 185 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "Store Left",
+"speed": 7.5
 } ]
 
 [sub_resource type="ParticlesMaterial" id=2]
@@ -622,6 +622,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="UI" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 z_index = 3
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 

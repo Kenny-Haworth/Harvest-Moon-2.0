@@ -7,10 +7,7 @@ const sleepDelay = 8000 #8 seconds
 var sleepTime = -8000
 
 #the main Game node
-onready var Game = get_node("/root/Game")
-
-#to know the current time to knock the player out at 11pm
-onready var TimeManager = get_node("UI/Dashboard/TimeManager")
+onready var Game = get_node("/root/Game") 
 
 #to control sounds
 onready var SoundManager = get_node("/root/Game/Sound")
@@ -21,6 +18,9 @@ onready var Inventory = get_node("UI/Inventory")
 
 #for handling the player's energy
 onready var EnergyBar = get_node("UI/Energy Bar")
+
+#for disabling the player when they are using the shop
+onready var ShopMenu = get_node("/root/Game/Menus/Shop Menu")
 
 #for picking up crops
 var crop_number
@@ -74,16 +74,39 @@ var stepRight = false
 const stepDelay = 250 #.25 seconds
 var stepTime = -250 #negative stepTime by default for not taking a step
 
+#for connecting the signal to tell the player when to sleep
+func _ready():
+	get_node("UI/Dashboard/TimeManager").connect("sleep", self, "_force_sleep")
+
 #called when the Player node enters the scene and every time it is reparented
 func _enter_tree():
 	Zone = get_parent()
 	Game = Zone.get_parent()
 	set_physics_process(true)
 
+#disables the player and forces them to sleep
+func _force_sleep():
+	if OS.get_ticks_msec() > sleepTime + sleepDelay:
+		$Sprite.set_offset(Vector2()) #reset animation if the player was in the middle of performing an action
+		animationCommit = true #play the pass out animation
+		powerHold = false #stop any power moves the player is charging
+		lastAnimation = "pass out"
+		sleepTime = OS.get_ticks_msec() #prevent sleep spam
+		if Zone.name == "Farm": #player is on the farm
+			SoundManager.stop_music("farm") #TODO see if you can move to game
+		else: #player is in the house
+			SoundManager.stop_music("house")
+		SoundManager.play_music("forceSleep") #TODO see if you can move to game
+		do_it_once = false
+
 #this method is called each frame (60 times in a second, 60fps)
 #button events should be handled by _input(event), which is only called once a button is pressed
 #game logic that must be calculated each frame belongs here
 func _physics_process(delta):
+	
+	#disable all player functions when the player is in the shop menu, but keep the game running
+	if ShopMenu.visible:
+		return
 	
 	#TODO teleporting does not need to be in physics process, it can be moved to when the player moves
 	#allows the player to teleport to a different area as soon as they are finished moving to the next square
@@ -232,31 +255,13 @@ func _physics_process(delta):
 					lastAnimation = "drop up"
 				animationCommit = true
 	
-	#sleep if standing next to the bed and the player is not moving
+	#sleep if standing next to the bed and the player is not moving TODO not the best logic... this should be in house and SIGNAL to player, only checked on _input DUH press E
 	if Input.is_action_pressed("E") and Zone.name == "House" and Zone.can_sleep(position) and !is_moving and OS.get_ticks_msec() > sleepTime + sleepDelay:
 		self.position = Vector2(7*32, 2.25*32) #move the player into the bed
 		animationCommit = true #play the pass out animation
 		lastAnimation = "pass out"
 		sleepTime = OS.get_ticks_msec() #prevent sleep spam
 		SoundManager.stop_music("house")
-		SoundManager.play_music("forceSleep") #TODO see if you can move to game
-		do_it_once = false
-	
-	#open the shop menu if standing in the shop and the player is not moving TODO change zone name to Shop, not Town
-	elif Input.is_action_pressed("E") and Zone.name == "Town" and Zone.can_shop(position) and !is_moving:
-		print('opening shop!')
-	
-	#knocks the player out and progresses to the next day if it is too late in the day
-	if TimeManager.armyTimeHour == 23 and OS.get_ticks_msec() > sleepTime + sleepDelay:
-		$Sprite.set_offset(Vector2()) #reset animation if the player was in the middle of performing an action
-		animationCommit = true #play the pass out animation
-		powerHold = false #stop any power moves the player is charging
-		lastAnimation = "pass out"
-		sleepTime = OS.get_ticks_msec() #prevent sleep spam
-		if Zone.name == "Farm": #player is on the farm
-			SoundManager.stop_music("farm") #TODO see if you can move to game
-		else: #player is in the house
-			SoundManager.stop_music("house")
 		SoundManager.play_music("forceSleep") #TODO see if you can move to game
 		do_it_once = false
 	

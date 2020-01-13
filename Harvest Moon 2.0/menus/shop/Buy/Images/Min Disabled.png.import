@@ -1,0 +1,29 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Min Disabled.png-a8f330692c5ad9dd8d946efeb5475bc4.stex"
+
+[deps]
+
+source_file="res://menus/shop/Buy/Images/Min Disabled.png"
+dest_files=[ "res://.import/Min Disabled.png-a8f330692c5ad9dd8d946efeb5475bc4.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

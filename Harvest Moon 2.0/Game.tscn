@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://areas/Farm.gd" type="Script" id=2]
@@ -23,23 +23,27 @@
 [ext_resource path="res://sound/effects/leftFoot.wav" type="AudioStream" id=21]
 [ext_resource path="res://sound/effects/rightFoot.wav" type="AudioStream" id=22]
 [ext_resource path="res://sound/effects/store.wav" type="AudioStream" id=23]
-[ext_resource path="res://sound/music/farm.wav" type="AudioStream" id=24]
-[ext_resource path="res://sound/music/house.wav" type="AudioStream" id=25]
-[ext_resource path="res://sound/music/town.wav" type="AudioStream" id=26]
-[ext_resource path="res://sound/music/rain.wav" type="AudioStream" id=27]
-[ext_resource path="res://sound/music/forceSleep.wav" type="AudioStream" id=28]
-[ext_resource path="res://sound/tools/axe.wav" type="AudioStream" id=29]
-[ext_resource path="res://sound/tools/hammer.wav" type="AudioStream" id=30]
-[ext_resource path="res://sound/tools/hoe.wav" type="AudioStream" id=31]
-[ext_resource path="res://sound/tools/seeds.wav" type="AudioStream" id=32]
-[ext_resource path="res://sound/tools/sickle.wav" type="AudioStream" id=33]
-[ext_resource path="res://sound/tools/watering.wav" type="AudioStream" id=34]
-[ext_resource path="res://shaders/Shaders.gd" type="Script" id=35]
-[ext_resource path="res://menus/pause/Pause.tscn" type="PackedScene" id=36]
+[ext_resource path="res://sound/effects/purchase.wav" type="AudioStream" id=24]
+[ext_resource path="res://sound/effects/sell.wav" type="AudioStream" id=25]
+[ext_resource path="res://sound/music/farm.wav" type="AudioStream" id=26]
+[ext_resource path="res://sound/music/house.wav" type="AudioStream" id=27]
+[ext_resource path="res://sound/music/town.wav" type="AudioStream" id=28]
+[ext_resource path="res://sound/music/rain.wav" type="AudioStream" id=29]
+[ext_resource path="res://sound/music/forceSleep.wav" type="AudioStream" id=30]
+[ext_resource path="res://sound/tools/axe.wav" type="AudioStream" id=31]
+[ext_resource path="res://sound/tools/hammer.wav" type="AudioStream" id=32]
+[ext_resource path="res://sound/tools/hoe.wav" type="AudioStream" id=33]
+[ext_resource path="res://sound/tools/seeds.wav" type="AudioStream" id=34]
+[ext_resource path="res://sound/tools/sickle.wav" type="AudioStream" id=35]
+[ext_resource path="res://sound/tools/watering.wav" type="AudioStream" id=36]
+[ext_resource path="res://shaders/Shaders.gd" type="Script" id=37]
+[ext_resource path="res://menus/shop/Shop.tscn" type="PackedScene" id=38]
+[ext_resource path="res://menus/pause/Pause.tscn" type="PackedScene" id=39]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="Farm" type="Node2D" parent="." index="0"]
 
@@ -51,6 +55,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 624, 304 )
 z_index = 3
+_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
 [node name="Crops" type="TileMap" parent="Farm" index="1"]
 
@@ -582,13 +587,31 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="purchase" type="AudioStreamPlayer" parent="Sound/Effects" index="6"]
+
+stream = ExtResource( 24 )
+volume_db = 10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="sell" type="AudioStreamPlayer" parent="Sound/Effects" index="7"]
+
+stream = ExtResource( 25 )
+volume_db = 10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="Music" type="Node2D" parent="Sound" index="1"]
 
 editor/display_folded = true
 
 [node name="farm" type="AudioStreamPlayer" parent="Sound/Music" index="0"]
 
-stream = ExtResource( 24 )
+stream = ExtResource( 26 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
@@ -597,7 +620,7 @@ bus = "Master"
 
 [node name="house" type="AudioStreamPlayer" parent="Sound/Music" index="1"]
 
-stream = ExtResource( 25 )
+stream = ExtResource( 27 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -606,7 +629,7 @@ bus = "Master"
 
 [node name="town" type="AudioStreamPlayer" parent="Sound/Music" index="2"]
 
-stream = ExtResource( 26 )
+stream = ExtResource( 28 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -615,7 +638,7 @@ bus = "Master"
 
 [node name="rain" type="AudioStreamPlayer" parent="Sound/Music" index="3"]
 
-stream = ExtResource( 27 )
+stream = ExtResource( 29 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -624,7 +647,7 @@ bus = "Master"
 
 [node name="forceSleep" type="AudioStreamPlayer" parent="Sound/Music" index="4"]
 
-stream = ExtResource( 28 )
+stream = ExtResource( 30 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -637,7 +660,7 @@ editor/display_folded = true
 
 [node name="axe" type="AudioStreamPlayer" parent="Sound/Tools" index="0"]
 
-stream = ExtResource( 29 )
+stream = ExtResource( 31 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -646,7 +669,7 @@ bus = "Master"
 
 [node name="hammer" type="AudioStreamPlayer" parent="Sound/Tools" index="1"]
 
-stream = ExtResource( 30 )
+stream = ExtResource( 32 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -655,7 +678,7 @@ bus = "Master"
 
 [node name="hoe" type="AudioStreamPlayer" parent="Sound/Tools" index="2"]
 
-stream = ExtResource( 31 )
+stream = ExtResource( 33 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -664,7 +687,7 @@ bus = "Master"
 
 [node name="seeds" type="AudioStreamPlayer" parent="Sound/Tools" index="3"]
 
-stream = ExtResource( 32 )
+stream = ExtResource( 34 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -673,7 +696,7 @@ bus = "Master"
 
 [node name="sickle" type="AudioStreamPlayer" parent="Sound/Tools" index="4"]
 
-stream = ExtResource( 33 )
+stream = ExtResource( 35 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -682,7 +705,7 @@ bus = "Master"
 
 [node name="watering" type="AudioStreamPlayer" parent="Sound/Tools" index="5"]
 
-stream = ExtResource( 34 )
+stream = ExtResource( 36 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -694,7 +717,7 @@ bus = "Master"
 editor/display_folded = true
 position = Vector2( 384, 169 )
 z_index = 6
-script = ExtResource( 35 )
+script = ExtResource( 37 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Morning" type="ColorRect" parent="Shaders" index="0"]
@@ -830,7 +853,16 @@ editor/display_folded = true
 z_index = 7
 _sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 
-[node name="PauseMenu" parent="Menus" index="0" instance=ExtResource( 36 )]
+[node name="Shop Menu" parent="Menus" index="0" instance=ExtResource( 38 )]
+
+visible = false
+margin_left = 106.0
+margin_top = -1759.0
+margin_right = 3706.0
+margin_bottom = 41.0
+rect_scale = Vector2( 0.115, 0.115 )
+
+[node name="PauseMenu" parent="Menus" index="1" instance=ExtResource( 39 )]
 
 pause_mode = 0
 visible = false
@@ -839,22 +871,6 @@ margin_top = 137.0
 margin_right = 832.0
 margin_bottom = 407.0
 rect_min_size = Vector2( 480, 270 )
-
-[node name="Shop Menu Placeholder" type="Control" parent="Menus" index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Mouse", "Pause", "Rect", "Transform", "Z Index" ]
 
 

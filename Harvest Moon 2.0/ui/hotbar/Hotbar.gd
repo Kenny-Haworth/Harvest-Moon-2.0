@@ -14,6 +14,9 @@ onready var Player = get_parent().get_parent()
 #for telling the inventory what item to equip
 onready var Inventory = get_parent().get_node("Inventory")
 
+#for disabling the Hotbar when the shop menu is open
+onready var ShopMenu = get_node("/root/Game/Menus/Shop Menu")
+
 #for moving the indicator for the currently equipped item
 onready var Indicator = get_node("Equipped Item Indicator")
 #the item slot the indicator is currently over, starting with the first slot
@@ -34,6 +37,9 @@ var inventory_textures_and_labels = {}
 func _ready():
 	#get all the hotbar slot textures
 	for button in get_node("Hotbar Grid Container").get_children():
+		#disable the button's ability to grab focus and accept keyboard input
+		#though this is set in the editor, it appears to be a glitch and must be done manually
+		button.set_focus_mode(0)
 		var texture_and_label = button.get_children()
 		textures_and_labels[texture_and_label[0]] = texture_and_label[1]
 	
@@ -42,9 +48,17 @@ func _ready():
 		var texture_and_label = button.get_children()
 		inventory_textures_and_labels[texture_and_label[0]] = texture_and_label[1]
 
+#ensures the hotbar is visible and mirroring the inventory when being forced to sleep
+#note that the Inventory must process this call first, so this class is called
+#directly from the Inventory class
+func force_sleep():
+	visible = true
+	mirror_inventory()
+	_equip() #equip whatever item was selected in the inventory
+
 func _input(event):
-	#show or hide the hotbar only when the player is not moving or performing an animation, and the player is not dragging an item
-	if Input.is_action_pressed("Tab") and Player.speed == 0 and not Player.animationCommit and not Inventory.DraggedItem.visible:
+	#show or hide the hotbar only when the player is not moving or performing an animation, the player is not dragging an item, and the shop menu is not open
+	if Input.is_action_pressed("Tab") and Player.speed == 0 and not Player.animationCommit and not Inventory.DraggedItem.visible and not ShopMenu.visible:
 		if visible:
 			visible = false
 		else:

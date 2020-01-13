@@ -6,6 +6,9 @@ onready var Game = get_node("/root/Game")
 #for stopping and playing sounds when the game is paused
 onready var SoundManager = get_node("/root/Game/Sound")
 
+#for not showing the pause menu when the player hits escape and is in the shop
+onready var ShopMenu = get_parent().get_node("Shop Menu")
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		
@@ -13,8 +16,8 @@ func _input(event):
 		if visible:
 			_resume_game()
 			
-		#the pause menu is not up and the inventory is not opened, pause the game
-		elif visible == false and get_node("/root/Game").player.Inventory.visible == false:
+		#if the pause menu is not up, the inventory is not open, and the shop menu is not open, pause the game
+		elif not visible and not ShopMenu.visible and not get_node("/root/Game").player.Inventory.visible:
 			_pause_game()
 
 func _on_Resume_pressed():
