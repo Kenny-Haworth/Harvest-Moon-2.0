@@ -76,6 +76,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Inventory Grid Container" type="GridContainer" parent="." index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -98,6 +99,7 @@ _sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Button1" type="Button" parent="Inventory Grid Container" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -190,6 +192,8 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Stackable Item Label" parent="Inventory Grid Container/Button2" index="1" instance=ExtResource( 5 )]
 
+margin_right = 618.0
+margin_bottom = 383.0
 text = "10"
 
 [node name="Button3" type="Button" parent="Inventory Grid Container" index="2"]

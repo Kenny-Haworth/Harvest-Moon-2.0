@@ -9,7 +9,7 @@
 [ext_resource path="res://menus/graphics/Graphics.tscn" type="PackedScene" id=7]
 [ext_resource path="res://menus/dialogue/Dialogue.tscn" type="PackedScene" id=8]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -22,7 +22,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Grow Direction", "Rect" ]
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [  ]

@@ -35,6 +35,19 @@ const sleep_spawn = Vector2(7, 4)
 const tile_size = Vector2(32, 32) #32 pixels x 32 pixels tile sizes
 const half_tile_size = tile_size / 2
 
+#to obtain the current node count for all custom-created nodes in the game tree
+func _ready():
+	var array = [self]
+	var count = 0
+	
+	while !array.empty():
+		var base = array.pop_front()
+		count += 1
+		for child in base.get_children():
+			array.append(child)
+	
+	print("The Count is:", count)
+
 #updates the shaders, TimeManager, and weather for a new day
 func new_day():
 	Shaders.new_day()

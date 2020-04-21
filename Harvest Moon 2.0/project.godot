@@ -12,6 +12,7 @@ config_version=3
 
 config/name="Harvest Moon 2.0"
 run/main_scene="res://menus/main/MainMenu.tscn"
+boot_splash/image="res://Boot Splash and Icon/Harvest Moon Boot Splash.png"
 config/icon="res://player/animations/idle/Idle Down.png"
 
 [autoload]

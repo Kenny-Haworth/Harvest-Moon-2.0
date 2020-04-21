@@ -224,7 +224,6 @@ _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Save Game" type="Control" parent="." index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
