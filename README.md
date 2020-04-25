@@ -3,9 +3,19 @@
 **Harvest Moon 2.0** is an open source video game directly inspired by *[Innocent Life: A Futuristic Harvest Moon](https://en.wikipedia.org/wiki/Innocent_Life:_A_Futuristic_Harvest_Moon)*.
 Farm your fields, explore the world, and sleep to progress time!
 
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Front%20of%20Home.png)
+Video of project:
+[![Harvest moon 2.0 Project Video](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Front%20of%20Home.png)](https://www.youtube.com/watch?v=iA4lOiYS2s8)
 
-# Content
+## Table of Contents
+1. [Content](#Content)
+2. [Controls](#Controls)
+3. [Screenshots](#Screenshots)
+4. [Poster of Project](#Poster)
+5. [Development](#Development)
+6. [Planned Features](#Planned)
+
+<a name="Content"></a>
+## Content
 
 - Plant, water, and harvest crops
 - Visit the town to sell your crops and buy seeds and tools
@@ -18,7 +28,8 @@ Farm your fields, explore the world, and sleep to progress time!
 - Save Game system - you will never lose your progress between sessions, pick up right where you left off
 - Energy Bar - working uses energy! Sleep to regain your energy
 
-# Controls
+<a name="Controls"></a>
+## Controls
 
 Most of the controls are documented in-game, but those that are not are listed below:
 
@@ -30,16 +41,23 @@ Most of the controls are documented in-game, but those that are not are listed b
 - The interior of the shop is currently not created, but the shop menu can still be accessed by standing in front of the door and pressing the "E" key
 - Items in the inventory can be placed in the first available slot in the hotbar by shift-clicking, or vice versa (similar to Minecraft)
 
-# Screenshots
+<a name="Screenshots"></a>
+## Screenshots
 
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Crops.png)
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Forest.png)
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Night%20Time.png)
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Shop.png)
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Inside%20Home.png)
-![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Caves.png)
+![Crops](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Crops.png)
+![Forest](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Forest.png)
+![Night Time](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Night%20Time.png)
+![Shop](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Shop.png)
+![Inside Home](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Inside%20Home.png)
+![Caves](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Caves.png)
 
-# Development
+<a name="Poster"></a>
+## Poster of Project
+
+![alt text](https://github.com/Kenny-Haworth/Harvest-Moon-2.0/blob/master/Screenshots/Poster.png)
+
+<a name="Development"></a>
+## Development
 
 This project was created in Godot, a game engine similar to Unity that uses GDScript, a Python-like programming language. Originally, I undertook this project with 5 other team members for a final project in my Game Development class in college.
 
@@ -51,6 +69,7 @@ The only things that do remain from when this was a group project are outlined b
 
 Currently, the interior of the caves, inn, and shop are inaccessible, though the shop can still be used by pressing the "E" key outside the front door.
 
-# Planned Features
+<a name="Planned"></a>
+## Planned Features
 
 There are many, many planned features for this game, but as a solo developer looking for a full-time job, I have little time to implement these. If you would like to collaborate with me or ask me about the project, feel free to email me at kennyhaworth@yahoo.com.
